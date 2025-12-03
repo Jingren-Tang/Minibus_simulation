@@ -1,0 +1,49 @@
+{
+  "stations": [
+    {
+      "station_id": "A",
+      "name": "Station A",
+      "location": [
+        47.3769,
+        8.5417
+      ],
+      "index": 0
+    },
+    {
+      "station_id": "B",
+      "name": "Station B",
+      "location": [
+        47.38,
+        8.545
+      ],
+      "index": 1
+    },
+    {
+      "station_id": "C",
+      "name": "Station C",
+      "location": [
+        47.383,
+        8.548
+      ],
+      "index": 2
+    },
+    {
+      "station_id": "D",
+      "name": "Station D",
+      "location": [
+        47.386,
+        8.551
+      ],
+      "index": 3
+    },
+    {
+      "station_id": "E",
+      "name": "Station E",
+      "location": [
+        47.389,
+        8.554
+      ],
+      "index": 4
+    }
+  ]
+}

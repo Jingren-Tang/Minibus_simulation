@@ -1,0 +1,29 @@
+{
+  "station_ids": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "station_mapping": {
+    "A": 0,
+    "B": 1,
+    "C": 2,
+    "D": 3,
+    "E": 4
+  },
+  "matrix_shape": [
+    5,
+    5,
+    72
+  ],
+  "time_slot_duration": 10,
+  "num_time_slots": 72,
+  "start_time": "06:00:00",
+  "end_time": "18:00:00",
+  "description": "Travel time matrix for test simulation with time-varying travel times",
+  "units": "seconds",
+  "created_date": "2025-11-30",
+  "note": "Matrix includes peak hour effects (7-9 AM, 5-7 PM) with 20% increase"
+}

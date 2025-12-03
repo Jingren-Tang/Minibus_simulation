@@ -1,0 +1,15 @@
+{
+  "station_mapping": {
+    "StationA": 0,
+    "StationB": 1,
+    "StationC": 2,
+    "StationD": 3,
+    "StationE": 4
+  },
+  "time_slot_duration": 600,
+  "start_time": 0.0,
+  "end_time": 86400.0,
+  "date": "2024-01-15",
+  "description": "Realistic test data with rush hour patterns",
+  "note": "All time values are in SECONDS"
+}
