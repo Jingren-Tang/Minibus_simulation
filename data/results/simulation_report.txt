@@ -1,0 +1,710 @@
+================================================================================
+                    SIMULATION STATISTICS REPORT
+================================================================================
+
+SIMULATION OVERVIEW
+--------------------------------------------------------------------------------
+Start Time:           2024-07-25 15:00:00
+End Time:             2024-07-25 21:00:00
+Duration:             6.0 hours (21600 seconds)
+Total Vehicles:       111
+Total Passengers:     4250
+
+PASSENGER STATISTICS
+--------------------------------------------------------------------------------
+Service Rate:         94.0% (3993/4250 passengers arrived)
+Abandoned:            0.0% (0/4250 passengers)
+
+Wait Time Statistics:
+  Average:            448.9 seconds (7.5 minutes)
+  Minimum:            0.1 seconds
+  Maximum:            3511.0 seconds
+  Std Dev:            378.4 seconds
+  90th Percentile:    900.6 seconds
+  95th Percentile:    1178.8 seconds
+
+Travel Time Statistics:
+  Average:            537.0 seconds (8.9 minutes)
+
+Total Time Statistics:
+  Average:            986.4 seconds (16.4 minutes)
+
+VEHICLE PERFORMANCE
+--------------------------------------------------------------------------------
+BUS_2_DIR3_T62506.0:
+  Passengers Served:  59
+  Avg Occupancy:      20.10 (25.1%)
+  Max Occupancy:      30
+  Stations Served:    10
+
+BUS_2_DIR3_T62512.0:
+  Passengers Served:  50
+  Avg Occupancy:      15.04 (18.8%)
+  Max Occupancy:      31
+  Stations Served:    13
+
+BUS_2_DIR3_T62522.0:
+  Passengers Served:  23
+  Avg Occupancy:      8.06 (10.1%)
+  Max Occupancy:      14
+  Stations Served:    13
+
+BUS_2_DIR3_T62526.0:
+  Passengers Served:  15
+  Avg Occupancy:      5.05 (6.3%)
+  Max Occupancy:      11
+  Stations Served:    10
+
+BUS_2_DIR3_T62534.0:
+  Passengers Served:  34
+  Avg Occupancy:      10.27 (12.8%)
+  Max Occupancy:      19
+  Stations Served:    11
+
+BUS_2_DIR3_T62540.0:
+  Passengers Served:  25
+  Avg Occupancy:      8.47 (10.6%)
+  Max Occupancy:      15
+  Stations Served:    12
+
+BUS_2_DIR3_T62548.0:
+  Passengers Served:  28
+  Avg Occupancy:      8.37 (10.5%)
+  Max Occupancy:      14
+  Stations Served:    13
+
+BUS_2_DIR3_T62552.0:
+  Passengers Served:  24
+  Avg Occupancy:      7.61 (9.5%)
+  Max Occupancy:      13
+  Stations Served:    12
+
+BUS_2_DIR3_T62566.0:
+  Passengers Served:  37
+  Avg Occupancy:      13.08 (16.3%)
+  Max Occupancy:      22
+  Stations Served:    12
+
+BUS_2_DIR3_T62574.0:
+  Passengers Served:  31
+  Avg Occupancy:      12.91 (16.1%)
+  Max Occupancy:      24
+  Stations Served:    12
+
+BUS_2_DIR3_T62578.0:
+  Passengers Served:  23
+  Avg Occupancy:      7.08 (8.8%)
+  Max Occupancy:      12
+  Stations Served:    13
+
+BUS_2_DIR3_T62586.0:
+  Passengers Served:  5
+  Avg Occupancy:      1.72 (2.1%)
+  Max Occupancy:      3
+  Stations Served:    12
+
+BUS_2_DIR3_T62592.0:
+  Passengers Served:  52
+  Avg Occupancy:      17.48 (21.8%)
+  Max Occupancy:      28
+  Stations Served:    12
+
+BUS_2_DIR3_T62600.0:
+  Passengers Served:  33
+  Avg Occupancy:      9.58 (12.0%)
+  Max Occupancy:      21
+  Stations Served:    14
+
+BUS_2_DIR3_T62612.0:
+  Passengers Served:  44
+  Avg Occupancy:      15.31 (19.1%)
+  Max Occupancy:      25
+  Stations Served:    13
+
+BUS_2_DIR3_T62626.0:
+  Passengers Served:  36
+  Avg Occupancy:      12.88 (16.1%)
+  Max Occupancy:      18
+  Stations Served:    10
+
+BUS_2_DIR3_T62630.0:
+  Passengers Served:  39
+  Avg Occupancy:      14.14 (17.7%)
+  Max Occupancy:      26
+  Stations Served:    13
+
+BUS_2_DIR3_T62638.0:
+  Passengers Served:  21
+  Avg Occupancy:      7.10 (8.9%)
+  Max Occupancy:      14
+  Stations Served:    10
+
+BUS_2_DIR3_T62644.0:
+  Passengers Served:  27
+  Avg Occupancy:      7.38 (9.2%)
+  Max Occupancy:      17
+  Stations Served:    13
+
+BUS_2_DIR3_T62652.0:
+  Passengers Served:  40
+  Avg Occupancy:      11.37 (14.2%)
+  Max Occupancy:      21
+  Stations Served:    13
+
+BUS_2_DIR3_T62656.0:
+  Passengers Served:  37
+  Avg Occupancy:      12.12 (15.2%)
+  Max Occupancy:      26
+  Stations Served:    13
+
+BUS_2_DIR3_T62664.0:
+  Passengers Served:  47
+  Avg Occupancy:      15.68 (19.6%)
+  Max Occupancy:      30
+  Stations Served:    13
+
+BUS_2_DIR3_T62676.0:
+  Passengers Served:  29
+  Avg Occupancy:      9.38 (11.7%)
+  Max Occupancy:      15
+  Stations Served:    13
+
+BUS_2_DIR3_T62690.0:
+  Passengers Served:  62
+  Avg Occupancy:      23.48 (29.3%)
+  Max Occupancy:      32
+  Stations Served:    12
+
+BUS_2_DIR3_T62702.0:
+  Passengers Served:  29
+  Avg Occupancy:      11.20 (14.0%)
+  Max Occupancy:      16
+  Stations Served:    11
+
+BUS_2_DIR3_T62710.0:
+  Passengers Served:  30
+  Avg Occupancy:      11.61 (14.5%)
+  Max Occupancy:      21
+  Stations Served:    13
+
+BUS_2_DIR3_T62716.0:
+  Passengers Served:  12
+  Avg Occupancy:      4.08 (5.1%)
+  Max Occupancy:      8
+  Stations Served:    10
+
+BUS_2_DIR3_T62726.0:
+  Passengers Served:  33
+  Avg Occupancy:      10.18 (12.7%)
+  Max Occupancy:      21
+  Stations Served:    13
+
+BUS_2_DIR3_T62734.0:
+  Passengers Served:  35
+  Avg Occupancy:      13.86 (17.3%)
+  Max Occupancy:      25
+  Stations Served:    10
+
+BUS_2_DIR3_T62744.0:
+  Passengers Served:  51
+  Avg Occupancy:      13.38 (16.7%)
+  Max Occupancy:      32
+  Stations Served:    14
+
+BUS_2_DIR3_T62754.0:
+  Passengers Served:  25
+  Avg Occupancy:      10.75 (13.4%)
+  Max Occupancy:      19
+  Stations Served:    8
+
+BUS_2_DIR3_T62764.0:
+  Passengers Served:  46
+  Avg Occupancy:      14.14 (17.7%)
+  Max Occupancy:      25
+  Stations Served:    12
+
+BUS_2_DIR4_T62521.0:
+  Passengers Served:  77
+  Avg Occupancy:      32.59 (40.7%)
+  Max Occupancy:      57
+  Stations Served:    11
+
+BUS_2_DIR4_T62529.0:
+  Passengers Served:  23
+  Avg Occupancy:      7.64 (9.6%)
+  Max Occupancy:      12
+  Stations Served:    12
+
+BUS_2_DIR4_T62535.0:
+  Passengers Served:  54
+  Avg Occupancy:      20.09 (25.1%)
+  Max Occupancy:      33
+  Stations Served:    14
+
+BUS_2_DIR4_T62543.0:
+  Passengers Served:  26
+  Avg Occupancy:      10.37 (13.0%)
+  Max Occupancy:      17
+  Stations Served:    10
+
+BUS_2_DIR4_T62547.0:
+  Passengers Served:  40
+  Avg Occupancy:      15.34 (19.2%)
+  Max Occupancy:      32
+  Stations Served:    14
+
+BUS_2_DIR4_T62561.0:
+  Passengers Served:  45
+  Avg Occupancy:      15.76 (19.7%)
+  Max Occupancy:      24
+  Stations Served:    12
+
+BUS_2_DIR4_T62569.0:
+  Passengers Served:  45
+  Avg Occupancy:      13.88 (17.3%)
+  Max Occupancy:      31
+  Stations Served:    14
+
+BUS_2_DIR4_T62573.0:
+  Passengers Served:  25
+  Avg Occupancy:      10.00 (12.5%)
+  Max Occupancy:      15
+  Stations Served:    13
+
+BUS_2_DIR4_T62581.0:
+  Passengers Served:  32
+  Avg Occupancy:      10.73 (13.4%)
+  Max Occupancy:      18
+  Stations Served:    12
+
+BUS_2_DIR4_T62587.0:
+  Passengers Served:  38
+  Avg Occupancy:      14.25 (17.8%)
+  Max Occupancy:      28
+  Stations Served:    14
+
+BUS_2_DIR4_T62595.0:
+  Passengers Served:  30
+  Avg Occupancy:      9.74 (12.2%)
+  Max Occupancy:      20
+  Stations Served:    12
+
+BUS_2_DIR4_T62607.0:
+  Passengers Served:  59
+  Avg Occupancy:      19.96 (25.0%)
+  Max Occupancy:      35
+  Stations Served:    14
+
+BUS_2_DIR4_T62621.0:
+  Passengers Served:  73
+  Avg Occupancy:      25.34 (31.7%)
+  Max Occupancy:      46
+  Stations Served:    13
+
+BUS_2_DIR4_T62625.0:
+  Passengers Served:  41
+  Avg Occupancy:      16.04 (20.0%)
+  Max Occupancy:      27
+  Stations Served:    11
+
+BUS_2_DIR4_T62633.0:
+  Passengers Served:  49
+  Avg Occupancy:      17.14 (21.4%)
+  Max Occupancy:      28
+  Stations Served:    13
+
+BUS_2_DIR4_T62639.0:
+  Passengers Served:  36
+  Avg Occupancy:      12.62 (15.8%)
+  Max Occupancy:      19
+  Stations Served:    13
+
+BUS_2_DIR4_T62653.0:
+  Passengers Served:  30
+  Avg Occupancy:      11.04 (13.8%)
+  Max Occupancy:      18
+  Stations Served:    13
+
+BUS_2_DIR4_T62657.0:
+  Passengers Served:  49
+  Avg Occupancy:      17.90 (22.4%)
+  Max Occupancy:      30
+  Stations Served:    14
+
+BUS_2_DIR4_T62665.0:
+  Passengers Served:  28
+  Avg Occupancy:      21.86 (27.3%)
+  Max Occupancy:      28
+  Stations Served:    9
+
+BUS_2_DIR4_T62671.0:
+  Passengers Served:  38
+  Avg Occupancy:      13.28 (16.6%)
+  Max Occupancy:      31
+  Stations Served:    14
+
+BUS_2_DIR4_T62683.0:
+  Passengers Served:  60
+  Avg Occupancy:      23.18 (29.0%)
+  Max Occupancy:      38
+  Stations Served:    14
+
+BUS_2_DIR4_T62685.0:
+  Passengers Served:  1
+  Avg Occupancy:      0.45 (0.6%)
+  Max Occupancy:      1
+  Stations Served:    4
+
+BUS_2_DIR4_T62693.0:
+  Passengers Served:  57
+  Avg Occupancy:      23.89 (29.9%)
+  Max Occupancy:      37
+  Stations Served:    12
+
+BUS_2_DIR4_T62701.0:
+  Passengers Served:  49
+  Avg Occupancy:      17.87 (22.3%)
+  Max Occupancy:      31
+  Stations Served:    14
+
+BUS_2_DIR4_T62709.0:
+  Passengers Served:  28
+  Avg Occupancy:      11.11 (13.9%)
+  Max Occupancy:      19
+  Stations Served:    11
+
+BUS_2_DIR4_T62731.0:
+  Passengers Served:  105
+  Avg Occupancy:      40.55 (50.7%)
+  Max Occupancy:      71
+  Stations Served:    13
+
+BUS_2_DIR4_T62737.0:
+  Passengers Served:  31
+  Avg Occupancy:      12.50 (15.6%)
+  Max Occupancy:      18
+  Stations Served:    9
+
+BUS_2_DIR4_T62743.0:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    2
+
+BUS_2_DIR4_T62747.0:
+  Passengers Served:  57
+  Avg Occupancy:      22.93 (28.7%)
+  Max Occupancy:      40
+  Stations Served:    14
+
+BUS_2_DIR4_T62757.0:
+  Passengers Served:  35
+  Avg Occupancy:      12.01 (15.0%)
+  Max Occupancy:      22
+  Stations Served:    13
+
+BUS_2_DIR4_T62763.0:
+  Passengers Served:  50
+  Avg Occupancy:      18.43 (23.0%)
+  Max Occupancy:      26
+  Stations Served:    11
+
+BUS_2_DIR4_T62775.0:
+  Passengers Served:  1
+  Avg Occupancy:      0.60 (0.7%)
+  Max Occupancy:      1
+  Stations Served:    7
+
+BUS_2_DIR4_T62777.0:
+  Passengers Served:  57
+  Avg Occupancy:      20.45 (25.6%)
+  Max Occupancy:      43
+  Stations Served:    14
+
+BUS_2_DIR4_T62785.0:
+  Passengers Served:  47
+  Avg Occupancy:      17.35 (21.7%)
+  Max Occupancy:      30
+  Stations Served:    11
+
+BUS_2_DIR4_T62793.0:
+  Passengers Served:  59
+  Avg Occupancy:      21.87 (27.3%)
+  Max Occupancy:      36
+  Stations Served:    14
+
+BUS_6_DIR4_T66329.0:
+  Passengers Served:  48
+  Avg Occupancy:      17.40 (21.8%)
+  Max Occupancy:      28
+  Stations Served:    12
+
+BUS_6_DIR4_T66337.0:
+  Passengers Served:  38
+  Avg Occupancy:      11.44 (14.3%)
+  Max Occupancy:      24
+  Stations Served:    12
+
+BUS_6_DIR4_T66345.0:
+  Passengers Served:  41
+  Avg Occupancy:      14.18 (17.7%)
+  Max Occupancy:      25
+  Stations Served:    12
+
+BUS_6_DIR4_T66353.0:
+  Passengers Served:  36
+  Avg Occupancy:      12.52 (15.6%)
+  Max Occupancy:      21
+  Stations Served:    10
+
+BUS_6_DIR4_T66361.0:
+  Passengers Served:  35
+  Avg Occupancy:      9.54 (11.9%)
+  Max Occupancy:      23
+  Stations Served:    11
+
+BUS_6_DIR4_T66369.0:
+  Passengers Served:  28
+  Avg Occupancy:      9.53 (11.9%)
+  Max Occupancy:      20
+  Stations Served:    12
+
+BUS_6_DIR4_T66377.0:
+  Passengers Served:  34
+  Avg Occupancy:      11.90 (14.9%)
+  Max Occupancy:      21
+  Stations Served:    12
+
+BUS_6_DIR4_T66385.0:
+  Passengers Served:  32
+  Avg Occupancy:      14.74 (18.4%)
+  Max Occupancy:      26
+  Stations Served:    8
+
+BUS_6_DIR4_T66393.0:
+  Passengers Served:  58
+  Avg Occupancy:      22.12 (27.7%)
+  Max Occupancy:      39
+  Stations Served:    12
+
+BUS_6_DIR4_T66401.0:
+  Passengers Served:  33
+  Avg Occupancy:      11.78 (14.7%)
+  Max Occupancy:      24
+  Stations Served:    12
+
+BUS_6_DIR4_T66409.0:
+  Passengers Served:  30
+  Avg Occupancy:      11.97 (15.0%)
+  Max Occupancy:      20
+  Stations Served:    12
+
+BUS_6_DIR4_T66417.0:
+  Passengers Served:  48
+  Avg Occupancy:      19.30 (24.1%)
+  Max Occupancy:      27
+  Stations Served:    9
+
+BUS_6_DIR4_T66425.0:
+  Passengers Served:  49
+  Avg Occupancy:      17.03 (21.3%)
+  Max Occupancy:      27
+  Stations Served:    11
+
+BUS_6_DIR4_T66433.0:
+  Passengers Served:  35
+  Avg Occupancy:      10.31 (12.9%)
+  Max Occupancy:      21
+  Stations Served:    12
+
+BUS_6_DIR4_T66441.0:
+  Passengers Served:  56
+  Avg Occupancy:      20.02 (25.0%)
+  Max Occupancy:      33
+  Stations Served:    12
+
+BUS_6_DIR4_T66449.0:
+  Passengers Served:  29
+  Avg Occupancy:      12.04 (15.0%)
+  Max Occupancy:      23
+  Stations Served:    7
+
+BUS_6_DIR4_T66457.0:
+  Passengers Served:  29
+  Avg Occupancy:      9.27 (11.6%)
+  Max Occupancy:      17
+  Stations Served:    12
+
+BUS_6_DIR4_T66465.0:
+  Passengers Served:  36
+  Avg Occupancy:      10.96 (13.7%)
+  Max Occupancy:      21
+  Stations Served:    12
+
+BUS_6_DIR4_T66473.0:
+  Passengers Served:  30
+  Avg Occupancy:      10.56 (13.2%)
+  Max Occupancy:      21
+  Stations Served:    12
+
+BUS_6_DIR4_T66481.0:
+  Passengers Served:  40
+  Avg Occupancy:      17.09 (21.4%)
+  Max Occupancy:      23
+  Stations Served:    9
+
+BUS_6_DIR4_T66489.0:
+  Passengers Served:  41
+  Avg Occupancy:      12.83 (16.0%)
+  Max Occupancy:      24
+  Stations Served:    12
+
+BUS_6_DIR4_T66497.0:
+  Passengers Served:  41
+  Avg Occupancy:      13.81 (17.3%)
+  Max Occupancy:      29
+  Stations Served:    12
+
+BUS_6_DIR5_T66326.0:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    2
+
+BUS_6_DIR5_T66334.0:
+  Passengers Served:  20
+  Avg Occupancy:      9.69 (12.1%)
+  Max Occupancy:      12
+  Stations Served:    8
+
+BUS_6_DIR5_T66342.0:
+  Passengers Served:  31
+  Avg Occupancy:      13.22 (16.5%)
+  Max Occupancy:      22
+  Stations Served:    12
+
+BUS_6_DIR5_T66358.0:
+  Passengers Served:  52
+  Avg Occupancy:      23.34 (29.2%)
+  Max Occupancy:      31
+  Stations Served:    12
+
+BUS_6_DIR5_T66366.0:
+  Passengers Served:  19
+  Avg Occupancy:      6.91 (8.6%)
+  Max Occupancy:      12
+  Stations Served:    10
+
+BUS_6_DIR5_T66374.0:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    2
+
+BUS_6_DIR5_T66390.0:
+  Passengers Served:  75
+  Avg Occupancy:      33.10 (41.4%)
+  Max Occupancy:      46
+  Stations Served:    12
+
+BUS_6_DIR5_T66398.0:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    1
+
+BUS_6_DIR5_T66406.0:
+  Passengers Served:  46
+  Avg Occupancy:      18.41 (23.0%)
+  Max Occupancy:      34
+  Stations Served:    12
+
+BUS_6_DIR5_T66422.0:
+  Passengers Served:  44
+  Avg Occupancy:      21.07 (26.3%)
+  Max Occupancy:      33
+  Stations Served:    12
+
+BUS_6_DIR5_T66430.0:
+  Passengers Served:  21
+  Avg Occupancy:      9.27 (11.6%)
+  Max Occupancy:      16
+  Stations Served:    8
+
+BUS_6_DIR5_T66438.0:
+  Passengers Served:  46
+  Avg Occupancy:      16.79 (21.0%)
+  Max Occupancy:      28
+  Stations Served:    12
+
+BUS_6_DIR5_T66446.0:
+  Passengers Served:  26
+  Avg Occupancy:      10.46 (13.1%)
+  Max Occupancy:      15
+  Stations Served:    12
+
+BUS_6_DIR5_T66454.0:
+  Passengers Served:  39
+  Avg Occupancy:      15.14 (18.9%)
+  Max Occupancy:      24
+  Stations Served:    12
+
+BUS_6_DIR5_T66462.0:
+  Passengers Served:  22
+  Avg Occupancy:      8.52 (10.7%)
+  Max Occupancy:      13
+  Stations Served:    10
+
+BUS_6_DIR5_T66470.0:
+  Passengers Served:  19
+  Avg Occupancy:      8.27 (10.3%)
+  Max Occupancy:      13
+  Stations Served:    12
+
+BUS_6_DIR5_T66478.0:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    2
+
+BUS_6_DIR5_T66486.0:
+  Passengers Served:  51
+  Avg Occupancy:      23.15 (28.9%)
+  Max Occupancy:      31
+  Stations Served:    11
+
+BUS_6_DIR5_T66494.0:
+  Passengers Served:  27
+  Avg Occupancy:      12.42 (15.5%)
+  Max Occupancy:      17
+  Stations Served:    9
+
+MINIBUS_1:
+  Passengers Served:  15
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      1
+  Stations Served:    10
+
+MINIBUS_2:
+  Passengers Served:  17
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      1
+  Stations Served:    11
+
+MINIBUS_3:
+  Passengers Served:  19
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      1
+  Stations Served:    14
+
+SYSTEM-WIDE METRICS
+--------------------------------------------------------------------------------
+Avg Vehicle Occupancy: 13.08 passengers
+Vehicle Utilization:   106/111 vehicles served passengers
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+✓ Excellent service rate (>90%)
+⚠ High wait time variance (0s - 3511s)
+
+================================================================================

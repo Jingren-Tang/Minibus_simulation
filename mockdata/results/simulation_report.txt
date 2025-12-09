@@ -1,0 +1,171 @@
+================================================================================
+                    SIMULATION STATISTICS REPORT
+================================================================================
+
+SIMULATION OVERVIEW
+--------------------------------------------------------------------------------
+Start Time:           2024-07-25 08:00:00
+End Time:             2024-07-25 09:00:00
+Duration:             1.0 hours (3600 seconds)
+Sampling Interval:    30.0s
+Total Vehicles:       12 (Buses: 9, Minibuses: 3)
+Total Passengers:     7
+
+PASSENGER STATISTICS
+--------------------------------------------------------------------------------
+Service Rate:         100.0% (7/7 passengers arrived)
+Abandoned:            0.0% (0/7 passengers)
+
+Wait Time Statistics:
+  Average:            220.0 seconds (3.7 minutes)
+  Minimum:            20.0 seconds
+  Maximum:            700.0 seconds
+  Std Dev:            237.8 seconds
+  90th Percentile:    496.0 seconds
+  95th Percentile:    598.0 seconds
+
+Travel Time Statistics:
+  Average:            745.7 seconds (12.4 minutes)
+
+Total Time Statistics:
+  Average:            965.7 seconds (16.1 minutes)
+
+VEHICLE PERFORMANCE
+--------------------------------------------------------------------------------
+BUSES:
+BUS_1_T1:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    4
+  Idle Time:          900s (15.0 min)
+  Service Time:       0s (0.0 min)
+
+BUS_1_T2:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    4
+  Idle Time:          900s (15.0 min)
+  Service Time:       0s (0.0 min)
+
+BUS_1_T3:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    4
+  Idle Time:          900s (15.0 min)
+  Service Time:       0s (0.0 min)
+
+BUS_2_T1:
+  Passengers Served:  2
+  Avg Occupancy:      1.67 (2.1%)
+  Max Occupancy:      2
+  Stations Served:    4
+  Idle Time:          0s (0.0 min)
+  Service Time:       900s (15.0 min)
+
+BUS_2_T2:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    4
+  Idle Time:          900s (15.0 min)
+  Service Time:       0s (0.0 min)
+
+BUS_2_T3:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    4
+  Idle Time:          900s (15.0 min)
+  Service Time:       0s (0.0 min)
+
+BUS_3_T1:
+  Passengers Served:  1
+  Avg Occupancy:      1.00 (1.2%)
+  Max Occupancy:      1
+  Stations Served:    3
+  Idle Time:          0s (0.0 min)
+  Service Time:       840s (14.0 min)
+
+BUS_3_T2:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    3
+  Idle Time:          840s (14.0 min)
+  Service Time:       0s (0.0 min)
+
+BUS_3_T3:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    2
+  Idle Time:          420s (7.0 min)
+  Service Time:       0s (0.0 min)
+
+MINIBUSES:
+MINIBUS_1:
+  Passengers Served:  2
+  Avg Occupancy:      0.82 (13.6%)
+  Max Occupancy:      1
+  Stations Served:    4
+  Idle Time:          360s (6.0 min)
+  Service Time:       1620s (27.0 min)
+
+MINIBUS_2:
+  Passengers Served:  1
+  Avg Occupancy:      1.00 (16.7%)
+  Max Occupancy:      1
+  Stations Served:    2
+  Idle Time:          0s (0.0 min)
+  Service Time:       600s (10.0 min)
+
+MINIBUS_3:
+  Passengers Served:  1
+  Avg Occupancy:      1.00 (16.7%)
+  Max Occupancy:      1
+  Stations Served:    2
+  Idle Time:          0s (0.0 min)
+  Service Time:       660s (11.0 min)
+
+DATA VALIDATION
+--------------------------------------------------------------------------------
+⚠ Found issues in 7 vehicle(s):
+
+BUS_1_T1:
+  • Vehicle traveled route ['A', 'B', 'C', 'D'] but served 0 passengers
+
+BUS_1_T2:
+  • Vehicle traveled route ['A', 'B', 'C', 'D'] but served 0 passengers
+
+BUS_1_T3:
+  • Vehicle traveled route ['A', 'B', 'C', 'D'] but served 0 passengers
+
+BUS_2_T2:
+  • Vehicle traveled route ['E', 'D', 'C', 'B'] but served 0 passengers
+
+BUS_2_T3:
+  • Vehicle traveled route ['E', 'D', 'C', 'B'] but served 0 passengers
+
+BUS_3_T2:
+  • Vehicle traveled route ['A', 'C', 'E'] but served 0 passengers
+
+BUS_3_T3:
+  • Vehicle traveled route ['A', 'C'] but served 0 passengers
+
+SYSTEM-WIDE METRICS
+--------------------------------------------------------------------------------
+Avg Vehicle Occupancy: 0.46 passengers
+Vehicle Utilization:   5/12 vehicles served passengers
+  - Buses:             2/9
+  - Minibuses:         3/3
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+✓ Excellent service rate (>90%)
+⚠ Low vehicle utilization (only 5 of 12 vehicles used)
+⚠ Data consistency issues detected in 7 vehicle(s)
+
+================================================================================

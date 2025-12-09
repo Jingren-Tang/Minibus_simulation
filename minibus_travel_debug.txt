@@ -1,0 +1,12 @@
+================================================================================
+MINIBUS TRAVEL TIME DEBUG LOG
+================================================================================
+
+[UPDATE_ROUTE   ] MINIBUS_1:          A -> A          | travel=   0.0s | occ= 0/6 | t=   30.0s | arrive=   30.0s
+[UPDATE_ROUTE   ] MINIBUS_2:          B -> A          | travel= 300.0s | occ= 0/6 | t=   30.0s | arrive=  330.0s
+[ARRIVE         ] MINIBUS_1:          A -> D          | travel= 900.0s | occ= 1/6 | t=   30.0s | arrive=  930.0s
+[UPDATE_ROUTE   ] MINIBUS_3:          C -> B          | travel= 360.0s | occ= 0/6 | t=  150.0s | arrive=  510.0s
+[ARRIVE         ] MINIBUS_2:          A -> C          | travel= 600.0s | occ= 1/6 | t=  330.0s | arrive=  930.0s
+[ARRIVE         ] MINIBUS_3:          B -> D          | travel= 660.0s | occ= 1/6 | t=  510.0s | arrive= 1170.0s
+[UPDATE_ROUTE   ] MINIBUS_1:          D -> C          | travel= 360.0s | occ= 0/6 | t=  930.0s | arrive= 1290.0s
+[ARRIVE         ] MINIBUS_1:          C -> E          | travel= 720.0s | occ= 1/6 | t= 1290.0s | arrive= 2010.0s
