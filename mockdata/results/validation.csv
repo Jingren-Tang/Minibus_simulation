@@ -1,5 +1,6 @@
 vehicle_id,issue
 BUS_1_T1,"Vehicle traveled route ['A', 'B', 'C', 'D'] but served 0 passengers"
+BUS_2_T1,"Vehicle traveled route ['E', 'D', 'C', 'B'] but served 0 passengers"
 BUS_1_T2,"Vehicle traveled route ['A', 'B', 'C', 'D'] but served 0 passengers"
 BUS_2_T2,"Vehicle traveled route ['E', 'D', 'C', 'B'] but served 0 passengers"
 BUS_3_T2,"Vehicle traveled route ['A', 'C', 'E'] but served 0 passengers"

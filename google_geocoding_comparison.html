@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6b4138dbc5d34413ae3770d36dbd0c7c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_6b4138dbc5d34413ae3770d36dbd0c7c" ></div>
+        
+</body>
+<script>    
+    
+            var map_6b4138dbc5d34413ae3770d36dbd0c7c = L.map(
+                "map_6b4138dbc5d34413ae3770d36dbd0c7c",
+                {
+                    center: [46.80580177608311, 7.1550194321130585],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_57614513287a43bb80e294dbfd7491cb = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_aa175da4b0654385a249ed7511020f3a = L.circleMarker(
+                [46.806281, 7.175601],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_449929f53961433baf31d759d569f676 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4c3f016de3e74ca3bc0c02d53ce7a4bc = $(`<div id="html_4c3f016de3e74ca3bc0c02d53ce7a4bc" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Chaley</div>`)[0];
+            popup_449929f53961433baf31d759d569f676.setContent(html_4c3f016de3e74ca3bc0c02d53ce7a4bc);
+        
+
+        circle_marker_aa175da4b0654385a249ed7511020f3a.bindPopup(popup_449929f53961433baf31d759d569f676)
+        ;
+
+        
+    
+    
+            var circle_marker_e770ac8d71e642bc927ae8f2560971bb = L.circleMarker(
+                [46.80585500000001, 7.175769000000001],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_ab57befa4c80468ead5a801c47b703d7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8d9c62b0447446f685bf14202ac0729b = $(`<div id="html_8d9c62b0447446f685bf14202ac0729b" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Chaley<br>Fribourg, Chaley, 1700 Freiburg, Switzerland<br>Distance: 49m</div>`)[0];
+            popup_ab57befa4c80468ead5a801c47b703d7.setContent(html_8d9c62b0447446f685bf14202ac0729b);
+        
+
+        circle_marker_e770ac8d71e642bc927ae8f2560971bb.bindPopup(popup_ab57befa4c80468ead5a801c47b703d7)
+        ;
+
+        
+    
+    
+            var poly_line_0fa2683e979b4fe1b5a506f26415d3df = L.polyline(
+                [[46.806281, 7.175601], [46.80585500000001, 7.175769000000001]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_f94c11665b464b64a00704c425bf33c6 = L.circleMarker(
+                [46.806711, 7.172136],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_416b766185714dd19a465ab731722148 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ab22d649480c49e78eb2b884cf25a972 = $(`<div id="html_ab22d649480c49e78eb2b884cf25a972" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Mon-Repos</div>`)[0];
+            popup_416b766185714dd19a465ab731722148.setContent(html_ab22d649480c49e78eb2b884cf25a972);
+        
+
+        circle_marker_f94c11665b464b64a00704c425bf33c6.bindPopup(popup_416b766185714dd19a465ab731722148)
+        ;
+
+        
+    
+    
+            var circle_marker_783cb193a660468383c35099ebfcc210 = L.circleMarker(
+                [46.806576, 7.172542],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_c9ac08e45af54a0f96260e23d540d3cd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e583e65236144a1f8be86f12c9a32e89 = $(`<div id="html_e583e65236144a1f8be86f12c9a32e89" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Mon-Repos<br>Fribourg, Mon Repos, 1700 Freiburg, Switzerland<br>Distance: 35m</div>`)[0];
+            popup_c9ac08e45af54a0f96260e23d540d3cd.setContent(html_e583e65236144a1f8be86f12c9a32e89);
+        
+
+        circle_marker_783cb193a660468383c35099ebfcc210.bindPopup(popup_c9ac08e45af54a0f96260e23d540d3cd)
+        ;
+
+        
+    
+    
+            var poly_line_a79005cf7fae47afacc4cee914e607d9 = L.polyline(
+                [[46.806711, 7.172136], [46.806576, 7.172542]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_260399c540c1464198a5c14b31f1d64a = L.circleMarker(
+                [46.809385, 7.170446],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_97f458991dc0404f935f327b68ce76fd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_069632790f5d44bd81b7d39e8206120b = $(`<div id="html_069632790f5d44bd81b7d39e8206120b" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Cité-Jardins</div>`)[0];
+            popup_97f458991dc0404f935f327b68ce76fd.setContent(html_069632790f5d44bd81b7d39e8206120b);
+        
+
+        circle_marker_260399c540c1464198a5c14b31f1d64a.bindPopup(popup_97f458991dc0404f935f327b68ce76fd)
+        ;
+
+        
+    
+    
+            var circle_marker_65e35c0ffbc44bb0bf4378cce1e6e540 = L.circleMarker(
+                [46.809219, 7.170361999999999],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_14ada1f75337450b82fecbde86536c5b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b1467ef643294e68a723c4cf069c7b40 = $(`<div id="html_b1467ef643294e68a723c4cf069c7b40" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Cité-Jardins<br>Fribourg, Cité Jardins, 1700 Freiburg, Switzerland<br>Distance: 20m</div>`)[0];
+            popup_14ada1f75337450b82fecbde86536c5b.setContent(html_b1467ef643294e68a723c4cf069c7b40);
+        
+
+        circle_marker_65e35c0ffbc44bb0bf4378cce1e6e540.bindPopup(popup_14ada1f75337450b82fecbde86536c5b)
+        ;
+
+        
+    
+    
+            var poly_line_75192b6e70524733b5609f6532e6d870 = L.polyline(
+                [[46.809385, 7.170446], [46.809219, 7.170361999999999]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_7e81f16b701c428da9b3dbc7ce1bd36e = L.circleMarker(
+                [46.811451, 7.171016],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_10ae70a1339d48bf80598b4316aca255 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bd0c90815baa40d6b29feaccd359c113 = $(`<div id="html_bd0c90815baa40d6b29feaccd359c113" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Boschung</div>`)[0];
+            popup_10ae70a1339d48bf80598b4316aca255.setContent(html_bd0c90815baa40d6b29feaccd359c113);
+        
+
+        circle_marker_7e81f16b701c428da9b3dbc7ce1bd36e.bindPopup(popup_10ae70a1339d48bf80598b4316aca255)
+        ;
+
+        
+    
+    
+            var circle_marker_4a1d03b2a722494dbbf0f47f8427daaf = L.circleMarker(
+                [46.811443, 7.171201099999999],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_6a943a385e334e63b477ccd4104234b1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5ff97c459a014209a81e6faef528c239 = $(`<div id="html_5ff97c459a014209a81e6faef528c239" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Boschung<br>Fribourg, Boschung, 1700 Freiburg, Switzerland<br>Distance: 14m</div>`)[0];
+            popup_6a943a385e334e63b477ccd4104234b1.setContent(html_5ff97c459a014209a81e6faef528c239);
+        
+
+        circle_marker_4a1d03b2a722494dbbf0f47f8427daaf.bindPopup(popup_6a943a385e334e63b477ccd4104234b1)
+        ;
+
+        
+    
+    
+            var poly_line_8cd95ce1fb57467eab955d90f683a6c1 = L.polyline(
+                [[46.811451, 7.171016], [46.811443, 7.171201099999999]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_c41a6d73ed2044dc9ec7d2e55158ab67 = L.circleMarker(
+                [46.80609, 7.161261],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_c2ac29bd752d4418903cc1d09cec3a35 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6dffb300f57047878156463fd1e5aba0 = $(`<div id="html_6dffb300f57047878156463fd1e5aba0" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Tilleul/Cathédrale</div>`)[0];
+            popup_c2ac29bd752d4418903cc1d09cec3a35.setContent(html_6dffb300f57047878156463fd1e5aba0);
+        
+
+        circle_marker_c41a6d73ed2044dc9ec7d2e55158ab67.bindPopup(popup_c2ac29bd752d4418903cc1d09cec3a35)
+        ;
+
+        
+    
+    
+            var circle_marker_3763923f415f447480925f154633e7e4 = L.circleMarker(
+                [46.806136, 7.161448],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_b9641a0830a2453ebcecfc6aec2ab4a1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a29794e06cbf42bb9f893d4ea8d4b546 = $(`<div id="html_a29794e06cbf42bb9f893d4ea8d4b546" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Tilleul/Cathédrale<br>Tilleul, 1700 Freiburg, Switzerland<br>Distance: 15m</div>`)[0];
+            popup_b9641a0830a2453ebcecfc6aec2ab4a1.setContent(html_a29794e06cbf42bb9f893d4ea8d4b546);
+        
+
+        circle_marker_3763923f415f447480925f154633e7e4.bindPopup(popup_b9641a0830a2453ebcecfc6aec2ab4a1)
+        ;
+
+        
+    
+    
+            var poly_line_3447330ff78c44688f38937befacefcc = L.polyline(
+                [[46.80609, 7.161261], [46.806136, 7.161448]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_3d2e68fd567c44348ce6a763828d1b1f = L.circleMarker(
+                [46.803911, 7.155266],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_a230d0081a5547df9d020dbc5ffbbaed = L.popup({"maxWidth": "100%"});
+
+        
+            var html_290f42e213814831aa97d915b33662f1 = $(`<div id="html_290f42e213814831aa97d915b33662f1" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, St-Pierre</div>`)[0];
+            popup_a230d0081a5547df9d020dbc5ffbbaed.setContent(html_290f42e213814831aa97d915b33662f1);
+        
+
+        circle_marker_3d2e68fd567c44348ce6a763828d1b1f.bindPopup(popup_a230d0081a5547df9d020dbc5ffbbaed)
+        ;
+
+        
+    
+    
+            var circle_marker_6c866c724e3a4709b66c3e268a22899f = L.circleMarker(
+                [46.8038733, 7.1574578],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_b63a27230ca347b1975b855de2417fd1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_86a6589aa4ee4a54add6437452f4f63a = $(`<div id="html_86a6589aa4ee4a54add6437452f4f63a" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, St-Pierre<br>1700 Fribourg, Switzerland<br>Distance: 170m</div>`)[0];
+            popup_b63a27230ca347b1975b855de2417fd1.setContent(html_86a6589aa4ee4a54add6437452f4f63a);
+        
+
+        circle_marker_6c866c724e3a4709b66c3e268a22899f.bindPopup(popup_b63a27230ca347b1975b855de2417fd1)
+        ;
+
+        
+    
+    
+            var poly_line_91c9cdec572e48b6be68b450f2918a7a = L.polyline(
+                [[46.803911, 7.155266], [46.8038733, 7.1574578]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_cc172785667d42e3b59124adb2b4831d = L.circleMarker(
+                [46.802898, 7.15141],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_1c41ad4a4b0049489582274478201804 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7001a4d2c69e43fd8f49bf68ff30e068 = $(`<div id="html_7001a4d2c69e43fd8f49bf68ff30e068" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg/Freiburg, Pl. Gare</div>`)[0];
+            popup_1c41ad4a4b0049489582274478201804.setContent(html_7001a4d2c69e43fd8f49bf68ff30e068);
+        
+
+        circle_marker_cc172785667d42e3b59124adb2b4831d.bindPopup(popup_1c41ad4a4b0049489582274478201804)
+        ;
+
+        
+    
+    
+            var circle_marker_9e10f6c800a248c48c78dce80ac39cdc = L.circleMarker(
+                [46.8036155, 7.1515377],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_ea1b7db0fec74bd89d74e42275fb092e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_541e04676fd049d29be04683670390e1 = $(`<div id="html_541e04676fd049d29be04683670390e1" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg/Freiburg, Pl. Gare<br>Pl. de la Gare, 1700 Fribourg, Switzerland<br>Distance: 80m</div>`)[0];
+            popup_ea1b7db0fec74bd89d74e42275fb092e.setContent(html_541e04676fd049d29be04683670390e1);
+        
+
+        circle_marker_9e10f6c800a248c48c78dce80ac39cdc.bindPopup(popup_ea1b7db0fec74bd89d74e42275fb092e)
+        ;
+
+        
+    
+    
+            var poly_line_074e6f97f6394816a479164c1d8a62cc = L.polyline(
+                [[46.802898, 7.15141], [46.8036155, 7.1515377]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_4f73a6d2110b4be4bae406d9c4f03490 = L.circleMarker(
+                [46.794173, 7.111828],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_c0892b5393f849ff90c7648623284ae3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_92412958165945ba8aeb1e66be5dc5f6 = $(`<div id="html_92412958165945ba8aeb1e66be5dc5f6" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Villars-sur-Glâne, Méridienne</div>`)[0];
+            popup_c0892b5393f849ff90c7648623284ae3.setContent(html_92412958165945ba8aeb1e66be5dc5f6);
+        
+
+        circle_marker_4f73a6d2110b4be4bae406d9c4f03490.bindPopup(popup_c0892b5393f849ff90c7648623284ae3)
+        ;
+
+        
+    
+    
+            var circle_marker_a8097018812746e0aca4d4688e46be08 = L.circleMarker(
+                [46.794403, 7.111792],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_aaed9fbdcbf14658bc85eac819cb52fc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b3837014eb0449daad4d1ac3f1a45aed = $(`<div id="html_b3837014eb0449daad4d1ac3f1a45aed" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Villars-sur-Glâne, Méridienne<br>Villars sur Glâne, Méridienne, 1752 Villars-sur-Glâne, Switzerland<br>Distance: 26m</div>`)[0];
+            popup_aaed9fbdcbf14658bc85eac819cb52fc.setContent(html_b3837014eb0449daad4d1ac3f1a45aed);
+        
+
+        circle_marker_a8097018812746e0aca4d4688e46be08.bindPopup(popup_aaed9fbdcbf14658bc85eac819cb52fc)
+        ;
+
+        
+    
+    
+            var poly_line_80e6a4d0c0ae410bb50ffbc4dbcd03d2 = L.polyline(
+                [[46.794173, 7.111828], [46.794403, 7.111792]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_22f68997d02248f299e56a07ab78d404 = L.circleMarker(
+                [46.79857, 7.120788],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_7013b88690ba433caec3252cf9d255ee = L.popup({"maxWidth": "100%"});
+
+        
+            var html_914ac2164e274d3a8d20b473e57beb42 = $(`<div id="html_914ac2164e274d3a8d20b473e57beb42" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Villars-sur-Glâne, Moncor</div>`)[0];
+            popup_7013b88690ba433caec3252cf9d255ee.setContent(html_914ac2164e274d3a8d20b473e57beb42);
+        
+
+        circle_marker_22f68997d02248f299e56a07ab78d404.bindPopup(popup_7013b88690ba433caec3252cf9d255ee)
+        ;
+
+        
+    
+    
+            var circle_marker_e1f4f73347304d5b9044581be491bc75 = L.circleMarker(
+                [46.7977892, 7.1199637],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_6b8ac6277d1544fd8eee8d8c50269faa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ea0d6f4bf5c24b348470c5928ab40632 = $(`<div id="html_ea0d6f4bf5c24b348470c5928ab40632" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Villars-sur-Glâne, Moncor<br>Moncor, 1752 Villars-sur-Glâne, Switzerland<br>Distance: 108m</div>`)[0];
+            popup_6b8ac6277d1544fd8eee8d8c50269faa.setContent(html_ea0d6f4bf5c24b348470c5928ab40632);
+        
+
+        circle_marker_e1f4f73347304d5b9044581be491bc75.bindPopup(popup_6b8ac6277d1544fd8eee8d8c50269faa)
+        ;
+
+        
+    
+    
+            var poly_line_0066fcf6c46043d79bf97c50c216931a = L.polyline(
+                [[46.79857, 7.120788], [46.7977892, 7.1199637]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_58e7c6c7395c4200ad3fbd465119de66 = L.circleMarker(
+                [46.800233, 7.125455],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_b2e9678c64994c3e95529c1eb74b440b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ce64bd3f930541428007431029dae9fd = $(`<div id="html_ce64bd3f930541428007431029dae9fd" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Villars-sur-Glâne, Belle-Croix</div>`)[0];
+            popup_b2e9678c64994c3e95529c1eb74b440b.setContent(html_ce64bd3f930541428007431029dae9fd);
+        
+
+        circle_marker_58e7c6c7395c4200ad3fbd465119de66.bindPopup(popup_b2e9678c64994c3e95529c1eb74b440b)
+        ;
+
+        
+    
+    
+            var circle_marker_64e48391e2114fd8965af2db8ce256fd = L.circleMarker(
+                [46.7957751, 7.124121199999999],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_6645625f17bb4a829510ae14b7ca915e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5bbf62d81a034e5cb85c41f0ceb3c2ca = $(`<div id="html_5bbf62d81a034e5cb85c41f0ceb3c2ca" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Villars-sur-Glâne, Belle-Croix<br>Belle-Croix, 1752 Villars-sur-Glâne, Switzerland<br>Distance: 506m</div>`)[0];
+            popup_6645625f17bb4a829510ae14b7ca915e.setContent(html_5bbf62d81a034e5cb85c41f0ceb3c2ca);
+        
+
+        circle_marker_64e48391e2114fd8965af2db8ce256fd.bindPopup(popup_6645625f17bb4a829510ae14b7ca915e)
+        ;
+
+        
+    
+    
+            var poly_line_4ba27abc254747388ee3f0c02229f3ab = L.polyline(
+                [[46.800233, 7.125455], [46.7957751, 7.124121199999999]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_585cb68da72745bc816b7c1efaa244d0 = L.circleMarker(
+                [46.798991, 7.131395],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_e9cfca0f3ae54996a5c1f7a1c4679100 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1f98ee405c61444db26df778a5cf34a9 = $(`<div id="html_1f98ee405c61444db26df778a5cf34a9" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Villars-sur-Glâne,Villars-Vert</div>`)[0];
+            popup_e9cfca0f3ae54996a5c1f7a1c4679100.setContent(html_1f98ee405c61444db26df778a5cf34a9);
+        
+
+        circle_marker_585cb68da72745bc816b7c1efaa244d0.bindPopup(popup_e9cfca0f3ae54996a5c1f7a1c4679100)
+        ;
+
+        
+    
+    
+            var circle_marker_4dd55948118f4e7794a49517a4f5d908 = L.circleMarker(
+                [46.8000926, 7.1293191],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_84304d6f8a3942819aed57db6c6ef99d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_707f4e01bdd646b6a0f86ea8d4c40191 = $(`<div id="html_707f4e01bdd646b6a0f86ea8d4c40191" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Villars-sur-Glâne,Villars-Vert<br>Rte de Villars-Vert, 1752 Villars-sur-Glâne, Switzerland<br>Distance: 202m</div>`)[0];
+            popup_84304d6f8a3942819aed57db6c6ef99d.setContent(html_707f4e01bdd646b6a0f86ea8d4c40191);
+        
+
+        circle_marker_4dd55948118f4e7794a49517a4f5d908.bindPopup(popup_84304d6f8a3942819aed57db6c6ef99d)
+        ;
+
+        
+    
+    
+            var poly_line_d63a8626e90047f6b12e7770d5a92c6d = L.polyline(
+                [[46.798991, 7.131395], [46.8000926, 7.1293191]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_74e0aef4b17940deb390d3d71ea51714 = L.circleMarker(
+                [46.8013, 7.138046],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_49eb76e7617046be9152163679859f09 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4980a1361d2b480383dea5ea599d81f8 = $(`<div id="html_4980a1361d2b480383dea5ea599d81f8" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Bertigny</div>`)[0];
+            popup_49eb76e7617046be9152163679859f09.setContent(html_4980a1361d2b480383dea5ea599d81f8);
+        
+
+        circle_marker_74e0aef4b17940deb390d3d71ea51714.bindPopup(popup_49eb76e7617046be9152163679859f09)
+        ;
+
+        
+    
+    
+            var circle_marker_5a3896a499e84c19938c31c408d0ec7d = L.circleMarker(
+                [46.8035609, 7.1369495],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_edcac2dd61174ce1ba0b35e49d1cc003 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2f4923858d984fe3b48bfd12b332bc01 = $(`<div id="html_2f4923858d984fe3b48bfd12b332bc01" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Bertigny<br>Bertigny, 1752 Villars-sur-Glâne, Switzerland<br>Distance: 265m</div>`)[0];
+            popup_edcac2dd61174ce1ba0b35e49d1cc003.setContent(html_2f4923858d984fe3b48bfd12b332bc01);
+        
+
+        circle_marker_5a3896a499e84c19938c31c408d0ec7d.bindPopup(popup_edcac2dd61174ce1ba0b35e49d1cc003)
+        ;
+
+        
+    
+    
+            var poly_line_165dc6778276476dbea5640e534bc55e = L.polyline(
+                [[46.8013, 7.138046], [46.8035609, 7.1369495]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_a2bd3c06d0424c1cafe94e38b587b894 = L.circleMarker(
+                [46.81092671540513, 7.171932726075358],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_0b07dc9534544edda14d68e5086c3b90 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bf14b6e227d34e0eaa2ec5c3b5988970 = $(`<div id="html_bf14b6e227d34e0eaa2ec5c3b5988970" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Bellevue</div>`)[0];
+            popup_0b07dc9534544edda14d68e5086c3b90.setContent(html_bf14b6e227d34e0eaa2ec5c3b5988970);
+        
+
+        circle_marker_a2bd3c06d0424c1cafe94e38b587b894.bindPopup(popup_0b07dc9534544edda14d68e5086c3b90)
+        ;
+
+        
+    
+    
+            var circle_marker_10c5300e38804cb58dbdf96eb111eafa = L.circleMarker(
+                [46.8469623, 6.9093917],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_5d498da4f9b74489883eee1d8db2ff98 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3647120471be4789b601c2f9f94200b7 = $(`<div id="html_3647120471be4789b601c2f9f94200b7" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Bellevue<br>Bellevue, 1541 Estavayer, Switzerland<br>Distance: 20788m</div>`)[0];
+            popup_5d498da4f9b74489883eee1d8db2ff98.setContent(html_3647120471be4789b601c2f9f94200b7);
+        
+
+        circle_marker_10c5300e38804cb58dbdf96eb111eafa.bindPopup(popup_5d498da4f9b74489883eee1d8db2ff98)
+        ;
+
+        
+    
+    
+            var poly_line_00f5a04870914a9196f7d930e4ac4b73 = L.polyline(
+                [[46.81092671540513, 7.171932726075358], [46.8469623, 6.9093917]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_dab4436bc56944c7ac512b71d8fccc72 = L.circleMarker(
+                [46.80542535842347, 7.178406780411913],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_df7f3d3f1a9043058fc8ef564bc9fabe = L.popup({"maxWidth": "100%"});
+
+        
+            var html_92dfc3bc87c54ee186ca0ea6c9cecf1f = $(`<div id="html_92dfc3bc87c54ee186ca0ea6c9cecf1f" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Schönberg Dunant</div>`)[0];
+            popup_df7f3d3f1a9043058fc8ef564bc9fabe.setContent(html_92dfc3bc87c54ee186ca0ea6c9cecf1f);
+        
+
+        circle_marker_dab4436bc56944c7ac512b71d8fccc72.bindPopup(popup_df7f3d3f1a9043058fc8ef564bc9fabe)
+        ;
+
+        
+    
+    
+            var circle_marker_5008a234fd3144d5b45df84179ae87d1 = L.circleMarker(
+                [46.805843, 7.178401000000001],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_d46bda184dba4b46a83011b3c76ebab6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e8027058617c4c928dd688edd6b15a9a = $(`<div id="html_e8027058617c4c928dd688edd6b15a9a" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Schönberg Dunant<br>Fribourg, Schönberg Dunant, 1700 Freiburg, Switzerland<br>Distance: 46m</div>`)[0];
+            popup_d46bda184dba4b46a83011b3c76ebab6.setContent(html_e8027058617c4c928dd688edd6b15a9a);
+        
+
+        circle_marker_5008a234fd3144d5b45df84179ae87d1.bindPopup(popup_d46bda184dba4b46a83011b3c76ebab6)
+        ;
+
+        
+    
+    
+            var poly_line_32f85773aa4f4f6b91062d426ae99357 = L.polyline(
+                [[46.80542535842347, 7.178406780411913], [46.805843, 7.178401000000001]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_ef90e830472d4d68ad401eaf5b90d51c = L.circleMarker(
+                [46.80549, 7.140123],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_b4318433d80a43dc9211f6a69fdf8270 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a57169f1524143bf9940e16d406fe5b3 = $(`<div id="html_a57169f1524143bf9940e16d406fe5b3" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Guintzet</div>`)[0];
+            popup_b4318433d80a43dc9211f6a69fdf8270.setContent(html_a57169f1524143bf9940e16d406fe5b3);
+        
+
+        circle_marker_ef90e830472d4d68ad401eaf5b90d51c.bindPopup(popup_b4318433d80a43dc9211f6a69fdf8270)
+        ;
+
+        
+    
+    
+            var circle_marker_1ff90890f07742f98c0b7188591a76b1 = L.circleMarker(
+                [46.8052091, 7.1404146],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_371cada36caa4df08f0f30f77c666caf = L.popup({"maxWidth": "100%"});
+
+        
+            var html_067e0cddff944b979ca91be2c53a532a = $(`<div id="html_067e0cddff944b979ca91be2c53a532a" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Guintzet<br>Le Guintzet, 1700 Fribourg, Switzerland<br>Distance: 39m</div>`)[0];
+            popup_371cada36caa4df08f0f30f77c666caf.setContent(html_067e0cddff944b979ca91be2c53a532a);
+        
+
+        circle_marker_1ff90890f07742f98c0b7188591a76b1.bindPopup(popup_371cada36caa4df08f0f30f77c666caf)
+        ;
+
+        
+    
+    
+            var poly_line_32abbc4516384d9383b0725a085e1260 = L.polyline(
+                [[46.80549, 7.140123], [46.8052091, 7.1404146]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_e5255ffe503942e29a741270ccfec29a = L.circleMarker(
+                [46.803893, 7.137545],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_d14dab02108c4355a9ce5c2c72e7602d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_828593511f48492ea5e4c30b23b0d832 = $(`<div id="html_828593511f48492ea5e4c30b23b0d832" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Villars-sur-Glâne,Jean Paul II</div>`)[0];
+            popup_d14dab02108c4355a9ce5c2c72e7602d.setContent(html_828593511f48492ea5e4c30b23b0d832);
+        
+
+        circle_marker_e5255ffe503942e29a741270ccfec29a.bindPopup(popup_d14dab02108c4355a9ce5c2c72e7602d)
+        ;
+
+        
+    
+    
+            var circle_marker_62c7a5dd23b0401f83f6675f041857bf = L.circleMarker(
+                [46.803875, 7.137563999999999],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_6e02ada096dd4824a309c47bb47aee5e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d73bf2202c7e49d3961c56bc2b2af532 = $(`<div id="html_d73bf2202c7e49d3961c56bc2b2af532" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Villars-sur-Glâne,Jean Paul II<br>Villars sur Glâne,Jean Paul II, 1752 Villars-sur-Glâne, Switzerland<br>Distance: 2m</div>`)[0];
+            popup_6e02ada096dd4824a309c47bb47aee5e.setContent(html_d73bf2202c7e49d3961c56bc2b2af532);
+        
+
+        circle_marker_62c7a5dd23b0401f83f6675f041857bf.bindPopup(popup_6e02ada096dd4824a309c47bb47aee5e)
+        ;
+
+        
+    
+    
+            var poly_line_ca3e4f6ba7d34d82bd793a7e872e17c8 = L.polyline(
+                [[46.803893, 7.137545], [46.803875, 7.137563999999999]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_7fe3c4912e6e4c16be21f92cc73f545d = L.circleMarker(
+                [46.801851, 7.13667],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_b4994fa3254144208caca02662505ddc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0410fe19c03845c193bbf2b0b5252276 = $(`<div id="html_0410fe19c03845c193bbf2b0b5252276" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Villars-sur-Glâne, Hôp. cant.</div>`)[0];
+            popup_b4994fa3254144208caca02662505ddc.setContent(html_0410fe19c03845c193bbf2b0b5252276);
+        
+
+        circle_marker_7fe3c4912e6e4c16be21f92cc73f545d.bindPopup(popup_b4994fa3254144208caca02662505ddc)
+        ;
+
+        
+    
+    
+            var circle_marker_17d0d85bca504001a5fb2585a38cf41e = L.circleMarker(
+                [46.801956, 7.136639],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_28358c1a978641d982b44f9d1367d613 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1aa1a8a781a04d8ab84d2fff87cc2e45 = $(`<div id="html_1aa1a8a781a04d8ab84d2fff87cc2e45" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Villars-sur-Glâne, Hôp. cant.<br>Villars-sur-Glâne, Hôp. cant., 1752 Villars-sur-Glâne, Switzerland<br>Distance: 12m</div>`)[0];
+            popup_28358c1a978641d982b44f9d1367d613.setContent(html_1aa1a8a781a04d8ab84d2fff87cc2e45);
+        
+
+        circle_marker_17d0d85bca504001a5fb2585a38cf41e.bindPopup(popup_28358c1a978641d982b44f9d1367d613)
+        ;
+
+        
+    
+    
+            var poly_line_7c4533c68ae74c758b8e735e8946e47e = L.polyline(
+                [[46.801851, 7.13667], [46.801956, 7.136639]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_35124fe1a36e439c8e1177c77425d5b7 = L.circleMarker(
+                [46.811223, 7.172643],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_56c4c387143840fead133306e39b2302 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6f44ac0385f544d99be9cec62de92098 = $(`<div id="html_6f44ac0385f544d99be9cec62de92098" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Route-de-Tavel</div>`)[0];
+            popup_56c4c387143840fead133306e39b2302.setContent(html_6f44ac0385f544d99be9cec62de92098);
+        
+
+        circle_marker_35124fe1a36e439c8e1177c77425d5b7.bindPopup(popup_56c4c387143840fead133306e39b2302)
+        ;
+
+        
+    
+    
+            var circle_marker_b5bc65caffd64382b54c73355e1e59d2 = L.circleMarker(
+                [46.8107157, 7.176105],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_9ed77a6429a44272a86fa0ba201085a6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dc884cf9912b4ab0907cedc6585c5d92 = $(`<div id="html_dc884cf9912b4ab0907cedc6585c5d92" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Route-de-Tavel<br>Rte de Tavel, 1700 Fribourg, Switzerland<br>Distance: 275m</div>`)[0];
+            popup_9ed77a6429a44272a86fa0ba201085a6.setContent(html_dc884cf9912b4ab0907cedc6585c5d92);
+        
+
+        circle_marker_b5bc65caffd64382b54c73355e1e59d2.bindPopup(popup_9ed77a6429a44272a86fa0ba201085a6)
+        ;
+
+        
+    
+    
+            var poly_line_ea0bf851626041e79e0b6f286e121305 = L.polyline(
+                [[46.811223, 7.172643], [46.8107157, 7.176105]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_553b9c9412034efca06312afaa4aca2c = L.circleMarker(
+                [46.812081, 7.173246],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_df3a06e0882b4969b7054e3767f1c192 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_45864d8b297943cb8ba19a09fff94223 = $(`<div id="html_45864d8b297943cb8ba19a09fff94223" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Kessler</div>`)[0];
+            popup_df3a06e0882b4969b7054e3767f1c192.setContent(html_45864d8b297943cb8ba19a09fff94223);
+        
+
+        circle_marker_553b9c9412034efca06312afaa4aca2c.bindPopup(popup_df3a06e0882b4969b7054e3767f1c192)
+        ;
+
+        
+    
+    
+            var circle_marker_8ed28d9ae6a24307b2836daa2c95a1b4 = L.circleMarker(
+                [46.812164, 7.173227],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_d681678a96074e8794fa38a610e260d7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_79164f79d023449683449643e470d028 = $(`<div id="html_79164f79d023449683449643e470d028" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Kessler<br>Fribourg, Kessler, 1700 Freiburg, Switzerland<br>Distance: 9m</div>`)[0];
+            popup_d681678a96074e8794fa38a610e260d7.setContent(html_79164f79d023449683449643e470d028);
+        
+
+        circle_marker_8ed28d9ae6a24307b2836daa2c95a1b4.bindPopup(popup_d681678a96074e8794fa38a610e260d7)
+        ;
+
+        
+    
+    
+            var poly_line_1cb656a17386485fbf33a8807aa5aa21 = L.polyline(
+                [[46.812081, 7.173246], [46.812164, 7.173227]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_96cae0965ccf40df9dcdda1ed05bb5e8 = L.circleMarker(
+                [46.813063, 7.173218],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_a3519598df324fc4a47b7ba60bcf630f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c825ad6a48fc4a46be14a75b226ec72f = $(`<div id="html_c825ad6a48fc4a46be14a75b226ec72f" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Ploetscha</div>`)[0];
+            popup_a3519598df324fc4a47b7ba60bcf630f.setContent(html_c825ad6a48fc4a46be14a75b226ec72f);
+        
+
+        circle_marker_96cae0965ccf40df9dcdda1ed05bb5e8.bindPopup(popup_a3519598df324fc4a47b7ba60bcf630f)
+        ;
+
+        
+    
+    
+            var circle_marker_5ded8696d98a4de0b2634fa363f86808 = L.circleMarker(
+                [46.7359999, 7.2763349],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_6e14831a5dcf429cbbaecaa248ebefa3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6c669bc86fee4f6b879665f74ef15f02 = $(`<div id="html_6c669bc86fee4f6b879665f74ef15f02" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Ploetscha<br>Plötscha, 1716 Plaffeien, Switzerland<br>Distance: 11720m</div>`)[0];
+            popup_6e14831a5dcf429cbbaecaa248ebefa3.setContent(html_6c669bc86fee4f6b879665f74ef15f02);
+        
+
+        circle_marker_5ded8696d98a4de0b2634fa363f86808.bindPopup(popup_6e14831a5dcf429cbbaecaa248ebefa3)
+        ;
+
+        
+    
+    
+            var poly_line_6a04b22400c74abdb0438ab0845b2873 = L.polyline(
+                [[46.813063, 7.173218], [46.7359999, 7.2763349]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_9b2bb7bc86344e6fa33b2344d9131fb5 = L.circleMarker(
+                [46.816016, 7.17397],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_e291c658e6c84528bbba5dc4b425bcba = L.popup({"maxWidth": "100%"});
+
+        
+            var html_49dbf2e841ac4d319f0ab9cdfa8cefc3 = $(`<div id="html_49dbf2e841ac4d319f0ab9cdfa8cefc3" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Windig</div>`)[0];
+            popup_e291c658e6c84528bbba5dc4b425bcba.setContent(html_49dbf2e841ac4d319f0ab9cdfa8cefc3);
+        
+
+        circle_marker_9b2bb7bc86344e6fa33b2344d9131fb5.bindPopup(popup_e291c658e6c84528bbba5dc4b425bcba)
+        ;
+
+        
+    
+    
+            var circle_marker_e6123e404e5345f5bc529c2df8963c44 = L.circleMarker(
+                [46.8165093, 7.1739664],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_3007eb4fe8b24584bd7407abf2f25f7c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8be44fcb353f46958effc0db1caa79f4 = $(`<div id="html_8be44fcb353f46958effc0db1caa79f4" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Windig<br>Windig, 1700 Freiburg, Switzerland<br>Distance: 55m</div>`)[0];
+            popup_3007eb4fe8b24584bd7407abf2f25f7c.setContent(html_8be44fcb353f46958effc0db1caa79f4);
+        
+
+        circle_marker_e6123e404e5345f5bc529c2df8963c44.bindPopup(popup_3007eb4fe8b24584bd7407abf2f25f7c)
+        ;
+
+        
+    
+    
+            var poly_line_52071cf31d744d88b8554a7f7c96628f = L.polyline(
+                [[46.816016, 7.17397], [46.8165093, 7.1739664]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+            var circle_marker_86ea2debfd96484084276e03544ef444 = L.circleMarker(
+                [46.807676, 7.168025],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_1671d91626214573a5deb6c072669042 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6e5b9dd5813b4ff1a60c9bc5484dd8c2 = $(`<div id="html_6e5b9dd5813b4ff1a60c9bc5484dd8c2" style="width: 100.0%; height: 100.0%;"><b>Original:</b> Fribourg, Pont-Zaehringen</div>`)[0];
+            popup_1671d91626214573a5deb6c072669042.setContent(html_6e5b9dd5813b4ff1a60c9bc5484dd8c2);
+        
+
+        circle_marker_86ea2debfd96484084276e03544ef444.bindPopup(popup_1671d91626214573a5deb6c072669042)
+        ;
+
+        
+    
+    
+            var circle_marker_2e355daed8a94fd79a564be3808df8bd = L.circleMarker(
+                [46.8064976, 7.1666301],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+    
+        var popup_194366dacb3c4513a51f01994cd06b7c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_28cd232371684e938b3dd8dc0f944ceb = $(`<div id="html_28cd232371684e938b3dd8dc0f944ceb" style="width: 100.0%; height: 100.0%;"><b>Google:</b> Fribourg, Pont-Zaehringen<br>Pont de Zaehringen, 1700 Fribourg, Switzerland<br>Distance: 170m</div>`)[0];
+            popup_194366dacb3c4513a51f01994cd06b7c.setContent(html_28cd232371684e938b3dd8dc0f944ceb);
+        
+
+        circle_marker_2e355daed8a94fd79a564be3808df8bd.bindPopup(popup_194366dacb3c4513a51f01994cd06b7c)
+        ;
+
+        
+    
+    
+            var poly_line_558e2b232b534de8b82b48c462d2339f = L.polyline(
+                [[46.807676, 7.168025], [46.8064976, 7.1666301]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_6b4138dbc5d34413ae3770d36dbd0c7c);
+        
+</script>

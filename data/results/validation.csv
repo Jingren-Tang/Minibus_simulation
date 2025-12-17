@@ -1,0 +1,8 @@
+vehicle_id,issue
+BUS_6_DIR5_T66326.0,"Vehicle traveled route ['8589270', '8589147'] but served 0 passengers"
+BUS_6_DIR5_T66342.0,"Vehicle traveled route ['8589270', '8589147'] but served 0 passengers"
+BUS_6_DIR5_T66358.0,"Vehicle traveled route ['8589270', '8589147'] but served 0 passengers"
+BUS_2_DIR4_T62685.0,"Vehicle traveled route ['8589130', '8577785', '8592374', '8589161'] but served 0 passengers"
+BUS_6_DIR5_T66438.0,"Vehicle traveled route ['8589270', '8589147'] but served 0 passengers"
+BUS_2_DIR4_T62743.0,"Vehicle traveled route ['8592374', '8589161'] but served 0 passengers"
+BUS_6_DIR5_T66486.0,Vehicle traveled route ['8589147'] but served 0 passengers
