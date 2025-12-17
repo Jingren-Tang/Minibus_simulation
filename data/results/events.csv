@@ -1,823 +1,106 @@
 time,event_type,description
-0.0,SIMULATION_START,"Simulation initialized: 4250 passengers, 108 buses"
-120.0,OPTIMIZER_CALL,"Optimizer called: 24 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8589270
-120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-240.0,OPTIMIZER_CALL,"Optimizer called: 46 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8589138
-240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8504622
-240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8504622
-360.0,OPTIMIZER_CALL,"Optimizer called: 57 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8504622
-360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8589161
-360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-480.0,OPTIMIZER_CALL,"Optimizer called: 74 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8589130
-480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592378
-480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-600.0,OPTIMIZER_CALL,"Optimizer called: 97 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-600.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8589141
-600.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-600.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8589138
-720.0,OPTIMIZER_CALL,"Optimizer called: 123 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-720.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8588344
-720.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8589158
-720.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8589158
-840.0,OPTIMIZER_CALL,"Optimizer called: 137 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-840.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8589161
-840.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-840.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-960.0,OPTIMIZER_CALL,"Optimizer called: 145 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-960.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-960.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8504622
-960.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8588344
-1080.0,OPTIMIZER_CALL,"Optimizer called: 151 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1080.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8589130
-1080.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8589271
-1080.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8589158
-1200.0,OPTIMIZER_CALL,"Optimizer called: 169 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1200.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8504622
-1200.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8504622
-1200.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8589271
-1320.0,OPTIMIZER_CALL,"Optimizer called: 183 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1320.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8504622
-1320.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-1320.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8504622
-1440.0,OPTIMIZER_CALL,"Optimizer called: 168 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1440.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-1440.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8589141
-1440.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8588344
-1560.0,OPTIMIZER_CALL,"Optimizer called: 170 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1560.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8589141
-1560.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8504622
-1560.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8577785
-1680.0,OPTIMIZER_CALL,"Optimizer called: 146 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1680.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592375
-1680.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8504622
-1680.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8589130
-1800.0,OPTIMIZER_CALL,"Optimizer called: 127 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1800.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8577786
-1800.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8588344
-1800.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8577786
-1920.0,OPTIMIZER_CALL,"Optimizer called: 116 pending requests, 3 plans updated, 3 events scheduled, 3 passengers assigned"
-1920.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-1920.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592377
-1920.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-2040.0,OPTIMIZER_CALL,"Optimizer called: 98 pending requests, 3 plans updated, 3 events scheduled, 2 passengers assigned"
-2040.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2040.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592377
-2040.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-2049.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66329.0 completed route, served 48 passengers"
-2160.0,OPTIMIZER_CALL,"Optimizer called: 87 pending requests, 3 plans updated, 3 events scheduled, 1 passengers assigned"
-2160.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2160.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-2160.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592375
-2280.0,OPTIMIZER_CALL,"Optimizer called: 91 pending requests, 3 plans updated, 3 events scheduled, 1 passengers assigned"
-2280.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2280.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-2280.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592375
-2400.0,OPTIMIZER_CALL,"Optimizer called: 85 pending requests, 3 plans updated, 3 events scheduled, 1 passengers assigned"
-2400.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2400.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-2400.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592378
-2436.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62521.0 completed route, served 77 passengers"
-2520.0,OPTIMIZER_CALL,"Optimizer called: 88 pending requests, 3 plans updated, 3 events scheduled, 1 passengers assigned"
-2520.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2520.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-2520.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-2640.0,OPTIMIZER_CALL,"Optimizer called: 77 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-2640.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2640.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-2640.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-2760.0,OPTIMIZER_CALL,"Optimizer called: 58 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-2760.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2760.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-2760.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-2793.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62506.0 completed route, served 59 passengers"
-2836.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62529.0 completed route, served 23 passengers"
-2880.0,OPTIMIZER_CALL,"Optimizer called: 79 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-2880.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-2880.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-2880.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-2974.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66337.0 completed route, served 38 passengers"
-3000.0,OPTIMIZER_CALL,"Optimizer called: 77 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3000.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3000.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3000.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-3120.0,OPTIMIZER_CALL,"Optimizer called: 72 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-3240.0,OPTIMIZER_CALL,"Optimizer called: 78 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-3277.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66334.0 completed route, served 20 passengers"
-3360.0,OPTIMIZER_CALL,"Optimizer called: 75 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
+0.0,SIMULATION_START,"Simulation initialized: 4388 passengers, 108 buses"
+2049.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66329.0 completed route, served 71 passengers"
+2436.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62521.0 completed route, served 79 passengers"
+2793.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62506.0 completed route, served 79 passengers"
+2836.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62529.0 completed route, served 21 passengers"
+2974.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66337.0 completed route, served 32 passengers"
+3277.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66334.0 completed route, served 34 passengers"
 3387.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62512.0 completed route, served 50 passengers"
-3480.0,OPTIMIZER_CALL,"Optimizer called: 87 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
 3550.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62535.0 completed route, served 54 passengers"
-3600.0,OPTIMIZER_CALL,"Optimizer called: 91 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3600.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3600.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3600.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-3720.0,OPTIMIZER_CALL,"Optimizer called: 81 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3720.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3720.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3720.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-3807.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62543.0 completed route, served 26 passengers"
-3840.0,OPTIMIZER_CALL,"Optimizer called: 73 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3840.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3840.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3840.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-3960.0,OPTIMIZER_CALL,"Optimizer called: 72 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-3960.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-3960.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-3960.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4006.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62522.0 completed route, served 23 passengers"
-4025.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66342.0 completed route, served 31 passengers"
-4080.0,OPTIMIZER_CALL,"Optimizer called: 93 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4080.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4080.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4080.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4100.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66345.0 completed route, served 41 passengers"
-4200.0,OPTIMIZER_CALL,"Optimizer called: 87 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4200.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4200.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4200.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4207.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62526.0 completed route, served 15 passengers"
-4320.0,OPTIMIZER_CALL,"Optimizer called: 84 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4320.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4320.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4320.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4411.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62547.0 completed route, served 40 passengers"
-4440.0,OPTIMIZER_CALL,"Optimizer called: 86 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4440.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4440.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4440.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4550.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62534.0 completed route, served 34 passengers"
-4560.0,OPTIMIZER_CALL,"Optimizer called: 96 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4560.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4560.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4560.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4680.0,OPTIMIZER_CALL,"Optimizer called: 105 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4680.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4680.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4680.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4794.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66353.0 completed route, served 36 passengers"
-4800.0,OPTIMIZER_CALL,"Optimizer called: 104 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4800.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4800.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4800.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4920.0,OPTIMIZER_CALL,"Optimizer called: 94 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-4920.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-4920.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-4920.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-4983.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62561.0 completed route, served 45 passengers"
-5040.0,OPTIMIZER_CALL,"Optimizer called: 85 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5040.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5040.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5040.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-5160.0,OPTIMIZER_CALL,"Optimizer called: 80 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5160.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5160.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5160.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
+3807.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62543.0 completed route, served 16 passengers"
+4006.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62522.0 completed route, served 33 passengers"
+4100.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66345.0 completed route, served 46 passengers"
+4207.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62526.0 completed route, served 20 passengers"
+4411.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62547.0 completed route, served 48 passengers"
+4550.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62534.0 completed route, served 17 passengers"
+4794.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66353.0 completed route, served 38 passengers"
+4983.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62561.0 completed route, served 44 passengers"
 5268.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62540.0 completed route, served 25 passengers"
-5280.0,OPTIMIZER_CALL,"Optimizer called: 84 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5280.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5280.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5280.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-5400.0,OPTIMIZER_CALL,"Optimizer called: 63 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5400.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5400.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5400.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-5520.0,OPTIMIZER_CALL,"Optimizer called: 48 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5520.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5520.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5520.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-5640.0,OPTIMIZER_CALL,"Optimizer called: 65 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5640.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5640.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5640.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-5690.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62569.0 completed route, served 45 passengers"
-5756.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62548.0 completed route, served 28 passengers"
-5760.0,OPTIMIZER_CALL,"Optimizer called: 86 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5760.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5760.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5760.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-5801.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66361.0 completed route, served 35 passengers"
-5813.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62552.0 completed route, served 24 passengers"
-5880.0,OPTIMIZER_CALL,"Optimizer called: 85 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-5880.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-5880.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-5880.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-5928.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66358.0 completed route, served 52 passengers"
-6000.0,OPTIMIZER_CALL,"Optimizer called: 81 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6000.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6000.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6000.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6120.0,OPTIMIZER_CALL,"Optimizer called: 80 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6187.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62573.0 completed route, served 25 passengers"
-6240.0,OPTIMIZER_CALL,"Optimizer called: 92 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6360.0,OPTIMIZER_CALL,"Optimizer called: 60 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6470.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62581.0 completed route, served 32 passengers"
-6480.0,OPTIMIZER_CALL,"Optimizer called: 71 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6600.0,OPTIMIZER_CALL,"Optimizer called: 71 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6600.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6600.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6600.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6628.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62566.0 completed route, served 37 passengers"
-6716.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66369.0 completed route, served 28 passengers"
-6720.0,OPTIMIZER_CALL,"Optimizer called: 81 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6720.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6720.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6720.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6819.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66366.0 completed route, served 19 passengers"
-6840.0,OPTIMIZER_CALL,"Optimizer called: 81 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6840.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6840.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6840.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-6960.0,OPTIMIZER_CALL,"Optimizer called: 93 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-6960.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-6960.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-6960.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7072.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62587.0 completed route, served 38 passengers"
-7080.0,OPTIMIZER_CALL,"Optimizer called: 103 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7080.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7080.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7080.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7200.0,OPTIMIZER_CALL,"Optimizer called: 101 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7200.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7200.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7200.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7320.0,OPTIMIZER_CALL,"Optimizer called: 121 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7320.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7320.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7320.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7323.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62595.0 completed route, served 30 passengers"
-7440.0,OPTIMIZER_CALL,"Optimizer called: 134 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7440.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7440.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7440.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7449.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62574.0 completed route, served 31 passengers"
-7531.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66377.0 completed route, served 34 passengers"
-7560.0,OPTIMIZER_CALL,"Optimizer called: 127 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7560.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7560.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7560.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7680.0,OPTIMIZER_CALL,"Optimizer called: 128 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7680.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7680.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7680.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7800.0,OPTIMIZER_CALL,"Optimizer called: 139 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7800.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7800.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7800.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7920.0,OPTIMIZER_CALL,"Optimizer called: 141 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-7920.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-7920.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-7920.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-7974.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62578.0 completed route, served 23 passengers"
-8040.0,OPTIMIZER_CALL,"Optimizer called: 131 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8040.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8040.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8040.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8160.0,OPTIMIZER_CALL,"Optimizer called: 142 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8160.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8160.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8160.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8280.0,OPTIMIZER_CALL,"Optimizer called: 168 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8280.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8280.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8280.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8335.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62607.0 completed route, served 59 passengers"
-8400.0,OPTIMIZER_CALL,"Optimizer called: 156 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8400.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8400.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8400.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8449.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66385.0 completed route, served 32 passengers"
-8520.0,OPTIMIZER_CALL,"Optimizer called: 165 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8520.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8520.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8520.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8558.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62586.0 completed route, served 5 passengers"
-8640.0,OPTIMIZER_CALL,"Optimizer called: 149 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8640.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8640.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8640.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8760.0,OPTIMIZER_CALL,"Optimizer called: 149 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8760.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8760.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8760.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8880.0,OPTIMIZER_CALL,"Optimizer called: 119 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-8880.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-8880.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-8880.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-8944.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62592.0 completed route, served 52 passengers"
-9000.0,OPTIMIZER_CALL,"Optimizer called: 60 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9000.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9000.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9000.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9120.0,OPTIMIZER_CALL,"Optimizer called: 72 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9240.0,OPTIMIZER_CALL,"Optimizer called: 84 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9290.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62600.0 completed route, served 33 passengers"
-9310.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62621.0 completed route, served 73 passengers"
-9360.0,OPTIMIZER_CALL,"Optimizer called: 100 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9480.0,OPTIMIZER_CALL,"Optimizer called: 90 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9530.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66393.0 completed route, served 58 passengers"
+5690.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62569.0 completed route, served 43 passengers"
+5756.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62548.0 completed route, served 26 passengers"
+5801.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66361.0 completed route, served 32 passengers"
+5813.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62552.0 completed route, served 22 passengers"
+6187.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62573.0 completed route, served 36 passengers"
+6470.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62581.0 completed route, served 29 passengers"
+6628.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62566.0 completed route, served 42 passengers"
+6716.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66369.0 completed route, served 19 passengers"
+6819.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66366.0 completed route, served 37 passengers"
+7072.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62587.0 completed route, served 40 passengers"
+7323.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62595.0 completed route, served 29 passengers"
+7449.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62574.0 completed route, served 39 passengers"
+7531.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66377.0 completed route, served 35 passengers"
+7907.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66374.0 completed route, served 52 passengers"
+7974.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62578.0 completed route, served 30 passengers"
+8335.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62607.0 completed route, served 71 passengers"
+8449.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66385.0 completed route, served 30 passengers"
+8558.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62586.0 completed route, served 4 passengers"
+8944.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62592.0 completed route, served 43 passengers"
+9290.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62600.0 completed route, served 42 passengers"
+9310.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62621.0 completed route, served 88 passengers"
+9530.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66393.0 completed route, served 44 passengers"
 9581.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62625.0 completed route, served 41 passengers"
-9600.0,OPTIMIZER_CALL,"Optimizer called: 73 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9600.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9600.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9600.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9641.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66390.0 completed route, served 75 passengers"
-9720.0,OPTIMIZER_CALL,"Optimizer called: 77 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9720.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9720.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9720.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9840.0,OPTIMIZER_CALL,"Optimizer called: 92 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9840.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9840.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9840.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-9960.0,OPTIMIZER_CALL,"Optimizer called: 108 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-9960.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-9960.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-9960.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10080.0,OPTIMIZER_CALL,"Optimizer called: 127 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10080.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10080.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10080.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10200.0,OPTIMIZER_CALL,"Optimizer called: 122 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10200.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10200.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10200.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10206.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62612.0 completed route, served 44 passengers"
-10269.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62633.0 completed route, served 49 passengers"
-10288.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66401.0 completed route, served 33 passengers"
-10320.0,OPTIMIZER_CALL,"Optimizer called: 122 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10320.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10320.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10320.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10440.0,OPTIMIZER_CALL,"Optimizer called: 118 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10440.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10440.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10440.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10511.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62639.0 completed route, served 36 passengers"
-10560.0,OPTIMIZER_CALL,"Optimizer called: 131 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10560.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10560.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10560.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10680.0,OPTIMIZER_CALL,"Optimizer called: 102 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10680.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10680.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10680.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10726.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62626.0 completed route, served 36 passengers"
-10800.0,OPTIMIZER_CALL,"Optimizer called: 115 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10800.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10800.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10800.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10920.0,OPTIMIZER_CALL,"Optimizer called: 96 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-10920.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-10920.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-10920.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-10930.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62653.0 completed route, served 30 passengers"
-11040.0,OPTIMIZER_CALL,"Optimizer called: 109 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11040.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11040.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11040.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-11160.0,OPTIMIZER_CALL,"Optimizer called: 120 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11160.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11160.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11160.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-11280.0,OPTIMIZER_CALL,"Optimizer called: 124 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11280.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11280.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11280.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-11285.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66409.0 completed route, served 30 passengers"
-11378.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62630.0 completed route, served 39 passengers"
-11400.0,OPTIMIZER_CALL,"Optimizer called: 120 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11400.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11400.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11400.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-11421.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66406.0 completed route, served 46 passengers"
-11520.0,OPTIMIZER_CALL,"Optimizer called: 94 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11520.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11520.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11520.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-11581.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62657.0 completed route, served 49 passengers"
-11640.0,OPTIMIZER_CALL,"Optimizer called: 105 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11640.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11640.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11640.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-11760.0,OPTIMIZER_CALL,"Optimizer called: 111 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11760.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11760.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11760.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-11880.0,OPTIMIZER_CALL,"Optimizer called: 120 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-11880.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-11880.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-11880.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12000.0,OPTIMIZER_CALL,"Optimizer called: 119 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12000.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12000.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12000.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12019.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66417.0 completed route, served 48 passengers"
-12120.0,OPTIMIZER_CALL,"Optimizer called: 109 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12131.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62638.0 completed route, served 21 passengers"
-12149.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62665.0 completed route, served 28 passengers"
-12240.0,OPTIMIZER_CALL,"Optimizer called: 123 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12304.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62644.0 completed route, served 27 passengers"
-12313.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62671.0 completed route, served 38 passengers"
-12360.0,OPTIMIZER_CALL,"Optimizer called: 119 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12480.0,OPTIMIZER_CALL,"Optimizer called: 98 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12600.0,OPTIMIZER_CALL,"Optimizer called: 70 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12600.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12600.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12600.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12693.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62685.0 completed route, served 1 passengers"
-12720.0,OPTIMIZER_CALL,"Optimizer called: 95 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12720.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12720.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12720.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12840.0,OPTIMIZER_CALL,"Optimizer called: 102 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12840.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12840.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12840.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12915.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62652.0 completed route, served 40 passengers"
-12960.0,OPTIMIZER_CALL,"Optimizer called: 119 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-12960.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-12960.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-12960.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-12976.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66425.0 completed route, served 49 passengers"
-13080.0,OPTIMIZER_CALL,"Optimizer called: 133 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13080.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13080.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13080.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13200.0,OPTIMIZER_CALL,"Optimizer called: 106 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13200.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13200.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13200.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13269.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62683.0 completed route, served 60 passengers"
-13320.0,OPTIMIZER_CALL,"Optimizer called: 91 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13320.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13320.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13320.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13389.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66422.0 completed route, served 44 passengers"
-13440.0,OPTIMIZER_CALL,"Optimizer called: 85 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13440.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13440.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13440.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13457.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62656.0 completed route, served 37 passengers"
-13560.0,OPTIMIZER_CALL,"Optimizer called: 113 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13560.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13560.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13560.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13680.0,OPTIMIZER_CALL,"Optimizer called: 125 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13680.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13680.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13680.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13800.0,OPTIMIZER_CALL,"Optimizer called: 98 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13800.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13800.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13800.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13858.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66433.0 completed route, served 35 passengers"
-13920.0,OPTIMIZER_CALL,"Optimizer called: 117 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-13920.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-13920.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-13920.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-13928.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66430.0 completed route, served 21 passengers"
+9641.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66390.0 completed route, served 58 passengers"
+10206.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62612.0 completed route, served 45 passengers"
+10269.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62633.0 completed route, served 52 passengers"
+10288.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66401.0 completed route, served 35 passengers"
+10511.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62639.0 completed route, served 33 passengers"
+10626.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66398.0 completed route, served 36 passengers"
+10726.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62626.0 completed route, served 37 passengers"
+10930.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62653.0 completed route, served 41 passengers"
+11285.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66409.0 completed route, served 38 passengers"
+11378.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62630.0 completed route, served 40 passengers"
+11421.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66406.0 completed route, served 29 passengers"
+11581.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62657.0 completed route, served 35 passengers"
+12019.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66417.0 completed route, served 42 passengers"
+12131.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62638.0 completed route, served 16 passengers"
+12149.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62665.0 completed route, served 34 passengers"
+12304.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62644.0 completed route, served 31 passengers"
+12313.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62671.0 completed route, served 45 passengers"
+12693.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62685.0 completed route, served 0 passengers"
+12915.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62652.0 completed route, served 29 passengers"
+12976.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66425.0 completed route, served 56 passengers"
+13269.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62683.0 completed route, served 73 passengers"
+13389.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66422.0 completed route, served 52 passengers"
+13457.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62656.0 completed route, served 30 passengers"
+13858.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66433.0 completed route, served 45 passengers"
+13928.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66430.0 completed route, served 22 passengers"
 13947.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62664.0 completed route, served 47 passengers"
-14040.0,OPTIMIZER_CALL,"Optimizer called: 138 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14040.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14040.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14040.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14065.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62693.0 completed route, served 57 passengers"
-14160.0,OPTIMIZER_CALL,"Optimizer called: 134 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14160.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14160.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14160.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14280.0,OPTIMIZER_CALL,"Optimizer called: 107 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14280.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14280.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14280.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14400.0,OPTIMIZER_CALL,"Optimizer called: 106 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14400.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14400.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14400.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14442.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62676.0 completed route, served 29 passengers"
-14520.0,OPTIMIZER_CALL,"Optimizer called: 116 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14520.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14520.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14520.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14532.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62701.0 completed route, served 49 passengers"
-14640.0,OPTIMIZER_CALL,"Optimizer called: 131 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14640.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14640.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14640.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14760.0,OPTIMIZER_CALL,"Optimizer called: 144 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14760.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14760.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14760.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14880.0,OPTIMIZER_CALL,"Optimizer called: 133 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-14880.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-14880.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-14880.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-14914.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66441.0 completed route, served 56 passengers"
-14952.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62709.0 completed route, served 28 passengers"
-15000.0,OPTIMIZER_CALL,"Optimizer called: 129 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15000.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15000.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15000.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-15011.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66438.0 completed route, served 46 passengers"
-15120.0,OPTIMIZER_CALL,"Optimizer called: 126 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-15240.0,OPTIMIZER_CALL,"Optimizer called: 113 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-15360.0,OPTIMIZER_CALL,"Optimizer called: 151 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-15480.0,OPTIMIZER_CALL,"Optimizer called: 155 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-15600.0,OPTIMIZER_CALL,"Optimizer called: 143 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15600.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15600.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15600.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
+14065.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62693.0 completed route, served 45 passengers"
+14442.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62676.0 completed route, served 39 passengers"
+14532.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62701.0 completed route, served 58 passengers"
+14914.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66441.0 completed route, served 59 passengers"
+14952.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62709.0 completed route, served 42 passengers"
 15611.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66449.0 completed route, served 29 passengers"
-15661.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62690.0 completed route, served 62 passengers"
-15720.0,OPTIMIZER_CALL,"Optimizer called: 98 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15720.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15720.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15720.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-15840.0,OPTIMIZER_CALL,"Optimizer called: 87 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15840.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15840.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15840.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-15846.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66446.0 completed route, served 26 passengers"
-15960.0,OPTIMIZER_CALL,"Optimizer called: 98 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-15960.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-15960.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-15960.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16080.0,OPTIMIZER_CALL,"Optimizer called: 100 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16080.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16080.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16080.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16200.0,OPTIMIZER_CALL,"Optimizer called: 104 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16200.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16200.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16200.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16301.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62702.0 completed route, served 29 passengers"
-16320.0,OPTIMIZER_CALL,"Optimizer called: 81 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16320.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16320.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16320.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16440.0,OPTIMIZER_CALL,"Optimizer called: 86 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16440.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16440.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16440.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16488.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62731.0 completed route, served 105 passengers"
-16505.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66457.0 completed route, served 29 passengers"
-16560.0,OPTIMIZER_CALL,"Optimizer called: 96 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16560.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16560.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16560.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16680.0,OPTIMIZER_CALL,"Optimizer called: 108 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16680.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16680.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16680.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16763.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62737.0 completed route, served 31 passengers"
-16791.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66454.0 completed route, served 39 passengers"
-16800.0,OPTIMIZER_CALL,"Optimizer called: 120 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16800.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16800.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16800.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-16920.0,OPTIMIZER_CALL,"Optimizer called: 81 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-16920.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-16920.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-16920.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
+15661.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62690.0 completed route, served 89 passengers"
+15846.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66446.0 completed route, served 38 passengers"
+16301.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62702.0 completed route, served 25 passengers"
+16488.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62731.0 completed route, served 121 passengers"
+16505.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66457.0 completed route, served 24 passengers"
+16763.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62737.0 completed route, served 25 passengers"
+16791.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66454.0 completed route, served 36 passengers"
 17029.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62743.0 completed route, served 0 passengers"
-17040.0,OPTIMIZER_CALL,"Optimizer called: 80 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17040.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17040.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17040.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-17080.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62710.0 completed route, served 30 passengers"
-17160.0,OPTIMIZER_CALL,"Optimizer called: 96 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17160.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17160.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17160.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-17280.0,OPTIMIZER_CALL,"Optimizer called: 111 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17280.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17280.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17280.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-17302.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62716.0 completed route, served 12 passengers"
-17400.0,OPTIMIZER_CALL,"Optimizer called: 90 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17400.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17400.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17400.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-17520.0,OPTIMIZER_CALL,"Optimizer called: 95 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17520.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17520.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17520.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-17547.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66462.0 completed route, served 22 passengers"
-17607.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66465.0 completed route, served 36 passengers"
-17632.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62747.0 completed route, served 57 passengers"
-17640.0,OPTIMIZER_CALL,"Optimizer called: 94 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17640.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17640.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17640.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-17760.0,OPTIMIZER_CALL,"Optimizer called: 119 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17760.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17760.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17760.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-17880.0,OPTIMIZER_CALL,"Optimizer called: 131 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-17880.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-17880.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-17880.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18000.0,OPTIMIZER_CALL,"Optimizer called: 108 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18000.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18000.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18000.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18038.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62726.0 completed route, served 33 passengers"
-18087.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62757.0 completed route, served 35 passengers"
-18120.0,OPTIMIZER_CALL,"Optimizer called: 98 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18240.0,OPTIMIZER_CALL,"Optimizer called: 91 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18265.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66473.0 completed route, served 30 passengers"
-18360.0,OPTIMIZER_CALL,"Optimizer called: 101 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18480.0,OPTIMIZER_CALL,"Optimizer called: 111 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18533.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66470.0 completed route, served 19 passengers"
-18600.0,OPTIMIZER_CALL,"Optimizer called: 107 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18600.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18600.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18600.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18720.0,OPTIMIZER_CALL,"Optimizer called: 114 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18720.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18720.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18720.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18767.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62763.0 completed route, served 50 passengers"
-18796.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62734.0 completed route, served 35 passengers"
-18840.0,OPTIMIZER_CALL,"Optimizer called: 122 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18840.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18840.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18840.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-18945.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62775.0 completed route, served 1 passengers"
-18960.0,OPTIMIZER_CALL,"Optimizer called: 112 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-18960.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-18960.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-18960.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19080.0,OPTIMIZER_CALL,"Optimizer called: 126 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19080.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19080.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19080.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19200.0,OPTIMIZER_CALL,"Optimizer called: 113 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19200.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19200.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19200.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19250.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66481.0 completed route, served 40 passengers"
-19320.0,OPTIMIZER_CALL,"Optimizer called: 129 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19320.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19320.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19320.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19440.0,OPTIMIZER_CALL,"Optimizer called: 125 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19440.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19440.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19440.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19560.0,OPTIMIZER_CALL,"Optimizer called: 137 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19560.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19560.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19560.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19602.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62744.0 completed route, served 51 passengers"
-19626.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62777.0 completed route, served 57 passengers"
-19680.0,OPTIMIZER_CALL,"Optimizer called: 154 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19680.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19680.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19680.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19800.0,OPTIMIZER_CALL,"Optimizer called: 138 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19800.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19800.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19800.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-19920.0,OPTIMIZER_CALL,"Optimizer called: 130 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-19920.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-19920.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-19920.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20040.0,OPTIMIZER_CALL,"Optimizer called: 133 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20040.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20040.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20040.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20127.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66489.0 completed route, served 41 passengers"
-20160.0,OPTIMIZER_CALL,"Optimizer called: 131 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20160.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20160.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20160.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20280.0,OPTIMIZER_CALL,"Optimizer called: 118 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20280.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20280.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20280.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20354.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66486.0 completed route, served 51 passengers"
-20400.0,OPTIMIZER_CALL,"Optimizer called: 137 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20400.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20400.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20400.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20505.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62754.0 completed route, served 25 passengers"
-20520.0,OPTIMIZER_CALL,"Optimizer called: 142 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20520.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20520.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20520.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20547.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62785.0 completed route, served 47 passengers"
-20640.0,OPTIMIZER_CALL,"Optimizer called: 144 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20640.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20640.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20640.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20760.0,OPTIMIZER_CALL,"Optimizer called: 138 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20760.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20760.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20760.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-20880.0,OPTIMIZER_CALL,"Optimizer called: 137 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-20880.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-20880.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-20880.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-21000.0,OPTIMIZER_CALL,"Optimizer called: 151 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-21000.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-21000.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-21000.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-21049.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66497.0 completed route, served 41 passengers"
-21120.0,OPTIMIZER_CALL,"Optimizer called: 169 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-21120.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-21120.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-21120.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-21240.0,OPTIMIZER_CALL,"Optimizer called: 187 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-21240.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-21240.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-21240.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-21273.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66494.0 completed route, served 27 passengers"
-21360.0,OPTIMIZER_CALL,"Optimizer called: 207 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-21360.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-21360.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-21360.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-21459.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62793.0 completed route, served 59 passengers"
-21464.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62764.0 completed route, served 46 passengers"
-21480.0,OPTIMIZER_CALL,"Optimizer called: 230 pending requests, 3 plans updated, 3 events scheduled, 0 passengers assigned"
-21480.0,MINIBUS_IDLE,MINIBUS_1 completed route plan at 8592374
-21480.0,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8592374
-21480.0,MINIBUS_IDLE,MINIBUS_3 completed route plan at 8592374
-21600.0,SIMULATION_END,"Simulation completed: 3993 arrived, 0 abandoned out of 4250 total passengers"
+17080.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62710.0 completed route, served 24 passengers"
+17302.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62716.0 completed route, served 24 passengers"
+17547.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66462.0 completed route, served 26 passengers"
+17607.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66465.0 completed route, served 41 passengers"
+17632.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62747.0 completed route, served 63 passengers"
+18038.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62726.0 completed route, served 41 passengers"
+18087.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62757.0 completed route, served 54 passengers"
+18265.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66473.0 completed route, served 37 passengers"
+18533.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66470.0 completed route, served 21 passengers"
+18767.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62763.0 completed route, served 41 passengers"
+18796.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62734.0 completed route, served 27 passengers"
+18945.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62775.0 completed route, served 2 passengers"
+19250.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66481.0 completed route, served 50 passengers"
+19442.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66478.0 completed route, served 16 passengers"
+19602.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62744.0 completed route, served 58 passengers"
+19626.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62777.0 completed route, served 56 passengers"
+20127.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66489.0 completed route, served 33 passengers"
+20505.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62754.0 completed route, served 26 passengers"
+20547.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62785.0 completed route, served 57 passengers"
+21049.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR4_T66497.0 completed route, served 28 passengers"
+21273.0,BUS_ROUTE_COMPLETED,"BUS_6_DIR5_T66494.0 completed route, served 33 passengers"
+21459.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR4_T62793.0 completed route, served 75 passengers"
+21464.0,BUS_ROUTE_COMPLETED,"BUS_2_DIR3_T62764.0 completed route, served 57 passengers"
+21600.0,SIMULATION_END,"Simulation completed: 4102 arrived, 0 abandoned out of 4388 total passengers"

@@ -17,18 +17,18 @@ Service Rate:         100.0% (7/7 passengers arrived)
 Abandoned:            0.0% (0/7 passengers)
 
 Wait Time Statistics:
-  Average:            220.0 seconds (3.7 minutes)
+  Average:            331.4 seconds (5.5 minutes)
   Minimum:            20.0 seconds
-  Maximum:            700.0 seconds
-  Std Dev:            237.8 seconds
-  90th Percentile:    496.0 seconds
-  95th Percentile:    598.0 seconds
+  Maximum:            620.0 seconds
+  Std Dev:            225.3 seconds
+  90th Percentile:    620.0 seconds
+  95th Percentile:    620.0 seconds
 
 Travel Time Statistics:
-  Average:            745.7 seconds (12.4 minutes)
+  Average:            690.0 seconds (11.5 minutes)
 
 Total Time Statistics:
-  Average:            965.7 seconds (16.1 minutes)
+  Average:            1021.4 seconds (17.0 minutes)
 
 VEHICLE PERFORMANCE
 --------------------------------------------------------------------------------
@@ -58,12 +58,12 @@ BUS_1_T3:
   Service Time:       0s (0.0 min)
 
 BUS_2_T1:
-  Passengers Served:  2
-  Avg Occupancy:      1.67 (2.1%)
-  Max Occupancy:      2
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
   Stations Served:    4
-  Idle Time:          0s (0.0 min)
-  Service Time:       900s (15.0 min)
+  Idle Time:          900s (15.0 min)
+  Service Time:       0s (0.0 min)
 
 BUS_2_T2:
   Passengers Served:  0
@@ -108,31 +108,31 @@ BUS_3_T3:
 MINIBUSES:
 MINIBUS_1:
   Passengers Served:  2
-  Avg Occupancy:      0.82 (13.6%)
-  Max Occupancy:      1
-  Stations Served:    4
-  Idle Time:          360s (6.0 min)
-  Service Time:       1620s (27.0 min)
+  Avg Occupancy:      1.47 (24.4%)
+  Max Occupancy:      2
+  Stations Served:    3
+  Idle Time:          0s (0.0 min)
+  Service Time:       900s (15.0 min)
 
 MINIBUS_2:
-  Passengers Served:  1
+  Passengers Served:  2
   Avg Occupancy:      1.00 (16.7%)
-  Max Occupancy:      1
-  Stations Served:    2
+  Max Occupancy:      2
+  Stations Served:    3
   Idle Time:          0s (0.0 min)
-  Service Time:       600s (10.0 min)
+  Service Time:       870s (14.5 min)
 
 MINIBUS_3:
-  Passengers Served:  1
-  Avg Occupancy:      1.00 (16.7%)
-  Max Occupancy:      1
-  Stations Served:    2
+  Passengers Served:  2
+  Avg Occupancy:      1.67 (27.8%)
+  Max Occupancy:      2
+  Stations Served:    3
   Idle Time:          0s (0.0 min)
-  Service Time:       660s (11.0 min)
+  Service Time:       1080s (18.0 min)
 
 DATA VALIDATION
 --------------------------------------------------------------------------------
-⚠ Found issues in 7 vehicle(s):
+⚠ Found issues in 8 vehicle(s):
 
 BUS_1_T1:
   • Vehicle traveled route ['A', 'B', 'C', 'D'] but served 0 passengers
@@ -142,6 +142,9 @@ BUS_1_T2:
 
 BUS_1_T3:
   • Vehicle traveled route ['A', 'B', 'C', 'D'] but served 0 passengers
+
+BUS_2_T1:
+  • Vehicle traveled route ['E', 'D', 'C', 'B'] but served 0 passengers
 
 BUS_2_T2:
   • Vehicle traveled route ['E', 'D', 'C', 'B'] but served 0 passengers
@@ -157,15 +160,15 @@ BUS_3_T3:
 
 SYSTEM-WIDE METRICS
 --------------------------------------------------------------------------------
-Avg Vehicle Occupancy: 0.46 passengers
-Vehicle Utilization:   5/12 vehicles served passengers
-  - Buses:             2/9
+Avg Vehicle Occupancy: 0.43 passengers
+Vehicle Utilization:   4/12 vehicles served passengers
+  - Buses:             1/9
   - Minibuses:         3/3
 
 KEY FINDINGS
 --------------------------------------------------------------------------------
 ✓ Excellent service rate (>90%)
-⚠ Low vehicle utilization (only 5 of 12 vehicles used)
-⚠ Data consistency issues detected in 7 vehicle(s)
+⚠ Low vehicle utilization (only 4 of 12 vehicles used)
+⚠ Data consistency issues detected in 8 vehicle(s)
 
 ================================================================================
