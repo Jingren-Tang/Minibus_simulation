@@ -5,883 +5,67 @@
 SIMULATION OVERVIEW
 --------------------------------------------------------------------------------
 Start Time:           2024-07-25 15:00:00
-End Time:             2024-07-25 21:00:00
-Duration:             6.0 hours (21600 seconds)
+End Time:             2024-07-25 15:30:00
+Duration:             0.5 hours (1800 seconds)
 Sampling Interval:    30.0s
-Total Vehicles:       108 (Buses: 108, Minibuses: 0)
-Total Passengers:     4388
+Total Vehicles:       9 (Buses: 6, Minibuses: 3)
+Total Passengers:     336
 
 PASSENGER STATISTICS
 --------------------------------------------------------------------------------
-Service Rate:         93.5% (4102/4388 passengers arrived)
-Abandoned:            0.0% (0/4388 passengers)
+Service Rate:         19.9% (67/336 passengers arrived)
+Abandoned:            0.0% (0/336 passengers)
 
 Wait Time Statistics:
-  Average:            476.0 seconds (7.9 minutes)
-  Minimum:            0.2 seconds
-  Maximum:            6881.8 seconds
-  Std Dev:            487.4 seconds
-  90th Percentile:    916.5 seconds
-  95th Percentile:    1235.9 seconds
+  Average:            665.7 seconds (11.1 minutes)
+  Minimum:            1.3 seconds
+  Maximum:            1559.6 seconds
+  Std Dev:            429.2 seconds
+  90th Percentile:    1280.0 seconds
+  95th Percentile:    1442.3 seconds
 
 Travel Time Statistics:
-  Average:            542.6 seconds (9.0 minutes)
+  Average:            328.2 seconds (5.5 minutes)
 
 Total Time Statistics:
-  Average:            1016.7 seconds (16.9 minutes)
+  Average:            942.9 seconds (15.7 minutes)
 
 VEHICLE PERFORMANCE
 --------------------------------------------------------------------------------
 BUSES:
 BUS_2_DIR3_T62506.0:
-  Passengers Served:  79
-  Avg Occupancy:      26.70 (33.4%)
-  Max Occupancy:      43
-  Stations Served:    10
+  Passengers Served:  36
+  Avg Occupancy:      13.46 (16.8%)
+  Max Occupancy:      36
+  Stations Served:    4
   Idle Time:          0s (0.0 min)
-  Service Time:       1385s (23.1 min)
-
-BUS_2_DIR3_T62512.0:
-  Passengers Served:  50
-  Avg Occupancy:      15.60 (19.5%)
-  Max Occupancy:      25
-  Stations Served:    13
-  Idle Time:          186s (3.1 min)
-  Service Time:       1387s (23.1 min)
-
-BUS_2_DIR3_T62522.0:
-  Passengers Served:  33
-  Avg Occupancy:      9.73 (12.2%)
-  Max Occupancy:      20
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1715s (28.6 min)
-
-BUS_2_DIR3_T62526.0:
-  Passengers Served:  20
-  Avg Occupancy:      6.36 (8.0%)
-  Max Occupancy:      12
-  Stations Served:    10
-  Idle Time:          184s (3.1 min)
-  Service Time:       1276s (21.3 min)
-
-BUS_2_DIR3_T62534.0:
-  Passengers Served:  17
-  Avg Occupancy:      5.11 (6.4%)
-  Max Occupancy:      14
-  Stations Served:    11
-  Idle Time:          349s (5.8 min)
-  Service Time:       1285s (21.4 min)
-
-BUS_2_DIR3_T62540.0:
-  Passengers Served:  25
-  Avg Occupancy:      8.01 (10.0%)
-  Max Occupancy:      13
-  Stations Served:    12
-  Idle Time:          141s (2.4 min)
-  Service Time:       1561s (26.0 min)
-
-BUS_2_DIR3_T62548.0:
-  Passengers Served:  26
-  Avg Occupancy:      7.68 (9.6%)
-  Max Occupancy:      16
-  Stations Served:    13
-  Idle Time:          241s (4.0 min)
-  Service Time:       1628s (27.1 min)
-
-BUS_2_DIR3_T62552.0:
-  Passengers Served:  22
-  Avg Occupancy:      7.52 (9.4%)
-  Max Occupancy:      15
-  Stations Served:    12
-  Idle Time:          144s (2.4 min)
-  Service Time:       1241s (20.7 min)
-
-BUS_2_DIR3_T62566.0:
-  Passengers Served:  42
-  Avg Occupancy:      14.51 (18.1%)
-  Max Occupancy:      26
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1235s (20.6 min)
-
-BUS_2_DIR3_T62574.0:
-  Passengers Served:  39
-  Avg Occupancy:      16.25 (20.3%)
-  Max Occupancy:      30
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1527s (25.4 min)
-
-BUS_2_DIR3_T62578.0:
-  Passengers Served:  30
-  Avg Occupancy:      10.51 (13.1%)
-  Max Occupancy:      16
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1671s (27.9 min)
-
-BUS_2_DIR3_T62586.0:
-  Passengers Served:  4
-  Avg Occupancy:      1.27 (1.6%)
-  Max Occupancy:      2
-  Stations Served:    12
-  Idle Time:          740s (12.3 min)
-  Service Time:       1275s (21.2 min)
-
-BUS_2_DIR3_T62592.0:
-  Passengers Served:  43
-  Avg Occupancy:      14.52 (18.2%)
-  Max Occupancy:      28
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1724s (28.7 min)
-
-BUS_2_DIR3_T62600.0:
-  Passengers Served:  42
-  Avg Occupancy:      11.47 (14.3%)
-  Max Occupancy:      26
-  Stations Served:    14
-  Idle Time:          294s (4.9 min)
-  Service Time:       1598s (26.6 min)
-
-BUS_2_DIR3_T62612.0:
-  Passengers Served:  45
-  Avg Occupancy:      16.49 (20.6%)
-  Max Occupancy:      24
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1540s (25.7 min)
-
-BUS_2_DIR3_T62626.0:
-  Passengers Served:  37
-  Avg Occupancy:      13.91 (17.4%)
-  Max Occupancy:      23
-  Stations Served:    10
-  Idle Time:          0s (0.0 min)
-  Service Time:       1229s (20.5 min)
-
-BUS_2_DIR3_T62630.0:
-  Passengers Served:  40
-  Avg Occupancy:      13.45 (16.8%)
-  Max Occupancy:      21
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1455s (24.2 min)
-
-BUS_2_DIR3_T62638.0:
-  Passengers Served:  16
-  Avg Occupancy:      5.25 (6.6%)
-  Max Occupancy:      11
-  Stations Served:    10
-  Idle Time:          0s (0.0 min)
-  Service Time:       1750s (29.2 min)
-
-BUS_2_DIR3_T62644.0:
-  Passengers Served:  31
-  Avg Occupancy:      8.63 (10.8%)
-  Max Occupancy:      16
-  Stations Served:    13
-  Idle Time:          289s (4.8 min)
-  Service Time:       1485s (24.8 min)
-
-BUS_2_DIR3_T62652.0:
-  Passengers Served:  29
-  Avg Occupancy:      8.63 (10.8%)
-  Max Occupancy:      15
-  Stations Served:    13
-  Idle Time:          294s (4.9 min)
-  Service Time:       1616s (26.9 min)
-
-BUS_2_DIR3_T62656.0:
-  Passengers Served:  30
-  Avg Occupancy:      10.06 (12.6%)
-  Max Occupancy:      18
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1633s (27.2 min)
-
-BUS_2_DIR3_T62664.0:
-  Passengers Served:  47
-  Avg Occupancy:      17.35 (21.7%)
-  Max Occupancy:      24
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1509s (25.1 min)
-
-BUS_2_DIR3_T62676.0:
-  Passengers Served:  39
-  Avg Occupancy:      12.64 (15.8%)
-  Max Occupancy:      22
-  Stations Served:    13
-  Idle Time:          79s (1.3 min)
-  Service Time:       1422s (23.7 min)
-
-BUS_2_DIR3_T62690.0:
-  Passengers Served:  89
-  Avg Occupancy:      31.41 (39.3%)
-  Max Occupancy:      49
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1434s (23.9 min)
-
-BUS_2_DIR3_T62702.0:
-  Passengers Served:  25
-  Avg Occupancy:      8.32 (10.4%)
-  Max Occupancy:      18
-  Stations Served:    11
-  Idle Time:          0s (0.0 min)
-  Service Time:       1480s (24.7 min)
-
-BUS_2_DIR3_T62710.0:
-  Passengers Served:  24
-  Avg Occupancy:      9.45 (11.8%)
-  Max Occupancy:      13
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1646s (27.4 min)
-
-BUS_2_DIR3_T62716.0:
-  Passengers Served:  24
-  Avg Occupancy:      8.40 (10.5%)
-  Max Occupancy:      17
-  Stations Served:    10
-  Idle Time:          0s (0.0 min)
-  Service Time:       1296s (21.6 min)
-
-BUS_2_DIR3_T62726.0:
-  Passengers Served:  41
-  Avg Occupancy:      14.71 (18.4%)
-  Max Occupancy:      22
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1420s (23.7 min)
-
-BUS_2_DIR3_T62734.0:
-  Passengers Served:  27
-  Avg Occupancy:      9.75 (12.2%)
-  Max Occupancy:      15
-  Stations Served:    10
-  Idle Time:          0s (0.0 min)
-  Service Time:       1478s (24.6 min)
-
-BUS_2_DIR3_T62744.0:
-  Passengers Served:  58
-  Avg Occupancy:      14.52 (18.1%)
-  Max Occupancy:      33
-  Stations Served:    14
-  Idle Time:          479s (8.0 min)
-  Service Time:       1472s (24.5 min)
-
-BUS_2_DIR3_T62754.0:
-  Passengers Served:  26
-  Avg Occupancy:      9.45 (11.8%)
-  Max Occupancy:      15
-  Stations Served:    8
-  Idle Time:          0s (0.0 min)
-  Service Time:       1422s (23.7 min)
-
-BUS_2_DIR3_T62764.0:
-  Passengers Served:  57
-  Avg Occupancy:      16.36 (20.4%)
-  Max Occupancy:      33
-  Stations Served:    12
-  Idle Time:          301s (5.0 min)
-  Service Time:       1521s (25.4 min)
+  Service Time:       366s (6.1 min)
 
 BUS_2_DIR4_T62521.0:
-  Passengers Served:  79
-  Avg Occupancy:      32.98 (41.2%)
-  Max Occupancy:      58
-  Stations Served:    11
+  Passengers Served:  68
+  Avg Occupancy:      19.74 (24.7%)
+  Max Occupancy:      50
+  Stations Served:    5
   Idle Time:          0s (0.0 min)
-  Service Time:       1362s (22.7 min)
+  Service Time:       718s (12.0 min)
 
 BUS_2_DIR4_T62529.0:
-  Passengers Served:  21
-  Avg Occupancy:      7.14 (8.9%)
+  Passengers Served:  11
+  Avg Occupancy:      5.43 (6.8%)
   Max Occupancy:      11
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1443s (24.1 min)
-
-BUS_2_DIR4_T62535.0:
-  Passengers Served:  54
-  Avg Occupancy:      19.73 (24.7%)
-  Max Occupancy:      30
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1715s (28.6 min)
-
-BUS_2_DIR4_T62543.0:
-  Passengers Served:  16
-  Avg Occupancy:      7.19 (9.0%)
-  Max Occupancy:      9
-  Stations Served:    10
-  Idle Time:          46s (0.8 min)
-  Service Time:       1297s (21.6 min)
-
-BUS_2_DIR4_T62547.0:
-  Passengers Served:  48
-  Avg Occupancy:      17.42 (21.8%)
-  Max Occupancy:      37
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1692s (28.2 min)
-
-BUS_2_DIR4_T62561.0:
-  Passengers Served:  44
-  Avg Occupancy:      15.81 (19.8%)
-  Max Occupancy:      23
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1383s (23.1 min)
-
-BUS_2_DIR4_T62569.0:
-  Passengers Served:  43
-  Avg Occupancy:      14.88 (18.6%)
-  Max Occupancy:      35
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1604s (26.7 min)
-
-BUS_2_DIR4_T62573.0:
-  Passengers Served:  36
-  Avg Occupancy:      13.98 (17.5%)
-  Max Occupancy:      28
-  Stations Served:    13
-  Idle Time:          86s (1.4 min)
-  Service Time:       1411s (23.5 min)
-
-BUS_2_DIR4_T62581.0:
-  Passengers Served:  29
-  Avg Occupancy:      9.97 (12.5%)
-  Max Occupancy:      15
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1479s (24.6 min)
-
-BUS_2_DIR4_T62587.0:
-  Passengers Served:  40
-  Avg Occupancy:      14.85 (18.6%)
-  Max Occupancy:      24
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1631s (27.2 min)
-
-BUS_2_DIR4_T62595.0:
-  Passengers Served:  29
-  Avg Occupancy:      10.35 (12.9%)
-  Max Occupancy:      17
-  Stations Served:    12
-  Idle Time:          0s (0.0 min)
-  Service Time:       1430s (23.8 min)
-
-BUS_2_DIR4_T62607.0:
-  Passengers Served:  71
-  Avg Occupancy:      25.57 (32.0%)
-  Max Occupancy:      48
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1560s (26.0 min)
-
-BUS_2_DIR4_T62621.0:
-  Passengers Served:  88
-  Avg Occupancy:      31.29 (39.1%)
-  Max Occupancy:      48
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1621s (27.0 min)
-
-BUS_2_DIR4_T62625.0:
-  Passengers Served:  41
-  Avg Occupancy:      16.04 (20.1%)
-  Max Occupancy:      30
-  Stations Served:    11
-  Idle Time:          0s (0.0 min)
-  Service Time:       1292s (21.5 min)
-
-BUS_2_DIR4_T62633.0:
-  Passengers Served:  52
-  Avg Occupancy:      17.70 (22.1%)
-  Max Occupancy:      32
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1685s (28.1 min)
-
-BUS_2_DIR4_T62639.0:
-  Passengers Served:  33
-  Avg Occupancy:      11.52 (14.4%)
-  Max Occupancy:      21
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1481s (24.7 min)
-
-BUS_2_DIR4_T62653.0:
-  Passengers Served:  41
-  Avg Occupancy:      14.00 (17.5%)
-  Max Occupancy:      22
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1457s (24.3 min)
-
-BUS_2_DIR4_T62657.0:
-  Passengers Served:  35
-  Avg Occupancy:      14.00 (17.5%)
-  Max Occupancy:      28
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1678s (28.0 min)
-
-BUS_2_DIR4_T62665.0:
-  Passengers Served:  34
-  Avg Occupancy:      26.01 (32.5%)
-  Max Occupancy:      34
-  Stations Served:    9
-  Idle Time:          0s (0.0 min)
-  Service Time:       725s (12.1 min)
-
-BUS_2_DIR4_T62671.0:
-  Passengers Served:  45
-  Avg Occupancy:      16.20 (20.2%)
-  Max Occupancy:      36
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1490s (24.8 min)
-
-BUS_2_DIR4_T62683.0:
-  Passengers Served:  73
-  Avg Occupancy:      30.02 (37.5%)
-  Max Occupancy:      46
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1506s (25.1 min)
-
-BUS_2_DIR4_T62685.0:
-  Passengers Served:  0
-  Avg Occupancy:      0.00 (0.0%)
-  Max Occupancy:      0
   Stations Served:    4
-  Idle Time:          876s (14.6 min)
-  Service Time:       0s (0.0 min)
-
-BUS_2_DIR4_T62693.0:
-  Passengers Served:  45
-  Avg Occupancy:      18.93 (23.7%)
-  Max Occupancy:      35
-  Stations Served:    12
   Idle Time:          0s (0.0 min)
-  Service Time:       1565s (26.1 min)
-
-BUS_2_DIR4_T62701.0:
-  Passengers Served:  58
-  Avg Occupancy:      20.85 (26.1%)
-  Max Occupancy:      30
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1619s (27.0 min)
-
-BUS_2_DIR4_T62709.0:
-  Passengers Served:  42
-  Avg Occupancy:      17.31 (21.6%)
-  Max Occupancy:      24
-  Stations Served:    11
-  Idle Time:          0s (0.0 min)
-  Service Time:       1296s (21.6 min)
-
-BUS_2_DIR4_T62731.0:
-  Passengers Served:  121
-  Avg Occupancy:      48.18 (60.2%)
-  Max Occupancy:      77
-  Stations Served:    13
-  Idle Time:          0s (0.0 min)
-  Service Time:       1521s (25.4 min)
-
-BUS_2_DIR4_T62737.0:
-  Passengers Served:  25
-  Avg Occupancy:      9.64 (12.1%)
-  Max Occupancy:      14
-  Stations Served:    9
-  Idle Time:          64s (1.1 min)
-  Service Time:       1135s (18.9 min)
-
-BUS_2_DIR4_T62743.0:
-  Passengers Served:  0
-  Avg Occupancy:      0.00 (0.0%)
-  Max Occupancy:      0
-  Stations Served:    2
-  Idle Time:          91s (1.5 min)
-  Service Time:       0s (0.0 min)
-
-BUS_2_DIR4_T62747.0:
-  Passengers Served:  63
-  Avg Occupancy:      25.95 (32.4%)
-  Max Occupancy:      34
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1606s (26.8 min)
-
-BUS_2_DIR4_T62757.0:
-  Passengers Served:  54
-  Avg Occupancy:      18.51 (23.1%)
-  Max Occupancy:      41
-  Stations Served:    13
-  Idle Time:          158s (2.6 min)
-  Service Time:       1317s (21.9 min)
-
-BUS_2_DIR4_T62763.0:
-  Passengers Served:  41
-  Avg Occupancy:      14.37 (18.0%)
-  Max Occupancy:      25
-  Stations Served:    11
-  Idle Time:          0s (0.0 min)
-  Service Time:       1488s (24.8 min)
-
-BUS_2_DIR4_T62775.0:
-  Passengers Served:  2
-  Avg Occupancy:      0.84 (1.1%)
-  Max Occupancy:      2
-  Stations Served:    7
-  Idle Time:          368s (6.1 min)
-  Service Time:       372s (6.2 min)
-
-BUS_2_DIR4_T62777.0:
-  Passengers Served:  56
-  Avg Occupancy:      20.44 (25.5%)
-  Max Occupancy:      36
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1512s (25.2 min)
-
-BUS_2_DIR4_T62785.0:
-  Passengers Served:  57
-  Avg Occupancy:      21.59 (27.0%)
-  Max Occupancy:      29
-  Stations Served:    11
-  Idle Time:          0s (0.0 min)
-  Service Time:       1515s (25.2 min)
-
-BUS_2_DIR4_T62793.0:
-  Passengers Served:  75
-  Avg Occupancy:      28.26 (35.3%)
-  Max Occupancy:      52
-  Stations Served:    14
-  Idle Time:          0s (0.0 min)
-  Service Time:       1528s (25.5 min)
+  Service Time:       384s (6.4 min)
 
 BUS_6_DIR4_T66329.0:
-  Passengers Served:  71
-  Avg Occupancy:      21.33 (26.7%)
-  Max Occupancy:      51
-  Stations Served:    12
-  Idle Time:          156s (2.6 min)
-  Service Time:       1111s (18.5 min)
+  Passengers Served:  58
+  Avg Occupancy:      18.40 (23.0%)
+  Max Occupancy:      43
+  Stations Served:    8
+  Idle Time:          77s (1.3 min)
+  Service Time:       915s (15.2 min)
 
 BUS_6_DIR4_T66337.0:
-  Passengers Served:  32
-  Avg Occupancy:      9.52 (11.9%)
-  Max Occupancy:      22
-  Stations Served:    12
-  Idle Time:          447s (7.5 min)
-  Service Time:       1067s (17.8 min)
-
-BUS_6_DIR4_T66345.0:
-  Passengers Served:  46
-  Avg Occupancy:      15.48 (19.3%)
-  Max Occupancy:      32
-  Stations Served:    12
-  Idle Time:          111s (1.9 min)
-  Service Time:       1585s (26.4 min)
-
-BUS_6_DIR4_T66353.0:
-  Passengers Served:  38
-  Avg Occupancy:      13.26 (16.6%)
-  Max Occupancy:      23
-  Stations Served:    10
-  Idle Time:          49s (0.8 min)
-  Service Time:       1379s (23.0 min)
-
-BUS_6_DIR4_T66361.0:
-  Passengers Served:  32
-  Avg Occupancy:      9.27 (11.6%)
-  Max Occupancy:      17
-  Stations Served:    11
-  Idle Time:          587s (9.8 min)
-  Service Time:       1170s (19.5 min)
-
-BUS_6_DIR4_T66369.0:
-  Passengers Served:  19
-  Avg Occupancy:      6.79 (8.5%)
-  Max Occupancy:      11
-  Stations Served:    12
-  Idle Time:          105s (1.8 min)
-  Service Time:       1534s (25.6 min)
-
-BUS_6_DIR4_T66377.0:
-  Passengers Served:  35
-  Avg Occupancy:      11.12 (13.9%)
-  Max Occupancy:      25
-  Stations Served:    12
-  Idle Time:          100s (1.7 min)
-  Service Time:       1485s (24.8 min)
-
-BUS_6_DIR4_T66385.0:
-  Passengers Served:  30
-  Avg Occupancy:      13.16 (16.4%)
-  Max Occupancy:      24
-  Stations Served:    8
-  Idle Time:          88s (1.5 min)
-  Service Time:       1195s (19.9 min)
-
-BUS_6_DIR4_T66393.0:
-  Passengers Served:  44
-  Avg Occupancy:      16.37 (20.5%)
-  Max Occupancy:      27
-  Stations Served:    12
-  Idle Time:          90s (1.5 min)
-  Service Time:       1513s (25.2 min)
-
-BUS_6_DIR4_T66401.0:
-  Passengers Served:  35
-  Avg Occupancy:      12.82 (16.0%)
-  Max Occupancy:      22
-  Stations Served:    12
-  Idle Time:          94s (1.6 min)
-  Service Time:       1555s (25.9 min)
-
-BUS_6_DIR4_T66409.0:
-  Passengers Served:  38
-  Avg Occupancy:      14.41 (18.0%)
-  Max Occupancy:      22
-  Stations Served:    12
-  Idle Time:          102s (1.7 min)
-  Service Time:       1510s (25.2 min)
-
-BUS_6_DIR4_T66417.0:
-  Passengers Served:  42
-  Avg Occupancy:      16.38 (20.5%)
-  Max Occupancy:      31
-  Stations Served:    9
-  Idle Time:          54s (0.9 min)
-  Service Time:       1202s (20.0 min)
-
-BUS_6_DIR4_T66425.0:
-  Passengers Served:  56
-  Avg Occupancy:      17.08 (21.3%)
-  Max Occupancy:      34
-  Stations Served:    11
-  Idle Time:          66s (1.1 min)
-  Service Time:       1471s (24.5 min)
-
-BUS_6_DIR4_T66433.0:
-  Passengers Served:  45
-  Avg Occupancy:      13.17 (16.5%)
-  Max Occupancy:      31
-  Stations Served:    12
-  Idle Time:          104s (1.7 min)
-  Service Time:       1622s (27.0 min)
-
-BUS_6_DIR4_T66441.0:
-  Passengers Served:  59
-  Avg Occupancy:      21.62 (27.0%)
-  Max Occupancy:      42
-  Stations Served:    12
-  Idle Time:          87s (1.4 min)
-  Service Time:       1416s (23.6 min)
-
-BUS_6_DIR4_T66449.0:
-  Passengers Served:  29
-  Avg Occupancy:      11.79 (14.7%)
-  Max Occupancy:      25
-  Stations Served:    7
-  Idle Time:          0s (0.0 min)
-  Service Time:       1262s (21.0 min)
-
-BUS_6_DIR4_T66457.0:
-  Passengers Served:  24
-  Avg Occupancy:      8.14 (10.2%)
-  Max Occupancy:      17
-  Stations Served:    12
-  Idle Time:          100s (1.7 min)
-  Service Time:       1376s (22.9 min)
-
-BUS_6_DIR4_T66465.0:
-  Passengers Served:  41
-  Avg Occupancy:      13.72 (17.2%)
-  Max Occupancy:      29
-  Stations Served:    12
-  Idle Time:          119s (2.0 min)
-  Service Time:       1623s (27.1 min)
-
-BUS_6_DIR4_T66473.0:
-  Passengers Served:  37
-  Avg Occupancy:      12.92 (16.2%)
-  Max Occupancy:      25
-  Stations Served:    12
-  Idle Time:          87s (1.4 min)
-  Service Time:       1364s (22.7 min)
-
-BUS_6_DIR4_T66481.0:
-  Passengers Served:  50
-  Avg Occupancy:      20.86 (26.1%)
-  Max Occupancy:      30
-  Stations Served:    9
-  Idle Time:          0s (0.0 min)
-  Service Time:       1312s (21.9 min)
-
-BUS_6_DIR4_T66489.0:
-  Passengers Served:  33
-  Avg Occupancy:      10.25 (12.8%)
-  Max Occupancy:      20
-  Stations Served:    12
-  Idle Time:          387s (6.5 min)
-  Service Time:       1186s (19.8 min)
-
-BUS_6_DIR4_T66497.0:
-  Passengers Served:  28
-  Avg Occupancy:      7.47 (9.3%)
-  Max Occupancy:      16
-  Stations Served:    12
-  Idle Time:          95s (1.6 min)
-  Service Time:       1492s (24.9 min)
-
-BUS_6_DIR5_T66326.0:
-  Passengers Served:  0
-  Avg Occupancy:      0.00 (0.0%)
-  Max Occupancy:      0
-  Stations Served:    2
-  Idle Time:          186s (3.1 min)
-  Service Time:       0s (0.0 min)
-
-BUS_6_DIR5_T66334.0:
-  Passengers Served:  34
-  Avg Occupancy:      16.26 (20.3%)
-  Max Occupancy:      22
-  Stations Served:    8
-  Idle Time:          -54s (-0.9 min)
-  Service Time:       1248s (20.8 min)
-
-BUS_6_DIR5_T66342.0:
-  Passengers Served:  0
-  Avg Occupancy:      0.00 (0.0%)
-  Max Occupancy:      0
-  Stations Served:    2
-  Idle Time:          108s (1.8 min)
-  Service Time:       0s (0.0 min)
-
-BUS_6_DIR5_T66358.0:
-  Passengers Served:  0
-  Avg Occupancy:      0.00 (0.0%)
-  Max Occupancy:      0
-  Stations Served:    2
-  Idle Time:          124s (2.1 min)
-  Service Time:       0s (0.0 min)
-
-BUS_6_DIR5_T66366.0:
-  Passengers Served:  37
-  Avg Occupancy:      14.43 (18.0%)
-  Max Occupancy:      30
-  Stations Served:    10
-  Idle Time:          123s (2.0 min)
-  Service Time:       1119s (18.6 min)
-
-BUS_6_DIR5_T66374.0:
-  Passengers Served:  52
-  Avg Occupancy:      23.12 (28.9%)
-  Max Occupancy:      40
-  Stations Served:    12
-  Idle Time:          57s (0.9 min)
-  Service Time:       1249s (20.8 min)
-
-BUS_6_DIR5_T66390.0:
-  Passengers Served:  58
-  Avg Occupancy:      24.52 (30.6%)
-  Max Occupancy:      37
-  Stations Served:    12
-  Idle Time:          54s (0.9 min)
-  Service Time:       1327s (22.1 min)
-
-BUS_6_DIR5_T66398.0:
-  Passengers Served:  36
-  Avg Occupancy:      16.58 (20.7%)
-  Max Occupancy:      25
-  Stations Served:    11
-  Idle Time:          -46s (-0.8 min)
-  Service Time:       1376s (22.9 min)
-
-BUS_6_DIR5_T66406.0:
-  Passengers Served:  29
-  Avg Occupancy:      11.17 (14.0%)
-  Max Occupancy:      17
-  Stations Served:    12
-  Idle Time:          154s (2.6 min)
-  Service Time:       1146s (19.1 min)
-
-BUS_6_DIR5_T66422.0:
-  Passengers Served:  52
-  Avg Occupancy:      23.76 (29.7%)
-  Max Occupancy:      35
-  Stations Served:    12
-  Idle Time:          92s (1.5 min)
-  Service Time:       1398s (23.3 min)
-
-BUS_6_DIR5_T66430.0:
-  Passengers Served:  22
-  Avg Occupancy:      9.58 (12.0%)
-  Max Occupancy:      13
-  Stations Served:    8
-  Idle Time:          0s (0.0 min)
-  Service Time:       1098s (18.3 min)
-
-BUS_6_DIR5_T66438.0:
-  Passengers Served:  0
-  Avg Occupancy:      0.00 (0.0%)
-  Max Occupancy:      0
-  Stations Served:    2
-  Idle Time:          202s (3.4 min)
-  Service Time:       0s (0.0 min)
-
-BUS_6_DIR5_T66446.0:
-  Passengers Served:  38
-  Avg Occupancy:      16.07 (20.1%)
-  Max Occupancy:      23
-  Stations Served:    12
-  Idle Time:          64s (1.1 min)
-  Service Time:       1195s (19.9 min)
-
-BUS_6_DIR5_T66454.0:
-  Passengers Served:  36
-  Avg Occupancy:      14.70 (18.4%)
-  Max Occupancy:      25
-  Stations Served:    12
-  Idle Time:          54s (0.9 min)
-  Service Time:       1271s (21.2 min)
-
-BUS_6_DIR5_T66462.0:
-  Passengers Served:  26
-  Avg Occupancy:      10.79 (13.5%)
-  Max Occupancy:      19
-  Stations Served:    10
-  Idle Time:          79s (1.3 min)
-  Service Time:       1155s (19.2 min)
-
-BUS_6_DIR5_T66470.0:
-  Passengers Served:  21
-  Avg Occupancy:      9.09 (11.4%)
-  Max Occupancy:      14
-  Stations Served:    12
-  Idle Time:          81s (1.4 min)
-  Service Time:       1169s (19.5 min)
-
-BUS_6_DIR5_T66478.0:
-  Passengers Served:  16
-  Avg Occupancy:      6.89 (8.6%)
-  Max Occupancy:      9
-  Stations Served:    12
-  Idle Time:          66s (1.1 min)
-  Service Time:       1200s (20.0 min)
-
-BUS_6_DIR5_T66486.0:
   Passengers Served:  0
   Avg Occupancy:      0.00 (0.0%)
   Max Occupancy:      0
@@ -889,50 +73,61 @@ BUS_6_DIR5_T66486.0:
   Idle Time:          0s (0.0 min)
   Service Time:       0s (0.0 min)
 
-BUS_6_DIR5_T66494.0:
-  Passengers Served:  33
-  Avg Occupancy:      14.81 (18.5%)
-  Max Occupancy:      20
-  Stations Served:    9
+BUS_6_DIR5_T66326.0:
+  Passengers Served:  0
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      0
+  Stations Served:    2
+  Idle Time:          186s (3.1 min)
+  Service Time:       0s (0.0 min)
+
+MINIBUSES:
+MINIBUS_1:
+  Passengers Served:  6
+  Avg Occupancy:      1.85 (30.8%)
+  Max Occupancy:      6
+  Stations Served:    5
   Idle Time:          0s (0.0 min)
-  Service Time:       1099s (18.3 min)
+  Service Time:       884s (14.7 min)
+
+MINIBUS_2:
+  Passengers Served:  8
+  Avg Occupancy:      1.64 (27.4%)
+  Max Occupancy:      6
+  Stations Served:    10
+  Idle Time:          281s (4.7 min)
+  Service Time:       665s (11.1 min)
+
+MINIBUS_3:
+  Passengers Served:  7
+  Avg Occupancy:      3.32 (55.4%)
+  Max Occupancy:      6
+  Stations Served:    5
+  Idle Time:          0s (0.0 min)
+  Service Time:       1067s (17.8 min)
 
 DATA VALIDATION
 --------------------------------------------------------------------------------
-⚠ Found issues in 7 vehicle(s):
+⚠ Found issues in 2 vehicle(s):
 
-BUS_2_DIR4_T62685.0:
-  • Vehicle traveled route ['8589130', '8577785', '8592374', '8589161'] but served 0 passengers
-
-BUS_2_DIR4_T62743.0:
-  • Vehicle traveled route ['8592374', '8589161'] but served 0 passengers
+BUS_6_DIR4_T66337.0:
+  • Vehicle traveled route ['8592375'] but served 0 passengers
 
 BUS_6_DIR5_T66326.0:
   • Vehicle traveled route ['8589270', '8589147'] but served 0 passengers
 
-BUS_6_DIR5_T66342.0:
-  • Vehicle traveled route ['8589270', '8589147'] but served 0 passengers
-
-BUS_6_DIR5_T66358.0:
-  • Vehicle traveled route ['8589270', '8589147'] but served 0 passengers
-
-BUS_6_DIR5_T66438.0:
-  • Vehicle traveled route ['8589270', '8589147'] but served 0 passengers
-
-BUS_6_DIR5_T66486.0:
-  • Vehicle traveled route ['8589147'] but served 0 passengers
-
 SYSTEM-WIDE METRICS
 --------------------------------------------------------------------------------
-Avg Vehicle Occupancy: 13.93 passengers
-Vehicle Utilization:   101/108 vehicles served passengers
-  - Buses:             101/108
-  - Minibuses:         0/0
+Avg Vehicle Occupancy: 7.09 passengers
+Vehicle Utilization:   7/9 vehicles served passengers
+  - Buses:             4/6
+  - Minibuses:         3/3
 
 KEY FINDINGS
 --------------------------------------------------------------------------------
-✓ Excellent service rate (>90%)
-⚠ High wait time variance (0s - 6882s)
-⚠ Data consistency issues detected in 7 vehicle(s)
+⚠ Low service rate (<70%)
+⚠ High wait time variance (1s - 1560s)
+⚠ High average wait time (>10 minutes)
+⚠ Data consistency issues detected in 2 vehicle(s)
 
 ================================================================================
