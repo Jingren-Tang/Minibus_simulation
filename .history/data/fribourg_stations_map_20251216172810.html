@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e99a2cebdd145653e5d1d36b8de5194f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e99a2cebdd145653e5d1d36b8de5194f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e99a2cebdd145653e5d1d36b8de5194f = L.map(
+                "map_e99a2cebdd145653e5d1d36b8de5194f",
+                {
+                    center: [46.80580177608312, 7.1550194321130585],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_55d5cc9066c380d3583e9d538ec212ab = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_55d5cc9066c380d3583e9d538ec212ab.addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_a364e3021bfc66b4478e3442e27f13d7 = L.marker(
+                [46.806281, 7.175601],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_a5e00809284ec572d355cccf92ffad7b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_35cfe35b21c888816a909636e903efb9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9fbbdf5240955dbff22de4abccf3af50 = $(`<div id="html_9fbbdf5240955dbff22de4abccf3af50" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Chaley</b><br>     Station ID: 8589141<br>     Index: 0<br>     Coords: 46.806281, 7.175601     </div>`)[0];
+                popup_35cfe35b21c888816a909636e903efb9.setContent(html_9fbbdf5240955dbff22de4abccf3af50);
+            
+        
+
+        marker_a364e3021bfc66b4478e3442e27f13d7.bindPopup(popup_35cfe35b21c888816a909636e903efb9)
+        ;
+
+        
+    
+    
+            marker_a364e3021bfc66b4478e3442e27f13d7.bindTooltip(
+                `<div>
+                     Fribourg, Chaley
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a364e3021bfc66b4478e3442e27f13d7.setIcon(icon_a5e00809284ec572d355cccf92ffad7b);
+            
+    
+            var circle_marker_383512ded351e45ff722f75395d843bb = L.circleMarker(
+                [46.806281, 7.175601],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_582bda1caefbbb0bf6d146c4fe41a7e1 = L.marker(
+                [46.806711, 7.172136],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_9f1c3be7eed8c6538eb8d06c9ae32700 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_19cec5d8102383554411cef0ade71dd8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b478ccf14f35208a489c1aa5e2c77f5a = $(`<div id="html_b478ccf14f35208a489c1aa5e2c77f5a" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Mon-Repos</b><br>     Station ID: 8589152<br>     Index: 1<br>     Coords: 46.806711, 7.172136     </div>`)[0];
+                popup_19cec5d8102383554411cef0ade71dd8.setContent(html_b478ccf14f35208a489c1aa5e2c77f5a);
+            
+        
+
+        marker_582bda1caefbbb0bf6d146c4fe41a7e1.bindPopup(popup_19cec5d8102383554411cef0ade71dd8)
+        ;
+
+        
+    
+    
+            marker_582bda1caefbbb0bf6d146c4fe41a7e1.bindTooltip(
+                `<div>
+                     Fribourg, Mon-Repos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_582bda1caefbbb0bf6d146c4fe41a7e1.setIcon(icon_9f1c3be7eed8c6538eb8d06c9ae32700);
+            
+    
+            var circle_marker_620159c08d933411a36f43a470cdebf0 = L.circleMarker(
+                [46.806711, 7.172136],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_ca0cd523c900b891bdbbf1d51058c6e9 = L.marker(
+                [46.809385, 7.170446],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_6a3f4e31d157d8466e7d7b374a892ab6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_35392ae19caaae25c585270367c969ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_399d75975e2011c3a0e8b2ba4c7e2024 = $(`<div id="html_399d75975e2011c3a0e8b2ba4c7e2024" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Cité-Jardins</b><br>     Station ID: 8589138<br>     Index: 2<br>     Coords: 46.809385, 7.170446     </div>`)[0];
+                popup_35392ae19caaae25c585270367c969ff.setContent(html_399d75975e2011c3a0e8b2ba4c7e2024);
+            
+        
+
+        marker_ca0cd523c900b891bdbbf1d51058c6e9.bindPopup(popup_35392ae19caaae25c585270367c969ff)
+        ;
+
+        
+    
+    
+            marker_ca0cd523c900b891bdbbf1d51058c6e9.bindTooltip(
+                `<div>
+                     Fribourg, Cité-Jardins
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ca0cd523c900b891bdbbf1d51058c6e9.setIcon(icon_6a3f4e31d157d8466e7d7b374a892ab6);
+            
+    
+            var circle_marker_11b8424b689ddc1a9b499f49394542c5 = L.circleMarker(
+                [46.809385, 7.170446],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_f8913a5801b50fe8496c6d004cb27a65 = L.marker(
+                [46.811451, 7.171016],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_a27ad3f1f9a933972f4b082a9d7605d3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_31dd90399a28c1f424a039cd7a397af8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a027ca6351c77c95e7045214d3180073 = $(`<div id="html_a027ca6351c77c95e7045214d3180073" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Boschung</b><br>     Station ID: 8591766<br>     Index: 3<br>     Coords: 46.811451, 7.171016     </div>`)[0];
+                popup_31dd90399a28c1f424a039cd7a397af8.setContent(html_a027ca6351c77c95e7045214d3180073);
+            
+        
+
+        marker_f8913a5801b50fe8496c6d004cb27a65.bindPopup(popup_31dd90399a28c1f424a039cd7a397af8)
+        ;
+
+        
+    
+    
+            marker_f8913a5801b50fe8496c6d004cb27a65.bindTooltip(
+                `<div>
+                     Fribourg, Boschung
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f8913a5801b50fe8496c6d004cb27a65.setIcon(icon_a27ad3f1f9a933972f4b082a9d7605d3);
+            
+    
+            var circle_marker_e177f2c9deebadc5df037e409019b44f = L.circleMarker(
+                [46.811451, 7.171016],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_70c628f4d98c3983b42543a03e2af1ab = L.marker(
+                [46.80609, 7.161261],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_403a0f5200c1a021f73c3784bb2b80ed = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_529ef7c211fca7ac4b3d23304d380705 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24dcb90279735e91acf442b180f4d780 = $(`<div id="html_24dcb90279735e91acf442b180f4d780" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Tilleul/Cathédrale</b><br>     Station ID: 8587255<br>     Index: 4<br>     Coords: 46.806090, 7.161261     </div>`)[0];
+                popup_529ef7c211fca7ac4b3d23304d380705.setContent(html_24dcb90279735e91acf442b180f4d780);
+            
+        
+
+        marker_70c628f4d98c3983b42543a03e2af1ab.bindPopup(popup_529ef7c211fca7ac4b3d23304d380705)
+        ;
+
+        
+    
+    
+            marker_70c628f4d98c3983b42543a03e2af1ab.bindTooltip(
+                `<div>
+                     Fribourg, Tilleul/Cathédrale
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_70c628f4d98c3983b42543a03e2af1ab.setIcon(icon_403a0f5200c1a021f73c3784bb2b80ed);
+            
+    
+            var circle_marker_d20e25059e6bfcda7bbcf827ea6dcc4e = L.circleMarker(
+                [46.80609, 7.161261],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_3a5499304c36c34dd1bf64c07c17065f = L.marker(
+                [46.803911, 7.155266],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_bbb36506174741ce3e59d0c9ab81cf84 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_69460610f9411260247d761153cc7f47 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2f1784bf611692804d575f62dacd4ae = $(`<div id="html_c2f1784bf611692804d575f62dacd4ae" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, St-Pierre</b><br>     Station ID: 8589161<br>     Index: 5<br>     Coords: 46.803911, 7.155266     </div>`)[0];
+                popup_69460610f9411260247d761153cc7f47.setContent(html_c2f1784bf611692804d575f62dacd4ae);
+            
+        
+
+        marker_3a5499304c36c34dd1bf64c07c17065f.bindPopup(popup_69460610f9411260247d761153cc7f47)
+        ;
+
+        
+    
+    
+            marker_3a5499304c36c34dd1bf64c07c17065f.bindTooltip(
+                `<div>
+                     Fribourg, St-Pierre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3a5499304c36c34dd1bf64c07c17065f.setIcon(icon_bbb36506174741ce3e59d0c9ab81cf84);
+            
+    
+            var circle_marker_636cba8db523d0386528d7e60bbe9578 = L.circleMarker(
+                [46.803911, 7.155266],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_76b0b4904bb93c3b10bcaa779bf8bd0a = L.marker(
+                [46.802898, 7.15141],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_5f15b4c07deb56d1f358b04999ec35bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_031ef7a375595924e87ad3e9c22e6bd3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_58880a2abaad5f05c19ebffcd6a917fd = $(`<div id="html_58880a2abaad5f05c19ebffcd6a917fd" style="width: 100.0%; height: 100.0%;">     <b>Fribourg/Freiburg, Pl. Gare</b><br>     Station ID: 8592374<br>     Index: 6<br>     Coords: 46.802898, 7.151410     </div>`)[0];
+                popup_031ef7a375595924e87ad3e9c22e6bd3.setContent(html_58880a2abaad5f05c19ebffcd6a917fd);
+            
+        
+
+        marker_76b0b4904bb93c3b10bcaa779bf8bd0a.bindPopup(popup_031ef7a375595924e87ad3e9c22e6bd3)
+        ;
+
+        
+    
+    
+            marker_76b0b4904bb93c3b10bcaa779bf8bd0a.bindTooltip(
+                `<div>
+                     Fribourg/Freiburg, Pl. Gare
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76b0b4904bb93c3b10bcaa779bf8bd0a.setIcon(icon_5f15b4c07deb56d1f358b04999ec35bc);
+            
+    
+            var circle_marker_6b1cba1cea75c4c615e9e3e1b3c790e8 = L.circleMarker(
+                [46.802898, 7.15141],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_761232b7f749036ed7ef81230e212522 = L.marker(
+                [46.794173, 7.111828],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_a6a29a5501b14c818444956071e8d82e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8f77b619fd8700323a7f3871813a49be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0afdb1c49bcb3ee02111f873d0211019 = $(`<div id="html_0afdb1c49bcb3ee02111f873d0211019" style="width: 100.0%; height: 100.0%;">     <b>Villars-sur-Glâne, Méridienne</b><br>     Station ID: 8589130<br>     Index: 7<br>     Coords: 46.794173, 7.111828     </div>`)[0];
+                popup_8f77b619fd8700323a7f3871813a49be.setContent(html_0afdb1c49bcb3ee02111f873d0211019);
+            
+        
+
+        marker_761232b7f749036ed7ef81230e212522.bindPopup(popup_8f77b619fd8700323a7f3871813a49be)
+        ;
+
+        
+    
+    
+            marker_761232b7f749036ed7ef81230e212522.bindTooltip(
+                `<div>
+                     Villars-sur-Glâne, Méridienne
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_761232b7f749036ed7ef81230e212522.setIcon(icon_a6a29a5501b14c818444956071e8d82e);
+            
+    
+            var circle_marker_d884a254cd299b6e11c6041d61631193 = L.circleMarker(
+                [46.794173, 7.111828],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_062e81f625fe2491d1ed21a81a079e9f = L.marker(
+                [46.79857, 7.120788],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_9783cf0646b6b11ed340896d0e97d8e1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b49981f9c6dbf5748a57743d922a105 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d74119a494d14644944bcff8377c4ffa = $(`<div id="html_d74119a494d14644944bcff8377c4ffa" style="width: 100.0%; height: 100.0%;">     <b>Villars-sur-Glâne, Moncor</b><br>     Station ID: 8589131<br>     Index: 8<br>     Coords: 46.798570, 7.120788     </div>`)[0];
+                popup_1b49981f9c6dbf5748a57743d922a105.setContent(html_d74119a494d14644944bcff8377c4ffa);
+            
+        
+
+        marker_062e81f625fe2491d1ed21a81a079e9f.bindPopup(popup_1b49981f9c6dbf5748a57743d922a105)
+        ;
+
+        
+    
+    
+            marker_062e81f625fe2491d1ed21a81a079e9f.bindTooltip(
+                `<div>
+                     Villars-sur-Glâne, Moncor
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_062e81f625fe2491d1ed21a81a079e9f.setIcon(icon_9783cf0646b6b11ed340896d0e97d8e1);
+            
+    
+            var circle_marker_b70cfc953364814aff7985baef58aa6a = L.circleMarker(
+                [46.79857, 7.120788],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_b130c8bac6819052d7581f9b52e18ce1 = L.marker(
+                [46.800233, 7.125455],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_e43c8939cf9b52a75beec4add6eae6e3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_75db4e0a38348548f6150057e4e13414 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_47367b0662667366dc633973543ad7c6 = $(`<div id="html_47367b0662667366dc633973543ad7c6" style="width: 100.0%; height: 100.0%;">     <b>Villars-sur-Glâne, Belle-Croix</b><br>     Station ID: 8588344<br>     Index: 9<br>     Coords: 46.800233, 7.125455     </div>`)[0];
+                popup_75db4e0a38348548f6150057e4e13414.setContent(html_47367b0662667366dc633973543ad7c6);
+            
+        
+
+        marker_b130c8bac6819052d7581f9b52e18ce1.bindPopup(popup_75db4e0a38348548f6150057e4e13414)
+        ;
+
+        
+    
+    
+            marker_b130c8bac6819052d7581f9b52e18ce1.bindTooltip(
+                `<div>
+                     Villars-sur-Glâne, Belle-Croix
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b130c8bac6819052d7581f9b52e18ce1.setIcon(icon_e43c8939cf9b52a75beec4add6eae6e3);
+            
+    
+            var circle_marker_bb357a70dc85a0e0d3370e85226e0262 = L.circleMarker(
+                [46.800233, 7.125455],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_33b1cde0d754042e7191b1f544efc3d9 = L.marker(
+                [46.798991, 7.131395],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_995f1893b27dfb3532c4b471d0a0e03e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40137d7b2812f16d0fea8ab88028b51b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cd312069531f4cb7e41e69df11988ce0 = $(`<div id="html_cd312069531f4cb7e41e69df11988ce0" style="width: 100.0%; height: 100.0%;">     <b>Villars-sur-Glâne,Villars-Vert</b><br>     Station ID: 8577786<br>     Index: 10<br>     Coords: 46.798991, 7.131395     </div>`)[0];
+                popup_40137d7b2812f16d0fea8ab88028b51b.setContent(html_cd312069531f4cb7e41e69df11988ce0);
+            
+        
+
+        marker_33b1cde0d754042e7191b1f544efc3d9.bindPopup(popup_40137d7b2812f16d0fea8ab88028b51b)
+        ;
+
+        
+    
+    
+            marker_33b1cde0d754042e7191b1f544efc3d9.bindTooltip(
+                `<div>
+                     Villars-sur-Glâne,Villars-Vert
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_33b1cde0d754042e7191b1f544efc3d9.setIcon(icon_995f1893b27dfb3532c4b471d0a0e03e);
+            
+    
+            var circle_marker_481cd6bd82e4e97e6c17bf54a2e703a2 = L.circleMarker(
+                [46.798991, 7.131395],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_66d0986b506b9a90d9048455fc18d1fc = L.marker(
+                [46.8013, 7.138046],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_ed3859f0a5afa9b83146ecc2ce5b1ac0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68aafc2a0b3380cb84cfece7a77a4327 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc080823090ed407c2c805aa81ed0cc3 = $(`<div id="html_fc080823090ed407c2c805aa81ed0cc3" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Bertigny</b><br>     Station ID: 8577785<br>     Index: 11<br>     Coords: 46.801300, 7.138046     </div>`)[0];
+                popup_68aafc2a0b3380cb84cfece7a77a4327.setContent(html_fc080823090ed407c2c805aa81ed0cc3);
+            
+        
+
+        marker_66d0986b506b9a90d9048455fc18d1fc.bindPopup(popup_68aafc2a0b3380cb84cfece7a77a4327)
+        ;
+
+        
+    
+    
+            marker_66d0986b506b9a90d9048455fc18d1fc.bindTooltip(
+                `<div>
+                     Fribourg, Bertigny
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_66d0986b506b9a90d9048455fc18d1fc.setIcon(icon_ed3859f0a5afa9b83146ecc2ce5b1ac0);
+            
+    
+            var circle_marker_8c10c3128454e49bab15a8515e3b3000 = L.circleMarker(
+                [46.8013, 7.138046],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_cc3f634e553d0a43074f0ef9609a0cdd = L.marker(
+                [46.81092671540513, 7.171932726075358],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_42917ce4190129715d81a0fb92704faf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db6a0fc4d4e98549da3d2331da47b7d1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b3acb084592b1a05aacb89533571914a = $(`<div id="html_b3acb084592b1a05aacb89533571914a" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Bellevue</b><br>     Station ID: 8504622<br>     Index: 12<br>     Coords: 46.810927, 7.171933     </div>`)[0];
+                popup_db6a0fc4d4e98549da3d2331da47b7d1.setContent(html_b3acb084592b1a05aacb89533571914a);
+            
+        
+
+        marker_cc3f634e553d0a43074f0ef9609a0cdd.bindPopup(popup_db6a0fc4d4e98549da3d2331da47b7d1)
+        ;
+
+        
+    
+    
+            marker_cc3f634e553d0a43074f0ef9609a0cdd.bindTooltip(
+                `<div>
+                     Fribourg, Bellevue
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cc3f634e553d0a43074f0ef9609a0cdd.setIcon(icon_42917ce4190129715d81a0fb92704faf);
+            
+    
+            var circle_marker_f6640113ab03fccf697e064291ee294d = L.circleMarker(
+                [46.81092671540513, 7.171932726075358],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_899cd3b333f044d2f2c52b9515a214d8 = L.marker(
+                [46.80542535842347, 7.178406780411913],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_2de490e1a833c2270ef5978e16867d35 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0c704ad9812984d6a6e5fa4403c56ebf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80d1cd988ff2a0d9328578959ab23df9 = $(`<div id="html_80d1cd988ff2a0d9328578959ab23df9" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Schönberg Dunant</b><br>     Station ID: 8589271<br>     Index: 13<br>     Coords: 46.805425, 7.178407     </div>`)[0];
+                popup_0c704ad9812984d6a6e5fa4403c56ebf.setContent(html_80d1cd988ff2a0d9328578959ab23df9);
+            
+        
+
+        marker_899cd3b333f044d2f2c52b9515a214d8.bindPopup(popup_0c704ad9812984d6a6e5fa4403c56ebf)
+        ;
+
+        
+    
+    
+            marker_899cd3b333f044d2f2c52b9515a214d8.bindTooltip(
+                `<div>
+                     Fribourg, Schönberg Dunant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_899cd3b333f044d2f2c52b9515a214d8.setIcon(icon_2de490e1a833c2270ef5978e16867d35);
+            
+    
+            var circle_marker_156256db6f481bd3d07c970c2e8d8abd = L.circleMarker(
+                [46.80542535842347, 7.178406780411913],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_19362b5970c266e7ce116a92a810cc21 = L.marker(
+                [46.80549, 7.140123],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_70a016f22ec9382019f5bc4924cb773b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c48e88f01380296ee9276a73c5eed95e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d676cf20c6a411dc21805de247b82aec = $(`<div id="html_d676cf20c6a411dc21805de247b82aec" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Guintzet</b><br>     Station ID: 8592375<br>     Index: 14<br>     Coords: 46.805490, 7.140123     </div>`)[0];
+                popup_c48e88f01380296ee9276a73c5eed95e.setContent(html_d676cf20c6a411dc21805de247b82aec);
+            
+        
+
+        marker_19362b5970c266e7ce116a92a810cc21.bindPopup(popup_c48e88f01380296ee9276a73c5eed95e)
+        ;
+
+        
+    
+    
+            marker_19362b5970c266e7ce116a92a810cc21.bindTooltip(
+                `<div>
+                     Fribourg, Guintzet
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_19362b5970c266e7ce116a92a810cc21.setIcon(icon_70a016f22ec9382019f5bc4924cb773b);
+            
+    
+            var circle_marker_c47d3088af2a4aaa555455a83c2ac86e = L.circleMarker(
+                [46.80549, 7.140123],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_1c7ad0b9888d34429ba7c88647a8c30f = L.marker(
+                [46.803893, 7.137545],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_e77ab04027bbe821a5a20c44b9070326 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7d85b825001b852b693a4e8a8ea8736e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5bf10669f8421df832323222af629736 = $(`<div id="html_5bf10669f8421df832323222af629736" style="width: 100.0%; height: 100.0%;">     <b>Villars-sur-Glâne,Jean Paul II</b><br>     Station ID: 8592378<br>     Index: 15<br>     Coords: 46.803893, 7.137545     </div>`)[0];
+                popup_7d85b825001b852b693a4e8a8ea8736e.setContent(html_5bf10669f8421df832323222af629736);
+            
+        
+
+        marker_1c7ad0b9888d34429ba7c88647a8c30f.bindPopup(popup_7d85b825001b852b693a4e8a8ea8736e)
+        ;
+
+        
+    
+    
+            marker_1c7ad0b9888d34429ba7c88647a8c30f.bindTooltip(
+                `<div>
+                     Villars-sur-Glâne,Jean Paul II
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1c7ad0b9888d34429ba7c88647a8c30f.setIcon(icon_e77ab04027bbe821a5a20c44b9070326);
+            
+    
+            var circle_marker_0cbbc77d9801071cdf3b22c3d27ab6c2 = L.circleMarker(
+                [46.803893, 7.137545],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_ae85f01e3ebc58281a8cf01b8fca88a7 = L.marker(
+                [46.801851, 7.13667],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_c408399d110e15ca71a1fda2387eb4b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c3af9c404029b1d5cd933c64d3c65251 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b91e220374cb478cf23be937553ec41 = $(`<div id="html_2b91e220374cb478cf23be937553ec41" style="width: 100.0%; height: 100.0%;">     <b>Villars-sur-Glâne, Hôp. cant.</b><br>     Station ID: 8592377<br>     Index: 16<br>     Coords: 46.801851, 7.136670     </div>`)[0];
+                popup_c3af9c404029b1d5cd933c64d3c65251.setContent(html_2b91e220374cb478cf23be937553ec41);
+            
+        
+
+        marker_ae85f01e3ebc58281a8cf01b8fca88a7.bindPopup(popup_c3af9c404029b1d5cd933c64d3c65251)
+        ;
+
+        
+    
+    
+            marker_ae85f01e3ebc58281a8cf01b8fca88a7.bindTooltip(
+                `<div>
+                     Villars-sur-Glâne, Hôp. cant.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ae85f01e3ebc58281a8cf01b8fca88a7.setIcon(icon_c408399d110e15ca71a1fda2387eb4b0);
+            
+    
+            var circle_marker_1cac13d1c609f299a16d9673ec96be15 = L.circleMarker(
+                [46.801851, 7.13667],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_0f76f51a14b57393ec0cec82437a28bc = L.marker(
+                [46.811223, 7.172643],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_d7a182712a2fac9675e052e112d81244 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5c847c46d58c0063847d2b3b32e498c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2a97e72d077e10d7d032587925c87315 = $(`<div id="html_2a97e72d077e10d7d032587925c87315" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Route-de-Tavel</b><br>     Station ID: 8591767<br>     Index: 17<br>     Coords: 46.811223, 7.172643     </div>`)[0];
+                popup_5c847c46d58c0063847d2b3b32e498c2.setContent(html_2a97e72d077e10d7d032587925c87315);
+            
+        
+
+        marker_0f76f51a14b57393ec0cec82437a28bc.bindPopup(popup_5c847c46d58c0063847d2b3b32e498c2)
+        ;
+
+        
+    
+    
+            marker_0f76f51a14b57393ec0cec82437a28bc.bindTooltip(
+                `<div>
+                     Fribourg, Route-de-Tavel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0f76f51a14b57393ec0cec82437a28bc.setIcon(icon_d7a182712a2fac9675e052e112d81244);
+            
+    
+            var circle_marker_8c137cea99455b78027e856611e324f1 = L.circleMarker(
+                [46.811223, 7.172643],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_1915751ace014ba436d0069af6df3333 = L.marker(
+                [46.812081, 7.173246],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_700b3f74b22ad29f2991144f4b7fbed8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3268510144e60afac28fc6c706bf2739 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94f460537658186fe32438d114f36f1c = $(`<div id="html_94f460537658186fe32438d114f36f1c" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Kessler</b><br>     Station ID: 8589270<br>     Index: 18<br>     Coords: 46.812081, 7.173246     </div>`)[0];
+                popup_3268510144e60afac28fc6c706bf2739.setContent(html_94f460537658186fe32438d114f36f1c);
+            
+        
+
+        marker_1915751ace014ba436d0069af6df3333.bindPopup(popup_3268510144e60afac28fc6c706bf2739)
+        ;
+
+        
+    
+    
+            marker_1915751ace014ba436d0069af6df3333.bindTooltip(
+                `<div>
+                     Fribourg, Kessler
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1915751ace014ba436d0069af6df3333.setIcon(icon_700b3f74b22ad29f2991144f4b7fbed8);
+            
+    
+            var circle_marker_ee5befe110440c6b7999dc834f9646d6 = L.circleMarker(
+                [46.812081, 7.173246],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_ab6917b1624ddcc4a5ebd2a5d8b01aea = L.marker(
+                [46.813063, 7.173218],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_6b83d72e9a3aac25d240f30daade4d07 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_649d42697ca02d863df4d20b2100c9b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e76860c719a20733d6f1eeb148846f07 = $(`<div id="html_e76860c719a20733d6f1eeb148846f07" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Ploetscha</b><br>     Station ID: 8589147<br>     Index: 19<br>     Coords: 46.813063, 7.173218     </div>`)[0];
+                popup_649d42697ca02d863df4d20b2100c9b6.setContent(html_e76860c719a20733d6f1eeb148846f07);
+            
+        
+
+        marker_ab6917b1624ddcc4a5ebd2a5d8b01aea.bindPopup(popup_649d42697ca02d863df4d20b2100c9b6)
+        ;
+
+        
+    
+    
+            marker_ab6917b1624ddcc4a5ebd2a5d8b01aea.bindTooltip(
+                `<div>
+                     Fribourg, Ploetscha
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab6917b1624ddcc4a5ebd2a5d8b01aea.setIcon(icon_6b83d72e9a3aac25d240f30daade4d07);
+            
+    
+            var circle_marker_644f396cef07480fa9c60b1f7a8c7f48 = L.circleMarker(
+                [46.813063, 7.173218],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_5bfa3f25f216fe568dc246c6bde3e0d3 = L.marker(
+                [46.816016, 7.17397],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_4d56780c8a3a5f5874672ac66ce94ebb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_169f421266b5fb6ec706c318b9a25761 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d3b68658bd00e9b33929729c104d12f = $(`<div id="html_4d3b68658bd00e9b33929729c104d12f" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Windig</b><br>     Station ID: 8589158<br>     Index: 20<br>     Coords: 46.816016, 7.173970     </div>`)[0];
+                popup_169f421266b5fb6ec706c318b9a25761.setContent(html_4d3b68658bd00e9b33929729c104d12f);
+            
+        
+
+        marker_5bfa3f25f216fe568dc246c6bde3e0d3.bindPopup(popup_169f421266b5fb6ec706c318b9a25761)
+        ;
+
+        
+    
+    
+            marker_5bfa3f25f216fe568dc246c6bde3e0d3.bindTooltip(
+                `<div>
+                     Fribourg, Windig
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5bfa3f25f216fe568dc246c6bde3e0d3.setIcon(icon_4d56780c8a3a5f5874672ac66ce94ebb);
+            
+    
+            var circle_marker_52d2a61b1224cc7e1a4cf349adbce827 = L.circleMarker(
+                [46.816016, 7.17397],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var marker_6eac5386a5063528a400eae8614f4625 = L.marker(
+                [46.807676, 7.168025],
+                {
+}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+    
+            var icon_cf6871cb854b9f7738506b0ad9edc814 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f1b8396902049518e3cccddc34316874 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fbfcdfb51e46e680b6cb21ec3dbdd07d = $(`<div id="html_fbfcdfb51e46e680b6cb21ec3dbdd07d" style="width: 100.0%; height: 100.0%;">     <b>Fribourg, Pont-Zaehringen</b><br>     Station ID: 8587356<br>     Index: 21<br>     Coords: 46.807676, 7.168025     </div>`)[0];
+                popup_f1b8396902049518e3cccddc34316874.setContent(html_fbfcdfb51e46e680b6cb21ec3dbdd07d);
+            
+        
+
+        marker_6eac5386a5063528a400eae8614f4625.bindPopup(popup_f1b8396902049518e3cccddc34316874)
+        ;
+
+        
+    
+    
+            marker_6eac5386a5063528a400eae8614f4625.bindTooltip(
+                `<div>
+                     Fribourg, Pont-Zaehringen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6eac5386a5063528a400eae8614f4625.setIcon(icon_cf6871cb854b9f7738506b0ad9edc814);
+            
+    
+            var circle_marker_bf0bc763d912040ac17b935e3b2a5210 = L.circleMarker(
+                [46.807676, 7.168025],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_e99a2cebdd145653e5d1d36b8de5194f);
+        
+</script>
+</html>

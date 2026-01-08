@@ -4,6 +4,14 @@ Configuration module for the mixed traffic simulation system.
 This module contains all configurable parameters for the simulation,
 including time settings, file paths, vehicle configurations, and optimization settings.
 All parameters can be modified here without changing the core simulation code.
+
+
+Config to change: SIMULATION_START_TIME, SIMULATION_END_TIME, STATIONS_FILE, TRAVEL_TIME_MATRIX_FILE,
+MATRIX_METADATA_FILE, BUS_SCHEDULE_FILE(data or data)
+ENABLE_MINIBUS, MINIBUS_INITIAL_LOCATIONS,
+OPTIMIZER_TYPE
+PASSENGER_GENERATION_METHOD: "test" or "od_matrix"
+
 """
 
 import os
@@ -15,10 +23,10 @@ from typing import Dict, Any
 # ============================================================================
 
 # Simulation start time in HH:MM:SS format
-SIMULATION_START_TIME = "8:00:00"
+SIMULATION_START_TIME = "15:00:00"
 
 # Simulation end time in HH:MM:SS format
-SIMULATION_END_TIME = "9:00:00"
+SIMULATION_END_TIME = "15:30:00"
 
 # Simulation date in YYYY-MM-DD format
 SIMULATION_DATE = "2024-07-25"
@@ -29,16 +37,16 @@ SIMULATION_DATE = "2024-07-25"
 # ============================================================================
 
 # Path to the stations definition file (JSON format)
-STATIONS_FILE = "mockdata/stations.json"
+STATIONS_FILE = "data/stations.json"
 
 # Path to the travel time matrix (NumPy binary format)
-TRAVEL_TIME_MATRIX_FILE = "mockdata/travel_time_matrix.npy"
+TRAVEL_TIME_MATRIX_FILE = "data/travel_time_matrix.npy"
 
 # Path to the matrix metadata file (JSON format)
-MATRIX_METADATA_FILE = "mockdata/matrix_metadata.json"
+MATRIX_METADATA_FILE = "data/matrix_metadata.json"
 
 # Path to the bus schedule file (CSV format)
-BUS_SCHEDULE_FILE = "mockdata/bus_schedule.csv"
+BUS_SCHEDULE_FILE = "data/bus_schedule.csv"
 
 
 # ============================================================================
@@ -60,7 +68,7 @@ NUM_MINIBUSES = 3
 MINIBUS_CAPACITY = 6
 
 # Initial station locations for minibuses (must match station IDs)
-MINIBUS_INITIAL_LOCATIONS = ['A','A','C']  # Can also be "random"
+MINIBUS_INITIAL_LOCATIONS = ["8592374","8592374","8592374"]  # Can also be "random"
 
 
 # ============================================================================
@@ -68,17 +76,20 @@ MINIBUS_INITIAL_LOCATIONS = ['A','A','C']  # Can also be "random"
 # ============================================================================
 
 # Time interval (in seconds) between optimizer calls
-OPTIMIZATION_INTERVAL = 30
+OPTIMIZATION_INTERVAL = 300
 
-# Type of optimizer to use: "external_program", "internal", etc.
-OPTIMIZER_TYPE = "dummy" 
-
+# ['dummy', 'external_program', 'python_module']
+OPTIMIZER_TYPE = 'python_module'  # 'dummy' optimizer does nothing
+# OPTIMIZER_TYPE = 'dummy' 
 # Configuration dictionary for the optimizer
-OPTIMIZER_CONFIG = {
-    "program_path": "./optimizer/solve.py",  # Path to the external optimizer program
-    "timeout": 30.0  # Maximum time (seconds) to wait for optimizer response
-}
 
+
+OPTIMIZER_CONFIG = {
+    'module_name': 'optimizer.greedy_insertion',  
+    'function_name': 'greedy_insert_optimize',  
+    'max_waiting_time': 600.0,  
+    'max_detour_time': 300.0,   
+}
 
 # ============================================================================
 # PASSENGER SETTINGS
@@ -94,7 +105,7 @@ PASSENGER_MAX_WAIT_TIME = 9000.0
 # ============================================================================
 
 # Directory where simulation results will be saved
-OUTPUT_DIR = "mockdata/results/"
+OUTPUT_DIR = "data/results/"
 
 # Name of the log file
 LOG_FILE = "simulation.log"
@@ -110,7 +121,7 @@ OD_MATRIX_FILE = "data/od_matrix.npy"
 OD_METADATA_FILE = "data/od_metadata.json"
 
 # Passenger generation method: "test", "od_matrix", "file"
-PASSENGER_GENERATION_METHOD = "test"
+PASSENGER_GENERATION_METHOD = "od_matrix"
 
 # ============================================================================
 # OTHER SETTINGS
