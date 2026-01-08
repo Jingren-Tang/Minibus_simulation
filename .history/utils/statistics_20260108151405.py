@@ -212,7 +212,6 @@ class Statistics:
                 f"Error recording periodic state for {vehicle_id}: {e}",
                 exc_info=True
             )
-    
     def record_vehicle_event(
         self,
         vehicle_id: str,
@@ -230,9 +229,14 @@ class Statistics:
             current_time: Current simulation time in seconds
         
         Event data examples:
-            BOARDING: {"station": "A", "count": 3, "occupancy": 5}
-            ALIGHTING: {"station": "B", "count": 2, "occupancy": 3}
+            BOARDING: {"station": "A", "count": 3, "occupancy": 5}  # occupancy AFTER boarding
+            ALIGHTING: {"station": "B", "count": 2, "occupancy": 3}  # occupancy AFTER alighting
             ARRIVAL: {"station": "C", "occupancy": 5}
+        
+        IMPORTANT: The 'occupancy' field in event_data MUST represent the vehicle state
+                AFTER the event has occurred:
+                - BOARDING: occupancy = previous_occupancy + count
+                - ALIGHTING: occupancy = previous_occupancy - count
         """
         try:
             # Initialize vehicle record if first event
@@ -252,6 +256,7 @@ class Statistics:
             vehicle_record = self.vehicle_records[vehicle_id]
             
             # Record occupancy (always for event-based tracking)
+            # NOTE: This records the occupancy AFTER the event
             if "occupancy" in event_data:
                 vehicle_record["occupancy_over_time"].append(
                     (current_time, event_data["occupancy"])
@@ -265,6 +270,24 @@ class Statistics:
             
             # Handle specific event types
             if event_type == "BOARDING":
+                # Validate: occupancy should have increased
+                if "count" in event_data and "occupancy" in event_data:
+                    count = event_data.get("count", 0)
+                    occupancy = event_data.get("occupancy")
+                    
+                    # WARNING: Check if occupancy is consistent with boarding count
+                    # If this is not the first record, verify the increase
+                    if vehicle_record["occupancy_over_time"]:
+                        prev_occupancy = vehicle_record["occupancy_over_time"][-2][1] if len(vehicle_record["occupancy_over_time"]) > 1 else 0
+                        expected_occupancy = prev_occupancy + count
+                        
+                        if occupancy != expected_occupancy:
+                            logger.warning(
+                                f"BOARDING occupancy mismatch for {vehicle_id} at {current_time}s: "
+                                f"previous={prev_occupancy}, count={count}, "
+                                f"expected={expected_occupancy}, actual={occupancy}"
+                            )
+                
                 vehicle_record["boarding_events"].append({
                     "time": current_time,
                     "station": event_data.get("station"),
@@ -282,6 +305,23 @@ class Statistics:
                 })
             
             elif event_type == "ALIGHTING":
+                # Validate: occupancy should have decreased
+                if "count" in event_data and "occupancy" in event_data:
+                    count = event_data.get("count", 0)
+                    occupancy = event_data.get("occupancy")
+                    
+                    # WARNING: Check if occupancy is consistent with alighting count
+                    if vehicle_record["occupancy_over_time"]:
+                        prev_occupancy = vehicle_record["occupancy_over_time"][-2][1] if len(vehicle_record["occupancy_over_time"]) > 1 else 0
+                        expected_occupancy = prev_occupancy - count
+                        
+                        if occupancy != expected_occupancy:
+                            logger.warning(
+                                f"ALIGHTING occupancy mismatch for {vehicle_id} at {current_time}s: "
+                                f"previous={prev_occupancy}, count={count}, "
+                                f"expected={expected_occupancy}, actual={occupancy}"
+                            )
+                
                 vehicle_record["alighting_events"].append({
                     "time": current_time,
                     "station": event_data.get("station"),
@@ -299,6 +339,8 @@ class Statistics:
             
             elif event_type == "ARRIVAL":
                 station = event_data.get("station")
+                
+                # Add station to route only if it's new (avoid duplicates)
                 if station and station not in vehicle_record["route"]:
                     vehicle_record["route"].append(station)
                 

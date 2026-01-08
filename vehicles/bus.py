@@ -97,111 +97,121 @@ class Bus:
         return self.next_station_id, self.next_arrival_time
     
     def arrive_at_station(
-        self,
-        station: Any,  # Station object
-        current_time: float
-    ) -> Dict[str, List[Any]]:
-        """
-        Handle arrival at a station - the core method for bus operations.
-        
-        This method processes passenger alighting and boarding in the correct order:
-        1. Alight passengers whose destination is this station
-        2. Board waiting passengers whose destination is on the route (up to capacity)
-        3. Update bus position and next station information
-        
-        Args:
-            station: Station object where the bus is arriving
-            current_time: Current simulation time in seconds
+            self,
+            station: Any,  # Station object
+            current_time: float
+        ) -> Dict[str, List[Any]]:
+            """
+            Handle arrival at a station - the core method for bus operations.
             
-        Returns:
-            Dictionary containing:
-                - "boarded": List of passengers who boarded
-                - "alighted": List of passengers who alighted
-                - "rejected": List of passengers who couldn't board (capacity/route issues)
-        """
-        station_id = station.station_id
-        boarded = []
-        alighted = []
-        rejected = []
-        
-        logger.info(
-            f"{self.bus_id} arriving at {station_id} at {current_time}s "
-            f"(scheduled: {self.schedule.get(station_id, 'N/A')}s), "
-            f"occupancy: {self.get_occupancy()}/{self.capacity}"
-        )
-        
-        # Step 1: Alight passengers whose destination is this station
-        passengers_to_alight = [
-            p for p in self.passengers if p.destination_station_id == station_id
-        ]
-        
-        for passenger in passengers_to_alight:
-            if self.alight_passenger(passenger, current_time):
-                alighted.append(passenger)
-        
-        logger.info(
-            f"{self.bus_id}: {len(alighted)} passengers alighted at {station_id}"
-        )
-        
-        # Step 2: Board waiting passengers (FIFO order, check destination and capacity)
-        waiting_passengers = station.get_waiting_passengers()
-        
-        for passenger in waiting_passengers:
-            # Check if we can board this passenger
-            if not self.can_board_passenger(passenger):
-                # Check specific reason for rejection
-                if self.is_full():
-                    rejected.append(passenger)
-                    logger.debug(
-                        f"{self.bus_id}: Rejected {passenger.passenger_id} "
-                        f"(bus full)"
-                    )
-                elif not self.is_destination_on_route(passenger.destination_station_id):
-                    rejected.append(passenger)
-                    logger.debug(
-                        f"{self.bus_id}: Rejected {passenger.passenger_id} "
-                        f"(destination {passenger.destination_station_id} not on route)"
-                    )
-                continue
+            This method processes passenger alighting and boarding in the correct order:
+            1. Alight passengers whose destination is this station
+            2. Board waiting passengers whose destination is on the route (up to capacity)
+            3. Update bus position and next station information
             
-            # Attempt to board the passenger
-            if self.board_passenger(passenger, current_time):
-                boarded.append(passenger)
-                station.remove_waiting_passenger(passenger)
+            Args:
+                station: Station object where the bus is arriving
+                current_time: Current simulation time in seconds
                 
-                # # Stop if bus is now full
-                # if self.is_full():
-                #     break
-        
-        logger.info(
-            f"{self.bus_id}: {len(boarded)} passengers boarded at {station_id}, "
-            f"{len(rejected)} rejected"
-        )
-        
-        # Step 3: Update bus position and next station information
-        self.current_route_index += 1
-        
-        if not self.is_at_terminal():
-            self.next_station_id = self.route[self.current_route_index]
-            self.next_arrival_time = self.schedule[self.next_station_id]
+            Returns:
+                Dictionary containing:
+                    - "boarded": List of passengers who boarded
+                    - "alighted": List of passengers who alighted
+                    - "rejected": List of passengers who couldn't board (capacity/route issues)
+            """
+            station_id = station.station_id
+            boarded = []
+            alighted = []
+            rejected = []
+            
             logger.info(
-                f"{self.bus_id}: Next station {self.next_station_id} "
-                f"at {self.next_arrival_time}s"
+                f"{self.bus_id} arriving at {station_id} at {current_time}s "
+                f"(scheduled: {self.schedule.get(station_id, 'N/A')}s), "
+                f"occupancy: {self.get_occupancy()}/{self.capacity}"
             )
-        else:
-            self.next_station_id = None
-            self.next_arrival_time = None
-            logger.info(f"{self.bus_id}: Reached terminal station")
-        
-        # Update statistics
-        self.total_passengers_served += len(boarded)
-        
-        return {
-            "boarded": boarded,
-            "alighted": alighted,
-            "rejected": rejected
-        }
-    
+            
+            # Step 1: Alight passengers whose destination is this station
+            passengers_to_alight = [
+                p for p in self.passengers if p.destination_station_id == station_id
+            ]
+            
+            for passenger in passengers_to_alight:
+                if self.alight_passenger(passenger, current_time):
+                    alighted.append(passenger)
+            
+            logger.info(
+                f"{self.bus_id}: {len(alighted)} passengers alighted at {station_id}"
+            )
+            
+            # Step 2: Board waiting passengers (FIFO order, check destination and capacity)
+            waiting_passengers = station.get_waiting_passengers()
+            
+            for passenger in waiting_passengers:
+                # ===================================================================
+                # CRITICAL FIX: Check if passenger has actually appeared yet
+                # ===================================================================
+                if passenger.appear_time > current_time:
+                    logger.debug(
+                        f"{self.bus_id}: Skipping {passenger.passenger_id} "
+                        f"(hasn't appeared yet: appear_time={passenger.appear_time:.1f}s > current_time={current_time:.1f}s)"
+                    )
+                    continue
+                # ===================================================================
+                
+                # Check if we can board this passenger
+                if not self.can_board_passenger(passenger):
+                    # Check specific reason for rejection
+                    if self.is_full():
+                        rejected.append(passenger)
+                        logger.debug(
+                            f"{self.bus_id}: Rejected {passenger.passenger_id} "
+                            f"(bus full)"
+                        )
+                    elif not self.is_destination_on_route(passenger.destination_station_id):
+                        rejected.append(passenger)
+                        logger.debug(
+                            f"{self.bus_id}: Rejected {passenger.passenger_id} "
+                            f"(destination {passenger.destination_station_id} not on route)"
+                        )
+                    continue
+                
+                # Attempt to board the passenger
+                if self.board_passenger(passenger, current_time):
+                    boarded.append(passenger)
+                    station.remove_waiting_passenger(passenger)
+                    
+                    # # Stop if bus is now full
+                    # if self.is_full():
+                    #     break
+            
+            logger.info(
+                f"{self.bus_id}: {len(boarded)} passengers boarded at {station_id}, "
+                f"{len(rejected)} rejected"
+            )
+            
+            # Step 3: Update bus position and next station information
+            self.current_route_index += 1
+            
+            if not self.is_at_terminal():
+                self.next_station_id = self.route[self.current_route_index]
+                self.next_arrival_time = self.schedule[self.next_station_id]
+                logger.info(
+                    f"{self.bus_id}: Next station {self.next_station_id} "
+                    f"at {self.next_arrival_time}s"
+                )
+            else:
+                self.next_station_id = None
+                self.next_arrival_time = None
+                logger.info(f"{self.bus_id}: Reached terminal station")
+            
+            # Update statistics
+            self.total_passengers_served += len(boarded)
+            
+            return {
+                "boarded": boarded,
+                "alighted": alighted,
+                "rejected": rejected
+            }
     def can_board_passenger(self, passenger: Any) -> bool:
         """
         Check if a passenger can board the bus.

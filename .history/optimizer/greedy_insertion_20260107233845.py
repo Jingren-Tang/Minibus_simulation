@@ -235,23 +235,19 @@ def _is_capacity_feasible(
     """
     Check if route respects capacity constraints.
     
-    CRITICAL FIX: Merge stations BEFORE checking capacity!
-    The actual execution will use merged stations, so we must check against that.
+    CRITICAL: Process DROPOFF before PICKUP at each stop.
     
     Args:
-        route: List of stops (may have duplicates)
+        route: List of stops with pickup/dropoff lists
         capacity: Maximum vehicle capacity
         initial_occupancy: Number of passengers already onboard
         
     Returns:
-        True if route is feasible after merging, False otherwise
+        True if route is feasible, False otherwise
     """
-    # CRITICAL: Merge first!
-    merged_route = _merge_consecutive_stations_for_check(route)
-    
     occupancy = initial_occupancy
     
-    for i, stop in enumerate(merged_route):
+    for i, stop in enumerate(route):
         # CRITICAL ORDER: Dropoff BEFORE Pickup
         occupancy -= len(stop["dropoff"])
         occupancy += len(stop["pickup"])
@@ -266,44 +262,6 @@ def _is_capacity_feasible(
             return False
     
     return True
-
-
-def _merge_consecutive_stations_for_check(route: List[Dict]) -> List[Dict]:
-    """
-    Helper function to merge stations for capacity checking.
-    Same logic as _merge_consecutive_stations.
-    """
-    if not route:
-        return []
-    
-    merged = []
-    current = {
-        "station": route[0]["station"],
-        "pickup": route[0]["pickup"].copy(),
-        "dropoff": route[0]["dropoff"].copy()
-    }
-    
-    for stop in route[1:]:
-        if stop["station"] == current["station"]:
-            # Same station - merge
-            current["pickup"].extend(stop["pickup"])
-            current["dropoff"].extend(stop["dropoff"])
-        else:
-            # Different station - save current and start new
-            if current["pickup"] or current["dropoff"]:
-                merged.append(current)
-            
-            current = {
-                "station": stop["station"],
-                "pickup": stop["pickup"].copy(),
-                "dropoff": stop["dropoff"].copy()
-            }
-    
-    # Don't forget the last stop
-    if current["pickup"] or current["dropoff"]:
-        merged.append(current)
-    
-    return merged
 
 
 def _compute_route_cost(route: List[Dict], input_data: Dict) -> float:
@@ -338,12 +296,7 @@ def _generate_output(vehicles: List[Dict]) -> Dict[str, List[Dict]]:
     """
     Convert internal vehicle format back to output format.
     
-    CRITICAL FIX: When merging creates a stop with both pickup and dropoff,
-    we MUST output them in the correct order for capacity validation.
-    
-    The test validation code processes actions in OUTPUT ORDER, so we must ensure:
-    1. DROPOFF actions come before PICKUP actions at the same station
-    2. This matches the order we used in _is_capacity_feasible
+    Important: Merge consecutive stops at the same station to avoid duplicates.
     """
     output = {}
     
@@ -354,26 +307,25 @@ def _generate_output(vehicles: List[Dict]) -> Dict[str, List[Dict]]:
         # Merge consecutive stops at same station
         merged_route = _merge_consecutive_stations(route)
         
-        # Convert to output format with CORRECT ORDER
+        # Convert to output format
         route_plan = []
         for stop in merged_route:
             station = stop["station"]
             
-            # CRITICAL: DROPOFF before PICKUP
-            # This is the order we used in capacity checking!
-            
-            if stop["dropoff"]:
-                route_plan.append({
-                    "station_id": station,
-                    "action": "DROPOFF",
-                    "passenger_ids": stop["dropoff"]
-                })
-            
+            # Add PICKUP action if there are pickups
             if stop["pickup"]:
                 route_plan.append({
                     "station_id": station,
                     "action": "PICKUP",
                     "passenger_ids": stop["pickup"]
+                })
+            
+            # Add DROPOFF action if there are dropoffs
+            if stop["dropoff"]:
+                route_plan.append({
+                    "station_id": station,
+                    "action": "DROPOFF",
+                    "passenger_ids": stop["dropoff"]
                 })
         
         output[minibus_id] = route_plan
@@ -385,20 +337,12 @@ def _merge_consecutive_stations(route: List[Dict]) -> List[Dict]:
     """
     Merge consecutive stops at the same station.
     
-    CRITICAL FIX: When merging, maintain DROPOFF-before-PICKUP order within the station.
-    
     Example:
         [{"station": "A", "pickup": ["P1"], "dropoff": []},
          {"station": "A", "pickup": [], "dropoff": ["P2"]}]
         
     Becomes:
         [{"station": "A", "pickup": ["P1"], "dropoff": ["P2"]}]
-        
-    But the OUTPUT format must show DROPOFF first:
-        Output: [
-            {"station": "A", "action": "DROPOFF", "passenger_ids": ["P2"]},
-            {"station": "A", "action": "PICKUP", "passenger_ids": ["P1"]}
-        ]
     """
     if not route:
         return []

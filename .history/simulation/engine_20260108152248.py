@@ -10,8 +10,7 @@ import logging
 import csv
 import numpy as np
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional
-
+from typing import List, Dict, Optional, Tuple
 
 import sys
 import os
@@ -669,90 +668,66 @@ class SimulationEngine:
             logger.error(f"Error handling bus arrival for {bus_id}: {e}", exc_info=True)
     
     def handle_passenger_appear(self, event: Event) -> None:
-        """
-        Handle passenger appearance in the system.
-        
-        Steps:
-            1. Get or create Passenger object
-            2. Add to pending_requests list (if not already added)
-            3. Add to origin station's waiting list
-        
-        Args:
-            event: Passenger appear event containing passenger data
-        """
-        try:
-            # Get passenger object (may already exist from _generate_passengers_from_od_matrix)
-            if "passenger" in event.data:
-                passenger = event.data["passenger"]
-            else:
-                # Create new passenger (for test passengers)
-                pax_id = event.data["id"]
-                origin = event.data["origin"]
-                destination = event.data["dest"]
+            """
+            Handle passenger appearance in the system.
+            
+            Steps:
+                1. Get or create Passenger object
+                2. Add to pending_requests list (if not already added)
+                3. Add to origin station's waiting list (ONLY when they actually appear)
+            
+            Args:
+                event: Passenger appear event containing passenger data
+            """
+            try:
+                # Get passenger object (may already exist from _generate_passengers_from_od_matrix)
+                if "passenger" in event.data:
+                    passenger = event.data["passenger"]
+                else:
+                    # Create new passenger (for test passengers)
+                    pax_id = event.data["id"]
+                    origin = event.data["origin"]
+                    destination = event.data["dest"]
+                    
+                    passenger = Passenger(
+                        passenger_id=pax_id,
+                        origin=origin,
+                        destination=destination,
+                        appear_time=self.current_time,
+                        max_wait_time=self.config.get("passenger_max_wait_time", 900.0)
+                    )
+                    
+                    # Add to tracking structures
+                    self.all_passengers[pax_id] = passenger
                 
-                passenger = Passenger(
-                    passenger_id=pax_id,
-                    origin=origin,
-                    destination=destination,
-                    appear_time=self.current_time,
-                    max_wait_time=self.config.get("passenger_max_wait_time", 900.0)
-                )
+                # Add to pending requests
+                if passenger not in self.pending_requests:
+                    self.pending_requests.append(passenger)
                 
-                # Add to tracking structures
-                self.all_passengers[pax_id] = passenger
-            
-            # Add to pending requests
-            if passenger not in self.pending_requests:
-                self.pending_requests.append(passenger)
-            
-            # Add to origin station's waiting list
-            station = self.network.get_station(passenger.origin_station_id)
-            if station is None:
-                logger.error(
-                    f"Origin station {passenger.origin_station_id} not found for "
-                    f"passenger {passenger.passenger_id}"
+                # IMPORTANT: Only add to station waiting list NOW (when they actually appear)
+                # Not during initialization or passenger generation
+                station = self.network.get_station(passenger.origin_station_id)
+                if station is None:
+                    logger.error(
+                        f"Origin station {passenger.origin_station_id} not found for "
+                        f"passenger {passenger.passenger_id}"
+                    )
+                    return
+                
+                station.add_waiting_passenger(passenger)
+                
+                logger.info(
+                    f"Passenger {passenger.passenger_id} appeared at station {passenger.origin_station_id}, "
+                    f"destination {passenger.destination_station_id}, "
+                    f"time {self._seconds_to_time_str(self.current_time)}"
                 )
-                return
+                logger.debug(
+                    f"Total passengers: {len(self.all_passengers)}, "
+                    f"Pending: {len(self.pending_requests)}"
+                )
             
-            station.add_waiting_passenger(passenger)
-            
-            logger.info(
-                f"Passenger {passenger.passenger_id} appeared at station {passenger.origin_station_id}, "
-                f"destination {passenger.destination_station_id}, "
-                f"time {self._seconds_to_time_str(self.current_time)}"
-            )
-            logger.debug(
-                f"Total passengers: {len(self.all_passengers)}, "
-                f"Pending: {len(self.pending_requests)}"
-            )
-        
-        except Exception as e:
-            logger.error(f"Error handling passenger appear: {e}", exc_info=True)
-    
-    def handle_simulation_end(self, event: Event) -> None:
-        """
-        Handle simulation end event.
-        
-        Args:
-            event: Simulation end event
-        """
-        logger.info("=" * 60)
-        logger.info("SIMULATION END EVENT REACHED")
-        logger.info("=" * 60)
-        
-        # Record simulation end event
-        arrived = sum(1 for p in self.all_passengers.values() if p.status == Passenger.ARRIVED)
-        abandoned = sum(1 for p in self.all_passengers.values() if p.status == Passenger.ABANDONED)
-        
-        self.statistics.record_system_event(
-            event_type="SIMULATION_END",
-            description=f"Simulation completed: {arrived} arrived, {abandoned} abandoned out of {len(self.all_passengers)} total passengers",
-            current_time=self.current_time
-        )
-        
-        # Clear remaining events (simulation is over)
-        self.event_queue.clear()
-    
+            except Exception as e:
+                logger.error(f"Error handling passenger appear: {e}", exc_info=True)
     def check_passenger_timeouts(self) -> None:
         """
         Check all waiting passengers for timeouts.
@@ -1084,6 +1059,7 @@ class SimulationEngine:
         Args:
             event: Minibus arrival event containing minibus_id
         """
+
         minibus_id = event.data["minibus_id"]
         
         try:
@@ -1203,7 +1179,343 @@ class SimulationEngine:
                 exc_info=True
             )
 
+    # def handle_optimize_call(self, event: Event) -> None:
+    #     """
+    #     Handle periodic optimizer call event.
+        
+    #     Optimization strategy:
+    #     1. Only update routes when necessary (avoid interrupting identical ongoing tasks)
+    #     2. Unified passenger assignment logic
+    #     3. Clear state transition management
+    #     """
+    #     try:
+    #         if not self.config.get("enable_minibus", False):
+    #             logger.warning("OPTIMIZE_CALL event but minibus not enabled")
+    #             return
+            
+    #         if self.route_optimizer is None:
+    #             logger.error("OPTIMIZE_CALL event but route_optimizer is None")
+    #             return
+            
+    #         logger.info(f"Optimizer call at {self._seconds_to_time_str(self.current_time)}")
+    #         logger.info(f"State: {len(self.pending_requests)} pending, {len(self.minibuses)} minibuses")
+            
+    #         # Prepare minibus states
+    #         minibus_states = [mb.get_minibus_info() for mb in self.minibuses.values()]
+            
+    #         # Call optimizer
+    #         # logger.info("Calling route optimizer...")
+    #         new_plans = self.route_optimizer.optimize(
+    #             pending_requests=self.pending_requests,
+    #             minibus_states=minibus_states,
+    #             network=self.network,
+    #             current_time=self.current_time
+    #         )
+            
+    #         # logger.info(f"Optimizer returned plans for {len(new_plans)} minibuses")
+            
+    #         # Track statistics
+    #         stats = {
+    #             'plans_updated': 0,
+    #             'plans_skipped': 0,
+    #             'events_scheduled': 0,
+    #             'newly_assigned_passengers': set()
+    #         }
+            
+    #         # Apply new route plans
+    #         for minibus_id, new_route_plan in new_plans.items():
+    #             minibus = self.minibuses.get(minibus_id)
+    #             if minibus is None:
+    #                 logger.warning(f"Unknown minibus {minibus_id}, skipping")
+    #                 continue
+                
+    #             # Process route update for this minibus
+    #             self._process_minibus_route_update(
+    #                 minibus=minibus,
+    #                 minibus_id=minibus_id,
+    #                 new_route_plan=new_route_plan,
+    #                 stats=stats
+    #             )
+            
+    #         # Remove assigned passengers from pending queue
+    #         self._cleanup_assigned_passengers(stats['newly_assigned_passengers'])
+            
+    #         # Log statistics
+    #         logger.info(
+    #             f"Complete: {stats['plans_updated']} plans updated, "
+    #             f"{stats['plans_skipped']} skipped, "
+    #             f"{stats['events_scheduled']} events scheduled, "
+    #             f"{len(stats['newly_assigned_passengers'])} passengers assigned"
+    #         )
+            
+    #         self.statistics.record_system_event(
+    #             event_type="OPTIMIZER_CALL",
+    #             description=f"Optimizer: {len(self.pending_requests)} pending, "
+    #                     f"{len(stats['newly_assigned_passengers'])} assigned",
+    #             current_time=self.current_time
+    #         )
+            
+    #         # Schedule next optimization
+    #         self._schedule_next_optimizer_call()
+        
+    #     except Exception as e:
+    #         logger.error(f"Error in optimizer call: {e}", exc_info=True)
+    #         self.statistics.record_system_event(
+    #             event_type="OPTIMIZER_ERROR",
+    #             description=f"Optimizer failed: {str(e)}",
+    #             current_time=self.current_time
+    #         )
 
+
+    # def _process_minibus_route_update(
+    #     self, 
+    #     minibus, 
+    #     minibus_id: str, 
+    #     new_route_plan: List[Dict],
+    #     stats: Dict
+    # ) -> None:
+    #     """
+    #     Process route update for a single minibus.
+        
+    #     Args:
+    #         minibus: Minibus object
+    #         minibus_id: Minibus ID
+    #         new_route_plan: New route plan returned by optimizer
+    #         stats: Statistics dictionary (will be modified)
+    #     """
+    #     current_plan = minibus.route_plan
+        
+    #     # Determine if route update is needed
+    #     should_update, reason = self._should_update_route(
+    #         minibus=minibus,
+    #         current_plan=current_plan,
+    #         new_plan=new_route_plan
+    #     )
+        
+    #     if not should_update:
+    #         logger.debug(f"{minibus_id}: {reason}, skipping update")
+    #         stats['plans_skipped'] += 1
+            
+    #         # Even if skipping update, handle passenger assignment
+    #         # (optimizer may have reassigned passengers)
+    #         self._collect_assigned_passengers(new_route_plan, minibus_id, stats)
+    #         return
+        
+    #     # Execute route update
+    #     logger.info(f"Updating {minibus_id}: {len(new_route_plan)} stops ({reason})")
+        
+    #     try:
+    #         # Update route
+    #         minibus.update_route_plan(new_route_plan, self.current_time)
+    #         stats['plans_updated'] += 1
+            
+    #         # Collect assigned passengers
+    #         self._collect_assigned_passengers(new_route_plan, minibus_id, stats)
+            
+    #         # Schedule next arrival event
+    #         if minibus.next_arrival_time is not None:
+    #             self.add_event(Event(
+    #                 time=minibus.next_arrival_time,
+    #                 event_type=Event.MINIBUS_ARRIVAL,
+    #                 data={"minibus_id": minibus_id}
+    #             ))
+    #             stats['events_scheduled'] += 1
+    #             logger.debug(
+    #                 f"{minibus_id} next arrival: station {minibus.next_station_id} "
+    #                 f"at {minibus.next_arrival_time:.1f}s"
+    #             )
+        
+    #     except Exception as e:
+    #         logger.error(f"Failed to update {minibus_id}: {e}", exc_info=True)
+
+
+    # def _should_update_route(
+    #     self,
+    #     minibus,
+    #     current_plan: List[Dict],
+    #     new_plan: List[Dict]
+    # ) -> Tuple[bool, str]:
+    #     """
+    #     Determine if minibus route needs to be updated.
+        
+    #     Returns:
+    #         (should_update, reason): Whether to update and reason
+    #     """
+    #     # Case 1: New plan is empty
+    #     if len(new_plan) == 0:
+    #         if len(current_plan) == 0 and minibus.status == minibus.IDLE:
+    #             # Already idle, no update needed
+    #             return False, "already idle with no plan"
+    #         else:
+    #             # Need to clear route or transition to idle
+    #             return True, "clearing route to idle"
+        
+    #     # Case 2: Current plan is empty, new plan is not
+    #     if len(current_plan) == 0:
+    #         return True, "assigning new route to idle minibus"
+        
+    #     # Case 3: Minibus is en route, compare remaining path
+    #     if minibus.status == minibus.EN_ROUTE:
+    #         remaining_plan = self._get_remaining_route(minibus, current_plan)
+            
+    #         if self._routes_are_equivalent(remaining_plan, new_plan):
+    #             # Remaining path matches new path, no update needed
+    #             return False, f"already executing same route (at station {minibus.next_station_id})"
+    #         else:
+    #             # Route changed, update needed
+    #             return True, "route changed"
+        
+    #     # Case 4: Minibus in other state (BOARDING, etc.), compare full route
+    #     if self._routes_are_equivalent(current_plan, new_plan):
+    #         return False, f"same route (status: {minibus.status})"
+    #     else:
+    #         return True, "route changed"
+
+
+    # def _get_remaining_route(self, minibus, current_plan: List[Dict]) -> List[Dict]:
+    #     """
+    #     Get remaining route for minibus (from next station onwards).
+        
+    #     Args:
+    #         minibus: Minibus object
+    #         current_plan: Current complete route
+            
+    #     Returns:
+    #         List of remaining route stops
+    #     """
+    #     if minibus.next_station_id is None:
+    #         return []
+        
+    #     # Find position of next station in current plan
+    #     for i, stop in enumerate(current_plan):
+    #         if stop["station_id"] == minibus.next_station_id:
+    #             return current_plan[i:]  # Return all stops from next station
+        
+    #     # If not found (should not happen), return full plan
+    #     logger.warning(
+    #         f"Minibus next_station_id {minibus.next_station_id} not found in current_plan"
+    #     )
+    #     return current_plan
+
+
+    # def _routes_are_equivalent(self, route1: List[Dict], route2: List[Dict]) -> bool:
+    #     """
+    #     Check if two routes are equivalent.
+        
+    #     Note: Only compares stations, actions, and passengers, not estimated arrival times.
+        
+    #     Args:
+    #         route1: First route
+    #         route2: Second route
+            
+    #     Returns:
+    #         Whether the two routes are equivalent
+    #     """
+    #     if len(route1) != len(route2):
+    #         return False
+        
+    #     for stop1, stop2 in zip(route1, route2):
+    #         # Compare station IDs
+    #         if stop1["station_id"] != stop2["station_id"]:
+    #             return False
+            
+    #         # Compare action types
+    #         if stop1["action"] != stop2["action"]:
+    #             return False
+            
+    #         # Compare passenger sets (order-independent)
+    #         passengers1 = set(stop1.get("passenger_ids", []))
+    #         passengers2 = set(stop2.get("passenger_ids", []))
+    #         if passengers1 != passengers2:
+    #             return False
+        
+    #     return True
+
+
+    # def _collect_assigned_passengers(
+    #     self,
+    #     route_plan: List[Dict],
+    #     minibus_id: str,
+    #     stats: Dict
+    # ) -> None:
+    #     """
+    #     Collect assigned passengers in route and update their assignment status.
+        
+    #     Args:
+    #         route_plan: Route plan
+    #         minibus_id: Minibus ID
+    #         stats: Statistics dictionary (will be modified)
+    #     """
+    #     for stop in route_plan:
+    #         if stop["action"] == "PICKUP":
+    #             for passenger_id in stop["passenger_ids"]:
+    #                 # Add to assigned set
+    #                 stats['newly_assigned_passengers'].add(passenger_id)
+                    
+    #                 # Update passenger object's assignment status
+    #                 self._assign_passenger_to_minibus(passenger_id, minibus_id)
+
+
+    # def _assign_passenger_to_minibus(self, passenger_id: str, minibus_id: str) -> None:
+    #     """
+    #     Assign passenger to minibus (update passenger object's assigned_vehicle_id).
+        
+    #     Args:
+    #         passenger_id: Passenger ID
+    #         minibus_id: Minibus ID
+    #     """
+    #     for passenger in self.pending_requests:
+    #         if passenger.passenger_id == passenger_id:
+    #             if passenger.assigned_vehicle_id is None:
+    #                 # First assignment
+    #                 passenger.assigned_vehicle_id = minibus_id
+    #                 logger.debug(f"Assigned passenger {passenger_id} to {minibus_id}")
+    #             elif passenger.assigned_vehicle_id != minibus_id:
+    #                 # Reassignment (transferred from another vehicle)
+    #                 logger.warning(
+    #                     f"Passenger {passenger_id} reassigned from "
+    #                     f"{passenger.assigned_vehicle_id} to {minibus_id}"
+    #                 )
+    #                 passenger.assigned_vehicle_id = minibus_id
+    #             # else: already assigned to this vehicle, no action needed
+    #             break
+
+
+    # def _cleanup_assigned_passengers(self, assigned_passenger_ids: set) -> None:
+    #     """
+    #     Remove assigned passengers from pending queue.
+        
+    #     Args:
+    #         assigned_passenger_ids: Set of assigned passenger IDs
+    #     """
+    #     original_count = len(self.pending_requests)
+        
+    #     self.pending_requests = [
+    #         passenger for passenger in self.pending_requests
+    #         if passenger.passenger_id not in assigned_passenger_ids
+    #     ]
+        
+    #     removed_count = original_count - len(self.pending_requests)
+        
+    #     if removed_count > 0:
+    #         logger.info(f"Removed {removed_count} assigned passengers from pending queue")
+
+
+    # def _schedule_next_optimizer_call(self) -> None:
+    #     """Schedule next optimizer call."""
+    #     optimizer_interval = self.config.get("optimization_interval", 30.0)
+    #     next_time = self.current_time + optimizer_interval
+        
+    #     if next_time < self.duration:
+    #         self.add_event(Event(
+    #             time=next_time,
+    #             event_type=Event.OPTIMIZE_CALL,
+    #             data={}
+    #         ))
+    #         logger.info(f"Next optimizer call scheduled at {next_time:.1f}s")
+    #     else:
+    #         logger.info("No more optimizer calls (simulation ending)")
+            
     def handle_optimize_call(self, event: Event) -> None:
         """
         Handle periodic optimizer call event.
@@ -1253,6 +1565,11 @@ class SimulationEngine:
                 # KEY FIX: Check if route plan actually changed
                 # ===================================================================
                 current_plan = minibus.route_plan
+
+                # ✨ Skip update if both plans are empty (idle vehicle stays idle)
+                if len(current_plan) == 0 and len(route_plan) == 0:
+                    logger.debug(f"{minibus_id} remains idle, no update needed")
+                    continue    
                 
                 # If minibus is already executing the same route, skip update
                 if (minibus.status == minibus.EN_ROUTE and 

@@ -1,9 +1,8 @@
 time,event_type,description
 0.0,SIMULATION_START,"Simulation initialized: 336 passengers, 108 buses"
-300,OPTIMIZER_CALL,"Optimizer: 26 pending, 41 assigned"
-600,OPTIMIZER_CALL,"Optimizer: 72 pending, 42 assigned"
-900,OPTIMIZER_CALL,"Optimizer: 122 pending, 41 assigned"
-1200,OPTIMIZER_CALL,"Optimizer: 146 pending, 33 assigned"
-1500,OPTIMIZER_CALL,"Optimizer: 164 pending, 27 assigned"
-1757.400001525879,MINIBUS_IDLE,MINIBUS_2 completed route plan at 8589130
-1800.0,SIMULATION_END,"Simulation completed: 67 arrived, 0 abandoned out of 336 total passengers"
+300,OPTIMIZER_CALL,"Optimizer: 67 pending, 67 assigned"
+600,OPTIMIZER_CALL,"Optimizer: 47 pending, 47 assigned"
+900,OPTIMIZER_CALL,"Optimizer: 53 pending, 53 assigned"
+1200,OPTIMIZER_CALL,"Optimizer: 45 pending, 45 assigned"
+1500,OPTIMIZER_CALL,"Optimizer: 55 pending, 55 assigned"
+1800.0,SIMULATION_END,"Simulation completed: 47 arrived, 0 abandoned out of 336 total passengers"
