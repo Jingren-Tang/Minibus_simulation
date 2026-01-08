@@ -1,4 +1,3 @@
-
 import logging
 import sys
 from typing import List, Dict
@@ -72,9 +71,7 @@ def print_test_header(test_num: int, description: str):
 
 
 def print_route_plan(minibus_id: str, route_plan: List[Dict], capacity: int = None, initial_occupancy: int = 0):
-    """
-    🔧 修复：添加 initial_occupancy 参数，从正确的初始值开始计算
-    """
+    """修复版：正确显示载客量变化"""
     print(f"\n{minibus_id}:", end="")
     if capacity:
         print(f" (capacity: {capacity}, initial: {initial_occupancy})", end="")
@@ -84,14 +81,13 @@ def print_route_plan(minibus_id: str, route_plan: List[Dict], capacity: int = No
         print("  → (idle)")
         return
     
-    occupancy = initial_occupancy  # 🔧 关键修复：从初始载客量开始
+    occupancy = initial_occupancy
     
     for i, stop in enumerate(route_plan):
         station = stop['station_id']
         action = stop['action']
         passengers = stop['passenger_ids']
         
-        # 🔧 修复：先处理 DROPOFF，再处理 PICKUP，然后显示
         if action == 'DROPOFF':
             occupancy -= len(passengers)
             status = f"after dropoff: {occupancy}"
@@ -115,6 +111,7 @@ def count_assigned_passengers(route_plans: Dict[str, List[Dict]]) -> set:
 
 
 def validate_route_plan(route_plan: List[Dict], capacity: int, initial_occupancy: int = 0) -> bool:
+    """验证路线计划是否违反容量约束"""
     occupancy = initial_occupancy
     
     for stop in route_plan:
@@ -230,6 +227,7 @@ def test_2_capacity_constraint():
     result = optimizer.optimize(passengers, minibuses, network, current_time)
     
     print("\nResults:")
+    is_valid = True
     for mb_id, route in result.items():
         mb_info = next(mb for mb in minibuses if mb['minibus_id'] == mb_id)
         print_route_plan(mb_id, route, mb_info['capacity'], mb_info['occupancy'])  
@@ -590,6 +588,599 @@ def test_8_stress_test():
     return len(assigned) >= 5
 
 
+def test_9_near_capacity_stress():
+    print_test_header(9, "Near-Capacity Stress Test (Multiple vehicles at 80-90% capacity)")
+    
+    from route_optimizer import RouteOptimizer
+    
+    network = MockNetwork()
+    current_time = 9000.0
+    
+    # 20个新乘客等待分配
+    passengers = [
+        MockPassenger(f"P_new_{i}", 
+                     ["A", "B", "C", "D", "E", "F"][i % 6],
+                     ["B", "C", "D", "E", "F", "A"][(i + 2) % 6],
+                     current_time - (200 - i*10))
+        for i in range(20)
+    ]
+    
+    # 8辆车，每辆都接近满载
+    minibuses = []
+    for i in range(8):
+        capacity = 6
+        occupancy = 4 + (i % 2)  # 4或5个已有乘客
+        existing_passengers = [f"P_exist_{i}_{j}" for j in range(occupancy)]
+        
+        # 创建复杂的现有路线
+        route_plan = []
+        stations = ["A", "B", "C", "D", "E", "F"]
+        for j in range(occupancy):
+            dropoff_station = stations[(i + j + 2) % 6]
+            route_plan.append({
+                "station_id": dropoff_station,
+                "action": "DROPOFF",
+                "passenger_ids": [existing_passengers[j]]
+            })
+        
+        minibuses.append({
+            "minibus_id": f"M{i+1}",
+            "current_location_id": stations[i % 6],
+            "capacity": capacity,
+            "occupancy": occupancy,
+            "passenger_ids": existing_passengers,
+            "route_plan": route_plan
+        })
+    
+    optimizer = RouteOptimizer(
+        optimizer_type='python_module',
+        config={
+            'module_name': 'greedy_insertion',
+            'function_name': 'greedy_insert_optimize',
+            'max_waiting_time': 800.0,
+            'max_detour_time': 400.0
+        }
+    )
+    
+    print(f"\nScenario: 20 new passengers, 8 vehicles (each at 4-5 occupancy, capacity=6)")
+    print("Expected: Should handle capacity constraints correctly without crashes")
+    
+    import time
+    start_time = time.time()
+    
+    try:
+        result = optimizer.optimize(passengers, minibuses, network, current_time)
+        execution_time = time.time() - start_time
+        
+        print("\nResults:")
+        assigned = count_assigned_passengers(result)
+        
+        all_valid = True
+        for mb_id, route in result.items():
+            mb_info = next(mb for mb in minibuses if mb['minibus_id'] == mb_id)
+            if route:
+                print_route_plan(mb_id, route, mb_info['capacity'], mb_info['occupancy'])
+                
+                is_valid = validate_route_plan(route, mb_info['capacity'], mb_info['occupancy'])
+                if not is_valid:
+                    print(f"  ⚠️  CAPACITY VIOLATION DETECTED!")
+                    all_valid = False
+        
+        print(f"\n✓ Assigned: {len(assigned)}/20 passengers")
+        print(f"✓ All capacity constraints valid: {all_valid}")
+        print(f"✓ Execution time: {execution_time:.3f}s")
+        
+        return all_valid and len(assigned) > 0
+        
+    except Exception as e:
+        print(f"\n✗ CRASH DETECTED: {e}")
+        logger.error(f"Test 9 crashed: {e}", exc_info=True)
+        return False
+
+
+def test_10_massive_scale():
+    print_test_header(10, "Massive Scale Test (50 passengers, 15 vehicles)")
+    
+    from route_optimizer import RouteOptimizer
+    
+    network = MockNetwork()
+    current_time = 10000.0
+    
+    # 50个新乘客
+    passengers = [
+        MockPassenger(f"P{i}", 
+                     ["A", "B", "C", "D", "E", "F"][i % 6],
+                     ["B", "C", "D", "E", "F", "A"][(i + 3) % 6],
+                     current_time - (500 - i*10))
+        for i in range(50)
+    ]
+    
+    # 15辆车，各种状态
+    minibuses = []
+    stations = ["A", "B", "C", "D", "E", "F"]
+    for i in range(15):
+        if i < 5:
+            # 空车
+            occupancy = 0
+            existing_passengers = []
+            route_plan = []
+        elif i < 10:
+            # 半满
+            occupancy = 3
+            existing_passengers = [f"P_exist_{i}_{j}" for j in range(occupancy)]
+            route_plan = [
+                {"station_id": stations[(i+j) % 6], "action": "DROPOFF", "passenger_ids": [existing_passengers[j]]}
+                for j in range(occupancy)
+            ]
+        else:
+            # 接近满载
+            occupancy = 5
+            existing_passengers = [f"P_exist_{i}_{j}" for j in range(occupancy)]
+            route_plan = [
+                {"station_id": stations[(i+j) % 6], "action": "DROPOFF", "passenger_ids": [existing_passengers[j]]}
+                for j in range(occupancy)
+            ]
+        
+        minibuses.append({
+            "minibus_id": f"M{i+1}",
+            "current_location_id": stations[i % 6],
+            "capacity": 6,
+            "occupancy": occupancy,
+            "passenger_ids": existing_passengers,
+            "route_plan": route_plan
+        })
+    
+    optimizer = RouteOptimizer(
+        optimizer_type='python_module',
+        config={
+            'module_name': 'greedy_insertion',
+            'function_name': 'greedy_insert_optimize',
+            'max_waiting_time': 900.0,
+            'max_detour_time': 450.0
+        }
+    )
+    
+    print("\nScenario: 50 passengers, 15 vehicles (mixed occupancy)")
+    print("Expected: Should handle large scale without crashes")
+    
+    import time
+    start_time = time.time()
+    
+    try:
+        result = optimizer.optimize(passengers, minibuses, network, current_time)
+        execution_time = time.time() - start_time
+        
+        print("\nResults Summary:")
+        assigned = count_assigned_passengers(result)
+        
+        all_valid = True
+        vehicles_with_assignments = 0
+        for mb_id, route in result.items():
+            mb_info = next(mb for mb in minibuses if mb['minibus_id'] == mb_id)
+            if route:
+                vehicles_with_assignments += 1
+                is_valid = validate_route_plan(route, mb_info['capacity'], mb_info['occupancy'])
+                if not is_valid:
+                    print(f"  ⚠️  {mb_id}: CAPACITY VIOLATION!")
+                    print_route_plan(mb_id, route, mb_info['capacity'], mb_info['occupancy'])
+                    all_valid = False
+        
+        print(f"\n✓ Assigned: {len(assigned)}/50 passengers ({len(assigned)/50*100:.1f}%)")
+        print(f"✓ Vehicles used: {vehicles_with_assignments}/15")
+        print(f"✓ All capacity constraints valid: {all_valid}")
+        print(f"✓ Execution time: {execution_time:.3f}s")
+        
+        return all_valid and len(assigned) >= 20
+        
+    except Exception as e:
+        print(f"\n✗ CRASH DETECTED: {e}")
+        logger.error(f"Test 10 crashed: {e}", exc_info=True)
+        return False
+
+
+def test_11_full_vehicles_with_queue():
+    print_test_header(11, "Full Vehicles with Long Passenger Queue")
+    
+    from route_optimizer import RouteOptimizer
+    
+    network = MockNetwork()
+    current_time = 11000.0
+    
+    # 30个等待的乘客
+    passengers = [
+        MockPassenger(f"P{i}", 
+                     ["A", "B", "C"][i % 3],
+                     ["D", "E", "F"][i % 3],
+                     current_time - (300 - i*10))
+        for i in range(30)
+    ]
+    
+    # 10辆车，全部满载
+    minibuses = []
+    for i in range(10):
+        capacity = 6
+        occupancy = 6  # 全满
+        existing_passengers = [f"P_full_{i}_{j}" for j in range(occupancy)]
+        
+        stations = ["A", "B", "C", "D", "E", "F"]
+        route_plan = []
+        # 前3个在前面的站下车
+        for j in range(3):
+            route_plan.append({
+                "station_id": stations[j % 6],
+                "action": "DROPOFF",
+                "passenger_ids": [existing_passengers[j]]
+            })
+        # 后3个在后面的站下车
+        for j in range(3, 6):
+            route_plan.append({
+                "station_id": stations[(j + 2) % 6],
+                "action": "DROPOFF",
+                "passenger_ids": [existing_passengers[j]]
+            })
+        
+        minibuses.append({
+            "minibus_id": f"M{i+1}",
+            "current_location_id": stations[i % 6],
+            "capacity": capacity,
+            "occupancy": occupancy,
+            "passenger_ids": existing_passengers,
+            "route_plan": route_plan
+        })
+    
+    optimizer = RouteOptimizer(
+        optimizer_type='python_module',
+        config={
+            'module_name': 'greedy_insertion',
+            'function_name': 'greedy_insert_optimize',
+            'max_waiting_time': 1000.0,
+            'max_detour_time': 500.0
+        }
+    )
+    
+    print("\nScenario: 30 passengers waiting, 10 vehicles ALL FULL (occupancy=6/6)")
+    print("Expected: Should insert passengers after dropoffs without crashes")
+    
+    import time
+    start_time = time.time()
+    
+    try:
+        result = optimizer.optimize(passengers, minibuses, network, current_time)
+        execution_time = time.time() - start_time
+        
+        print("\nResults:")
+        assigned = count_assigned_passengers(result)
+        
+        all_valid = True
+        max_occupancy_seen = 0
+        
+        for mb_id, route in result.items():
+            mb_info = next(mb for mb in minibuses if mb['minibus_id'] == mb_id)
+            if route:
+                print_route_plan(mb_id, route, mb_info['capacity'], mb_info['occupancy'])
+                
+                is_valid = validate_route_plan(route, mb_info['capacity'], mb_info['occupancy'])
+                if not is_valid:
+                    print(f"  ⚠️  CAPACITY VIOLATION!")
+                    all_valid = False
+                
+                # 检查最大载客量
+                temp_occupancy = mb_info['occupancy']
+                for stop in route:
+                    if stop['action'] == 'DROPOFF':
+                        temp_occupancy -= len(stop['passenger_ids'])
+                    elif stop['action'] == 'PICKUP':
+                        temp_occupancy += len(stop['passenger_ids'])
+                    max_occupancy_seen = max(max_occupancy_seen, temp_occupancy)
+        
+        print(f"\n✓ Assigned: {len(assigned)}/30 passengers")
+        print(f"✓ Max occupancy seen: {max_occupancy_seen}")
+        print(f"✓ All capacity constraints valid: {all_valid}")
+        print(f"✓ Execution time: {execution_time:.3f}s")
+        
+        return all_valid
+        
+    except Exception as e:
+        print(f"\n✗ CRASH DETECTED: {e}")
+        logger.error(f"Test 11 crashed: {e}", exc_info=True)
+        return False
+
+
+def test_12_complex_interleaved_routes():
+    print_test_header(12, "Complex Interleaved Pickup/Dropoff Scenarios")
+    
+    from route_optimizer import RouteOptimizer
+    
+    network = MockNetwork()
+    current_time = 12000.0
+    
+    # 15个新乘客，各种起终点组合
+    passengers = [
+        MockPassenger("P1", "A", "F", current_time - 100),
+        MockPassenger("P2", "A", "E", current_time - 95),
+        MockPassenger("P3", "B", "F", current_time - 90),
+        MockPassenger("P4", "B", "D", current_time - 85),
+        MockPassenger("P5", "C", "F", current_time - 80),
+        MockPassenger("P6", "C", "E", current_time - 75),
+        MockPassenger("P7", "D", "A", current_time - 70),
+        MockPassenger("P8", "D", "B", current_time - 65),
+        MockPassenger("P9", "E", "A", current_time - 60),
+        MockPassenger("P10", "E", "C", current_time - 55),
+        MockPassenger("P11", "A", "D", current_time - 50),
+        MockPassenger("P12", "B", "E", current_time - 45),
+        MockPassenger("P13", "C", "A", current_time - 40),
+        MockPassenger("P14", "D", "F", current_time - 35),
+        MockPassenger("P15", "E", "B", current_time - 30),
+    ]
+    
+    # 5辆车，每辆有复杂的现有路线
+    minibuses = [
+        {
+            "minibus_id": "M1",
+            "current_location_id": "A",
+            "capacity": 6,
+            "occupancy": 4,
+            "passenger_ids": ["E1", "E2", "E3", "E4"],
+            "route_plan": [
+                {"station_id": "B", "action": "DROPOFF", "passenger_ids": ["E1"]},
+                {"station_id": "C", "action": "DROPOFF", "passenger_ids": ["E2"]},
+                {"station_id": "D", "action": "DROPOFF", "passenger_ids": ["E3"]},
+                {"station_id": "E", "action": "DROPOFF", "passenger_ids": ["E4"]},
+            ]
+        },
+        {
+            "minibus_id": "M2",
+            "current_location_id": "B",
+            "capacity": 6,
+            "occupancy": 5,
+            "passenger_ids": ["E5", "E6", "E7", "E8", "E9"],
+            "route_plan": [
+                {"station_id": "C", "action": "DROPOFF", "passenger_ids": ["E5", "E6"]},
+                {"station_id": "E", "action": "DROPOFF", "passenger_ids": ["E7"]},
+                {"station_id": "F", "action": "DROPOFF", "passenger_ids": ["E8", "E9"]},
+            ]
+        },
+        {
+            "minibus_id": "M3",
+            "current_location_id": "C",
+            "capacity": 6,
+            "occupancy": 3,
+            "passenger_ids": ["E10", "E11", "E12"],
+            "route_plan": [
+                {"station_id": "D", "action": "DROPOFF", "passenger_ids": ["E10"]},
+                {"station_id": "E", "action": "DROPOFF", "passenger_ids": ["E11"]},
+                {"station_id": "A", "action": "DROPOFF", "passenger_ids": ["E12"]},
+            ]
+        },
+        {
+            "minibus_id": "M4",
+            "current_location_id": "D",
+            "capacity": 8,
+            "occupancy": 6,
+            "passenger_ids": ["E13", "E14", "E15", "E16", "E17", "E18"],
+            "route_plan": [
+                {"station_id": "E", "action": "DROPOFF", "passenger_ids": ["E13"]},
+                {"station_id": "F", "action": "DROPOFF", "passenger_ids": ["E14", "E15"]},
+                {"station_id": "A", "action": "DROPOFF", "passenger_ids": ["E16"]},
+                {"station_id": "B", "action": "DROPOFF", "passenger_ids": ["E17", "E18"]},
+            ]
+        },
+        {
+            "minibus_id": "M5",
+            "current_location_id": "E",
+            "capacity": 6,
+            "occupancy": 2,
+            "passenger_ids": ["E19", "E20"],
+            "route_plan": [
+                {"station_id": "F", "action": "DROPOFF", "passenger_ids": ["E19"]},
+                {"station_id": "A", "action": "DROPOFF", "passenger_ids": ["E20"]},
+            ]
+        }
+    ]
+    
+    optimizer = RouteOptimizer(
+        optimizer_type='python_module',
+        config={
+            'module_name': 'greedy_insertion',
+            'function_name': 'greedy_insert_optimize',
+            'max_waiting_time': 1200.0,
+            'max_detour_time': 600.0
+        }
+    )
+    
+    print("\nScenario: 15 passengers, 5 vehicles with complex existing routes")
+    print("Expected: Should handle complex insertion without violating capacity")
+    
+    import time
+    start_time = time.time()
+    
+    try:
+        result = optimizer.optimize(passengers, minibuses, network, current_time)
+        execution_time = time.time() - start_time
+        
+        print("\nResults:")
+        assigned = count_assigned_passengers(result)
+        
+        all_valid = True
+        for mb_id, route in result.items():
+            mb_info = next(mb for mb in minibuses if mb['minibus_id'] == mb_id)
+            if route:
+                print_route_plan(mb_id, route, mb_info['capacity'], mb_info['occupancy'])
+                
+                is_valid = validate_route_plan(route, mb_info['capacity'], mb_info['occupancy'])
+                if not is_valid:
+                    print(f"  ⚠️  CAPACITY VIOLATION!")
+                    all_valid = False
+        
+        print(f"\n✓ Assigned: {len(assigned)}/15 passengers")
+        print(f"✓ All capacity constraints valid: {all_valid}")
+        print(f"✓ Execution time: {execution_time:.3f}s")
+        
+        return all_valid and len(assigned) >= 5
+        
+    except Exception as e:
+        print(f"\n✗ CRASH DETECTED: {e}")
+        logger.error(f"Test 12 crashed: {e}", exc_info=True)
+        return False
+
+
+def test_13_extreme_capacity_edge_cases():
+    print_test_header(13, "Extreme Capacity Edge Cases")
+    
+    from route_optimizer import RouteOptimizer
+    
+    network = MockNetwork()
+    current_time = 13000.0
+    
+    # 25个乘客
+    passengers = [
+        MockPassenger(f"P{i}", 
+                     ["A", "B", "C", "D", "E"][i % 5],
+                     ["C", "D", "E", "F", "A"][(i + 2) % 5],
+                     current_time - (250 - i*10))
+        for i in range(25)
+    ]
+    
+    # 特殊车辆配置：混合容量和极限状态
+    minibuses = [
+        # 小容量车，满载
+        {
+            "minibus_id": "M_small_1",
+            "current_location_id": "A",
+            "capacity": 4,
+            "occupancy": 4,
+            "passenger_ids": ["S1", "S2", "S3", "S4"],
+            "route_plan": [
+                {"station_id": "B", "action": "DROPOFF", "passenger_ids": ["S1"]},
+                {"station_id": "C", "action": "DROPOFF", "passenger_ids": ["S2", "S3", "S4"]},
+            ]
+        },
+        # 小容量车，只有1个空位
+        {
+            "minibus_id": "M_small_2",
+            "current_location_id": "B",
+            "capacity": 4,
+            "occupancy": 3,
+            "passenger_ids": ["S5", "S6", "S7"],
+            "route_plan": [
+                {"station_id": "D", "action": "DROPOFF", "passenger_ids": ["S5"]},
+                {"station_id": "E", "action": "DROPOFF", "passenger_ids": ["S6", "S7"]},
+            ]
+        },
+        # 标准容量车，接近满载
+        {
+            "minibus_id": "M_normal_1",
+            "current_location_id": "C",
+            "capacity": 6,
+            "occupancy": 5,
+            "passenger_ids": ["N1", "N2", "N3", "N4", "N5"],
+            "route_plan": [
+                {"station_id": "D", "action": "DROPOFF", "passenger_ids": ["N1"]},
+                {"station_id": "E", "action": "DROPOFF", "passenger_ids": ["N2"]},
+                {"station_id": "F", "action": "DROPOFF", "passenger_ids": ["N3", "N4", "N5"]},
+            ]
+        },
+        # 标准容量车，空载
+        {
+            "minibus_id": "M_normal_2",
+            "current_location_id": "D",
+            "capacity": 6,
+            "occupancy": 0,
+            "passenger_ids": [],
+            "route_plan": []
+        },
+        # 大容量车，半满
+        {
+            "minibus_id": "M_large_1",
+            "current_location_id": "E",
+            "capacity": 10,
+            "occupancy": 5,
+            "passenger_ids": ["L1", "L2", "L3", "L4", "L5"],
+            "route_plan": [
+                {"station_id": "F", "action": "DROPOFF", "passenger_ids": ["L1", "L2"]},
+                {"station_id": "A", "action": "DROPOFF", "passenger_ids": ["L3"]},
+                {"station_id": "B", "action": "DROPOFF", "passenger_ids": ["L4", "L5"]},
+            ]
+        },
+        # 大容量车，接近满载
+        {
+            "minibus_id": "M_large_2",
+            "current_location_id": "F",
+            "capacity": 10,
+            "occupancy": 8,
+            "passenger_ids": [f"L{i}" for i in range(6, 14)],
+            "route_plan": [
+                {"station_id": "A", "action": "DROPOFF", "passenger_ids": ["L6", "L7"]},
+                {"station_id": "C", "action": "DROPOFF", "passenger_ids": ["L8", "L9", "L10"]},
+                {"station_id": "E", "action": "DROPOFF", "passenger_ids": ["L11", "L12", "L13"]},
+            ]
+        },
+    ]
+    
+    optimizer = RouteOptimizer(
+        optimizer_type='python_module',
+        config={
+            'module_name': 'greedy_insertion',
+            'function_name': 'greedy_insert_optimize',
+            'max_waiting_time': 1000.0,
+            'max_detour_time': 500.0
+        }
+    )
+    
+    print("\nScenario: 25 passengers, 6 vehicles with varying capacities (4, 6, 10)")
+    print("Expected: Should respect different capacity limits without errors")
+    
+    import time
+    start_time = time.time()
+    
+    try:
+        result = optimizer.optimize(passengers, minibuses, network, current_time)
+        execution_time = time.time() - start_time
+        
+        print("\nResults:")
+        assigned = count_assigned_passengers(result)
+        
+        all_valid = True
+        capacity_summary = {}
+        
+        for mb_id, route in result.items():
+            mb_info = next(mb for mb in minibuses if mb['minibus_id'] == mb_id)
+            capacity_key = mb_info['capacity']
+            
+            if capacity_key not in capacity_summary:
+                capacity_summary[capacity_key] = {'vehicles': 0, 'assigned': 0}
+            capacity_summary[capacity_key]['vehicles'] += 1
+            
+            if route:
+                print_route_plan(mb_id, route, mb_info['capacity'], mb_info['occupancy'])
+                
+                is_valid = validate_route_plan(route, mb_info['capacity'], mb_info['occupancy'])
+                if not is_valid:
+                    print(f"  ⚠️  CAPACITY VIOLATION!")
+                    all_valid = False
+                
+                # 统计这辆车分配了多少新乘客
+                new_assigned = 0
+                for stop in route:
+                    if stop['action'] == 'PICKUP':
+                        new_assigned += len(stop['passenger_ids'])
+                capacity_summary[capacity_key]['assigned'] += new_assigned
+        
+        print(f"\n✓ Assigned: {len(assigned)}/25 passengers")
+        print("\nCapacity breakdown:")
+        for cap, stats in sorted(capacity_summary.items()):
+            print(f"  Capacity {cap}: {stats['vehicles']} vehicles, {stats['assigned']} new passengers assigned")
+        print(f"\n✓ All capacity constraints valid: {all_valid}")
+        print(f"✓ Execution time: {execution_time:.3f}s")
+        
+        return all_valid and len(assigned) >= 10
+        
+    except Exception as e:
+        print(f"\n✗ CRASH DETECTED: {e}")
+        logger.error(f"Test 13 crashed: {e}", exc_info=True)
+        return False
+
+
 def run_all_tests():
     print_section("GREEDY INSERTION OPTIMIZER - COMPREHENSIVE TEST SUITE")
     
@@ -601,7 +1192,12 @@ def run_all_tests():
         ("Sequential Routing", test_5_sequential_route_building),
         ("Infeasible Handling", test_6_infeasible_assignment),
         ("Rush Hour Routing", test_7_rush_hour_routing),
-        ("Stress Test", test_8_stress_test),
+        ("Stress Test (Basic)", test_8_stress_test),
+        ("Near-Capacity Stress", test_9_near_capacity_stress),
+        ("Massive Scale", test_10_massive_scale),
+        ("Full Vehicles Queue", test_11_full_vehicles_with_queue),
+        ("Complex Interleaving", test_12_complex_interleaved_routes),
+        ("Extreme Edge Cases", test_13_extreme_capacity_edge_cases),
     ]
     
     results = []

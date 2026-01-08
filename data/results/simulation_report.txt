@@ -13,54 +13,54 @@ Total Passengers:     336
 
 PASSENGER STATISTICS
 --------------------------------------------------------------------------------
-Service Rate:         19.9% (67/336 passengers arrived)
+Service Rate:         14.0% (47/336 passengers arrived)
 Abandoned:            0.0% (0/336 passengers)
 
 Wait Time Statistics:
-  Average:            665.7 seconds (11.1 minutes)
+  Average:            483.0 seconds (8.1 minutes)
   Minimum:            1.3 seconds
-  Maximum:            1559.6 seconds
-  Std Dev:            429.2 seconds
-  90th Percentile:    1280.0 seconds
-  95th Percentile:    1442.3 seconds
+  Maximum:            1457.6 seconds
+  Std Dev:            453.2 seconds
+  90th Percentile:    1196.4 seconds
+  95th Percentile:    1321.2 seconds
 
 Travel Time Statistics:
-  Average:            328.2 seconds (5.5 minutes)
+  Average:            312.9 seconds (5.2 minutes)
 
 Total Time Statistics:
-  Average:            942.9 seconds (15.7 minutes)
+  Average:            749.4 seconds (12.5 minutes)
 
 VEHICLE PERFORMANCE
 --------------------------------------------------------------------------------
 BUSES:
 BUS_2_DIR3_T62506.0:
-  Passengers Served:  36
-  Avg Occupancy:      13.46 (16.8%)
-  Max Occupancy:      36
+  Passengers Served:  5
+  Avg Occupancy:      3.30 (4.1%)
+  Max Occupancy:      5
   Stations Served:    4
   Idle Time:          0s (0.0 min)
   Service Time:       366s (6.1 min)
 
 BUS_2_DIR4_T62521.0:
-  Passengers Served:  68
-  Avg Occupancy:      19.74 (24.7%)
-  Max Occupancy:      50
+  Passengers Served:  15
+  Avg Occupancy:      4.07 (5.1%)
+  Max Occupancy:      11
   Stations Served:    5
   Idle Time:          0s (0.0 min)
   Service Time:       718s (12.0 min)
 
 BUS_2_DIR4_T62529.0:
-  Passengers Served:  11
-  Avg Occupancy:      5.43 (6.8%)
-  Max Occupancy:      11
+  Passengers Served:  1
+  Avg Occupancy:      0.00 (0.0%)
+  Max Occupancy:      1
   Stations Served:    4
-  Idle Time:          0s (0.0 min)
-  Service Time:       384s (6.4 min)
+  Idle Time:          384s (6.4 min)
+  Service Time:       0s (0.0 min)
 
 BUS_6_DIR4_T66329.0:
-  Passengers Served:  58
-  Avg Occupancy:      18.40 (23.0%)
-  Max Occupancy:      43
+  Passengers Served:  8
+  Avg Occupancy:      2.45 (3.1%)
+  Max Occupancy:      6
   Stations Served:    8
   Idle Time:          77s (1.3 min)
   Service Time:       915s (15.2 min)
@@ -74,60 +74,56 @@ BUS_6_DIR4_T66337.0:
   Service Time:       0s (0.0 min)
 
 BUS_6_DIR5_T66326.0:
-  Passengers Served:  0
+  Passengers Served:  2
   Avg Occupancy:      0.00 (0.0%)
-  Max Occupancy:      0
-  Stations Served:    2
-  Idle Time:          186s (3.1 min)
+  Max Occupancy:      2
+  Stations Served:    7
+  Idle Time:          598s (10.0 min)
   Service Time:       0s (0.0 min)
 
 MINIBUSES:
 MINIBUS_1:
-  Passengers Served:  6
-  Avg Occupancy:      1.85 (30.8%)
+  Passengers Served:  19
+  Avg Occupancy:      4.80 (80.0%)
   Max Occupancy:      6
-  Stations Served:    5
+  Stations Served:    8
   Idle Time:          0s (0.0 min)
-  Service Time:       884s (14.7 min)
+  Service Time:       1264s (21.1 min)
 
 MINIBUS_2:
-  Passengers Served:  8
-  Avg Occupancy:      1.64 (27.4%)
+  Passengers Served:  14
+  Avg Occupancy:      5.32 (88.7%)
   Max Occupancy:      6
-  Stations Served:    10
-  Idle Time:          281s (4.7 min)
-  Service Time:       665s (11.1 min)
+  Stations Served:    6
+  Idle Time:          0s (0.0 min)
+  Service Time:       997s (16.6 min)
 
 MINIBUS_3:
-  Passengers Served:  7
-  Avg Occupancy:      3.32 (55.4%)
+  Passengers Served:  20
+  Avg Occupancy:      4.65 (77.4%)
   Max Occupancy:      6
-  Stations Served:    5
+  Stations Served:    10
   Idle Time:          0s (0.0 min)
-  Service Time:       1067s (17.8 min)
+  Service Time:       934s (15.6 min)
 
 DATA VALIDATION
 --------------------------------------------------------------------------------
-⚠ Found issues in 2 vehicle(s):
+⚠ Found issues in 1 vehicle(s):
 
 BUS_6_DIR4_T66337.0:
   • Vehicle traveled route ['8592375'] but served 0 passengers
 
-BUS_6_DIR5_T66326.0:
-  • Vehicle traveled route ['8589270', '8589147'] but served 0 passengers
-
 SYSTEM-WIDE METRICS
 --------------------------------------------------------------------------------
-Avg Vehicle Occupancy: 7.09 passengers
-Vehicle Utilization:   7/9 vehicles served passengers
-  - Buses:             4/6
+Avg Vehicle Occupancy: 2.73 passengers
+Vehicle Utilization:   8/9 vehicles served passengers
+  - Buses:             5/6
   - Minibuses:         3/3
 
 KEY FINDINGS
 --------------------------------------------------------------------------------
 ⚠ Low service rate (<70%)
-⚠ High wait time variance (1s - 1560s)
-⚠ High average wait time (>10 minutes)
-⚠ Data consistency issues detected in 2 vehicle(s)
+⚠ High wait time variance (1s - 1458s)
+⚠ Data consistency issues detected in 1 vehicle(s)
 
 ================================================================================

@@ -668,90 +668,91 @@ class SimulationEngine:
             logger.error(f"Error handling bus arrival for {bus_id}: {e}", exc_info=True)
     
     def handle_passenger_appear(self, event: Event) -> None:
-        """
-        Handle passenger appearance in the system.
-        
-        Steps:
-            1. Get or create Passenger object
-            2. Add to pending_requests list (if not already added)
-            3. Add to origin station's waiting list
-        
-        Args:
-            event: Passenger appear event containing passenger data
-        """
-        try:
-            # Get passenger object (may already exist from _generate_passengers_from_od_matrix)
-            if "passenger" in event.data:
-                passenger = event.data["passenger"]
-            else:
-                # Create new passenger (for test passengers)
-                pax_id = event.data["id"]
-                origin = event.data["origin"]
-                destination = event.data["dest"]
+            """
+            Handle passenger appearance in the system.
+            
+            Steps:
+                1. Get or create Passenger object
+                2. Add to pending_requests list (if not already added)
+                3. Add to origin station's waiting list (ONLY when they actually appear)
+            
+            Args:
+                event: Passenger appear event containing passenger data
+            """
+            try:
+                # Get passenger object (may already exist from _generate_passengers_from_od_matrix)
+                if "passenger" in event.data:
+                    passenger = event.data["passenger"]
+                else:
+                    # Create new passenger (for test passengers)
+                    pax_id = event.data["id"]
+                    origin = event.data["origin"]
+                    destination = event.data["dest"]
+                    
+                    passenger = Passenger(
+                        passenger_id=pax_id,
+                        origin=origin,
+                        destination=destination,
+                        appear_time=self.current_time,
+                        max_wait_time=self.config.get("passenger_max_wait_time", 900.0)
+                    )
+                    
+                    # Add to tracking structures
+                    self.all_passengers[pax_id] = passenger
                 
-                passenger = Passenger(
-                    passenger_id=pax_id,
-                    origin=origin,
-                    destination=destination,
-                    appear_time=self.current_time,
-                    max_wait_time=self.config.get("passenger_max_wait_time", 900.0)
-                )
+                # Add to pending requests
+                if passenger not in self.pending_requests:
+                    self.pending_requests.append(passenger)
                 
-                # Add to tracking structures
-                self.all_passengers[pax_id] = passenger
-            
-            # Add to pending requests
-            if passenger not in self.pending_requests:
-                self.pending_requests.append(passenger)
-            
-            # Add to origin station's waiting list
-            station = self.network.get_station(passenger.origin_station_id)
-            if station is None:
-                logger.error(
-                    f"Origin station {passenger.origin_station_id} not found for "
-                    f"passenger {passenger.passenger_id}"
+                # IMPORTANT: Only add to station waiting list NOW (when they actually appear)
+                # Not during initialization or passenger generation
+                station = self.network.get_station(passenger.origin_station_id)
+                if station is None:
+                    logger.error(
+                        f"Origin station {passenger.origin_station_id} not found for "
+                        f"passenger {passenger.passenger_id}"
+                    )
+                    return
+                
+                station.add_waiting_passenger(passenger)
+                
+                logger.info(
+                    f"Passenger {passenger.passenger_id} appeared at station {passenger.origin_station_id}, "
+                    f"destination {passenger.destination_station_id}, "
+                    f"time {self._seconds_to_time_str(self.current_time)}"
                 )
-                return
+                logger.debug(
+                    f"Total passengers: {len(self.all_passengers)}, "
+                    f"Pending: {len(self.pending_requests)}"
+                )
             
-            station.add_waiting_passenger(passenger)
-            
-            logger.info(
-                f"Passenger {passenger.passenger_id} appeared at station {passenger.origin_station_id}, "
-                f"destination {passenger.destination_station_id}, "
-                f"time {self._seconds_to_time_str(self.current_time)}"
-            )
-            logger.debug(
-                f"Total passengers: {len(self.all_passengers)}, "
-                f"Pending: {len(self.pending_requests)}"
-            )
-        
-        except Exception as e:
-            logger.error(f"Error handling passenger appear: {e}", exc_info=True)
-    
+            except Exception as e:
+                logger.error(f"Error handling passenger appear: {e}", exc_info=True)
+
     def handle_simulation_end(self, event: Event) -> None:
-        """
-        Handle simulation end event.
-        
-        Args:
-            event: Simulation end event
-        """
-        logger.info("=" * 60)
-        logger.info("SIMULATION END EVENT REACHED")
-        logger.info("=" * 60)
-        
-        # Record simulation end event
-        arrived = sum(1 for p in self.all_passengers.values() if p.status == Passenger.ARRIVED)
-        abandoned = sum(1 for p in self.all_passengers.values() if p.status == Passenger.ABANDONED)
-        
-        self.statistics.record_system_event(
-            event_type="SIMULATION_END",
-            description=f"Simulation completed: {arrived} arrived, {abandoned} abandoned out of {len(self.all_passengers)} total passengers",
-            current_time=self.current_time
-        )
-        
-        # Clear remaining events (simulation is over)
-        self.event_queue.clear()
-    
+            """
+            Handle simulation end event.
+            
+            Args:
+                event: Simulation end event
+            """
+            logger.info("=" * 60)
+            logger.info("SIMULATION END EVENT REACHED")
+            logger.info("=" * 60)
+            
+            # Record simulation end event
+            arrived = sum(1 for p in self.all_passengers.values() if p.status == Passenger.ARRIVED)
+            abandoned = sum(1 for p in self.all_passengers.values() if p.status == Passenger.ABANDONED)
+            
+            self.statistics.record_system_event(
+                event_type="SIMULATION_END",
+                description=f"Simulation completed: {arrived} arrived, {abandoned} abandoned out of {len(self.all_passengers)} total passengers",
+                current_time=self.current_time
+            )
+            
+            # Clear remaining events (simulation is over)
+            self.event_queue.clear()
+
     def check_passenger_timeouts(self) -> None:
         """
         Check all waiting passengers for timeouts.
@@ -1063,146 +1064,164 @@ class SimulationEngine:
             logger.error(f"Error loading minibuses from config: {e}", exc_info=True)
             raise
 
-
     def handle_minibus_arrival(self, event: Event) -> None:
-        """
-        Handle minibus arrival at a station.
-        
-        This method processes a minibus arriving at a station, executes the
-        planned action (PICKUP or DROPOFF), updates passenger states, records
-        statistics, and schedules the next arrival event if applicable.
-        
-        Steps:
-            1. Get minibus and station objects
-            2. Call minibus.arrive_at_station()
-            3. Process boarding and alighting passengers
-            4. Record statistics for vehicle events
-            5. Update pending_requests list
-            6. Schedule next arrival event or mark minibus as idle
-        
-        Args:
-            event: Minibus arrival event containing minibus_id
-        """
+            """
+            Handle minibus arrival at a station.
+            
+            This method processes a minibus arriving at a station, executes the
+            planned action (PICKUP or DROPOFF), updates passenger states, records
+            statistics, and schedules the next arrival event if applicable.
+            
+            Steps:
+                1. Get minibus and station objects
+                2. Call minibus.arrive_at_station()
+                3. Process boarding and alighting passengers
+                4. Record statistics for vehicle events
+                5. Update pending_requests list
+                6. Schedule next arrival event or mark minibus as idle
+            
+            Args:
+                event: Minibus arrival event containing minibus_id
+            """
 
-        minibus_id = event.data["minibus_id"]
-        
-        try:
-            # Get minibus object
-            minibus = self.minibuses.get(minibus_id)
-            if minibus is None:
-                logger.error(f"Minibus {minibus_id} not found in minibuses dictionary")
-                return
+            minibus_id = event.data["minibus_id"]
             
-            # Get current station
-            station = self.network.get_station(minibus.next_station_id)
-            if station is None:
-                logger.error(
-                    f"Station {minibus.next_station_id} not found in network "
-                    f"for minibus {minibus_id}"
-                )
-                return
-            
-            logger.info(
-                f"Minibus {minibus_id} arriving at station {station.station_id} "
-                f"at {self._seconds_to_time_str(self.current_time)}"
-            )
-            
-            # Process arrival (handles boarding and alighting)
-            # Minibus.arrive_at_station() returns a dictionary with keys:
-            # boarded, alighted, action_type
-            result = minibus.arrive_at_station(station, self.current_time)
-            
-            boarded = result["boarded"]
-            alighted = result["alighted"]
-            action_type = result["action_type"]
-            
-            # Record statistics - ARRIVAL event
-            self.statistics.record_vehicle_event(
-                vehicle_id=minibus_id,
-                event_type="ARRIVAL",
-                event_data={
-                    "station": station.station_id,
-                    "occupancy": minibus.get_occupancy(),
-                    "action": action_type
-                },
-                current_time=self.current_time
-            )
-            
-            # Record statistics - BOARDING event
-            if len(boarded) > 0:
-                self.statistics.record_vehicle_event(
-                    vehicle_id=minibus_id,
-                    event_type="BOARDING",
-                    event_data={
-                        "station": station.station_id,
-                        "count": len(boarded),
-                        "occupancy": minibus.get_occupancy(),
-                        "passenger_ids": [p.passenger_id for p in boarded]
-                    },
-                    current_time=self.current_time
-                )
+            try:
+                # Get minibus object
+                minibus = self.minibuses.get(minibus_id)
+                if minibus is None:
+                    logger.error(f"Minibus {minibus_id} not found in minibuses dictionary")
+                    return
                 
-                # Remove boarded passengers from pending_requests
-                for passenger in boarded:
-                    if passenger in self.pending_requests:
-                        self.pending_requests.remove(passenger)
-                        logger.debug(
-                            f"Removed passenger {passenger.passenger_id} "
-                            f"from pending_requests"
-                        )
-            
-            # Record statistics - ALIGHTING event
-            if len(alighted) > 0:
-                self.statistics.record_vehicle_event(
-                    vehicle_id=minibus_id,
-                    event_type="ALIGHTING",
-                    event_data={
-                        "station": station.station_id,
-                        "count": len(alighted),
-                        "occupancy": minibus.get_occupancy(),
-                        "passenger_ids": [p.passenger_id for p in alighted]
-                    },
-                    current_time=self.current_time
-                )
-            
-            # Log boarding and alighting summary
-            logger.info(
-                f"Minibus {minibus_id} at {station.station_id}: "
-                f"action={action_type}, "
-                f"{len(boarded)} boarded, {len(alighted)} alighted, "
-                f"occupancy: {minibus.get_occupancy()}/{minibus.capacity}"
-            )
-            
-            # Schedule next arrival if minibus has more stops
-            if minibus.next_arrival_time is not None:
-                self.add_event(Event(
-                    time=minibus.next_arrival_time,
-                    event_type=Event.MINIBUS_ARRIVAL,
-                    data={"minibus_id": minibus_id}
-                ))
-                logger.debug(
-                    f"Scheduled next arrival for {minibus_id} at station "
-                    f"{minibus.next_station_id} at {minibus.next_arrival_time}s "
-                    f"({self._seconds_to_time_str(minibus.next_arrival_time)})"
-                )
-            else:
+                # ===================================================================
+                # CRITICAL FIX: Check if minibus has a valid next_station_id
+                # ===================================================================
+                if minibus.next_station_id is None:
+                    logger.warning(
+                        f"Minibus {minibus_id} arrival event triggered but next_station_id is None. "
+                        f"This should not happen - event should not have been scheduled."
+                    )
+                    return
+                # ===================================================================
+                
+                # Get current station
+                station = self.network.get_station(minibus.next_station_id)
+                if station is None:
+                    logger.error(
+                        f"Station {minibus.next_station_id} not found in network "
+                        f"for minibus {minibus_id}"
+                    )
+                    return
+                
                 logger.info(
-                    f"Minibus {minibus_id} completed current route plan, now IDLE"
+                    f"Minibus {minibus_id} arriving at station {station.station_id} "
+                    f"at {self._seconds_to_time_str(self.current_time)}"
                 )
                 
-                # Record minibus idle event
-                self.statistics.record_system_event(
-                    event_type="MINIBUS_IDLE",
-                    description=f"{minibus_id} completed route plan at {station.station_id}",
+                # Process arrival (handles boarding and alighting)
+                # Minibus.arrive_at_station() returns a dictionary with keys:
+                # boarded, alighted, action_type
+                result = minibus.arrive_at_station(station, self.current_time)
+                
+                boarded = result["boarded"]
+                alighted = result["alighted"]
+                action_type = result["action_type"]
+                
+                # Record statistics - ARRIVAL event
+                self.statistics.record_vehicle_event(
+                    vehicle_id=minibus_id,
+                    event_type="ARRIVAL",
+                    event_data={
+                        "station": station.station_id,
+                        "occupancy": minibus.get_occupancy(),
+                        "action": action_type
+                    },
                     current_time=self.current_time
                 )
-        
-        except Exception as e:
-            logger.error(
-                f"Error handling minibus arrival for {minibus_id}: {e}", 
-                exc_info=True
-            )
-
+                
+                # Record statistics - BOARDING event
+                if len(boarded) > 0:
+                    self.statistics.record_vehicle_event(
+                        vehicle_id=minibus_id,
+                        event_type="BOARDING",
+                        event_data={
+                            "station": station.station_id,
+                            "count": len(boarded),
+                            "occupancy": minibus.get_occupancy(),
+                            "passenger_ids": [p.passenger_id for p in boarded]
+                        },
+                        current_time=self.current_time
+                    )
+                    
+                    # Remove boarded passengers from pending_requests
+                    for passenger in boarded:
+                        if passenger in self.pending_requests:
+                            self.pending_requests.remove(passenger)
+                            logger.debug(
+                                f"Removed passenger {passenger.passenger_id} "
+                                f"from pending_requests"
+                            )
+                
+                # Record statistics - ALIGHTING event
+                if len(alighted) > 0:
+                    self.statistics.record_vehicle_event(
+                        vehicle_id=minibus_id,
+                        event_type="ALIGHTING",
+                        event_data={
+                            "station": station.station_id,
+                            "count": len(alighted),
+                            "occupancy": minibus.get_occupancy(),
+                            "passenger_ids": [p.passenger_id for p in alighted]
+                        },
+                        current_time=self.current_time
+                    )
+                
+                # Log boarding and alighting summary
+                logger.info(
+                    f"Minibus {minibus_id} at {station.station_id}: "
+                    f"action={action_type}, "
+                    f"{len(boarded)} boarded, {len(alighted)} alighted, "
+                    f"occupancy: {minibus.get_occupancy()}/{minibus.capacity}"
+                )
+                
+                # Schedule next arrival if minibus has more stops
+                if minibus.next_arrival_time is not None:
+                    # ===================================================================
+                    # ADDITIONAL CHECK: Verify next_station_id is also not None
+                    # ===================================================================
+                    if minibus.next_station_id is None:
+                        logger.error(
+                            f"Minibus {minibus_id} has next_arrival_time={minibus.next_arrival_time} "
+                            f"but next_station_id is None. This is inconsistent state."
+                        )
+                    else:
+                        self.add_event(Event(
+                            time=minibus.next_arrival_time,
+                            event_type=Event.MINIBUS_ARRIVAL,
+                            data={"minibus_id": minibus_id}
+                        ))
+                        logger.debug(
+                            f"Scheduled next arrival for {minibus_id} at station "
+                            f"{minibus.next_station_id} at {minibus.next_arrival_time}s "
+                            f"({self._seconds_to_time_str(minibus.next_arrival_time)})"
+                        )
+                else:
+                    logger.info(
+                        f"Minibus {minibus_id} completed current route plan, now IDLE"
+                    )
+                    
+                    # Record minibus idle event
+                    self.statistics.record_system_event(
+                        event_type="MINIBUS_IDLE",
+                        description=f"{minibus_id} completed route plan at {station.station_id}",
+                        current_time=self.current_time
+                    )
+            
+            except Exception as e:
+                logger.error(
+                    f"Error handling minibus arrival for {minibus_id}: {e}", 
+                    exc_info=True
+                )
     # def handle_optimize_call(self, event: Event) -> None:
     #     """
     #     Handle periodic optimizer call event.
@@ -1645,7 +1664,7 @@ class SimulationEngine:
                                             break
                     
                     # Schedule next arrival event
-                    if minibus.next_arrival_time is not None:
+                    if minibus.next_arrival_time is not None and minibus.next_station_id is not None:
                         self.add_event(Event(
                             time=minibus.next_arrival_time,
                             event_type=Event.MINIBUS_ARRIVAL,
