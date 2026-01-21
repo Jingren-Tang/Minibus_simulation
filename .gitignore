@@ -1,1 +1,7 @@
 batch_results
+
+# Exclude large files and batch results
+batch_results
+batch_results/
+simulation.log
+*.log
