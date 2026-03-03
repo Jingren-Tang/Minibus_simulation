@@ -123,7 +123,9 @@ class Statistics:
                 "wait_time": wait_time,
                 "travel_time": travel_time,
                 "total_time": total_time,
-                "assigned_vehicle": passenger.assigned_vehicle_id
+                "assigned_vehicle": passenger.assigned_vehicle_id,
+                # NEW: Add vehicle_type for filtering
+                "vehicle_type": "Minibus" if passenger.assigned_vehicle_id and "MINIBUS" in str(passenger.assigned_vehicle_id).upper() else "Bus"
             }
             
             # Add to records
@@ -727,6 +729,183 @@ class Statistics:
             logger.error(f"Error calculating system metrics: {e}", exc_info=True)
             return {}
     
+    # =========================================================================
+    # NEW METHOD: Get minibus occupancy time series data for batch experiments
+    # =========================================================================
+    def get_minibus_occupancy_timeseries(self) -> Dict[str, Any]:
+        """
+        Get minibus occupancy over time data for batch experiment analysis.
+        
+        Returns:
+            Dictionary containing:
+                - minibus_count: Number of minibuses
+                - time_points: List of all unique time points
+                - occupancy_by_vehicle: Dict mapping vehicle_id to list of (time, occupancy) tuples
+                - aggregated_occupancy: List of (time, total_occupancy) for all minibuses combined
+                - avg_occupancy_over_time: List of (time, avg_occupancy) normalized time series
+                - summary_stats: Summary statistics for the time series
+        """
+        logger.info("Extracting minibus occupancy time series data...")
+        
+        try:
+            # Filter minibus records
+            minibus_records = {
+                vid: record for vid, record in self.vehicle_records.items()
+                if record.get("vehicle_type") == "Minibus"
+            }
+            
+            if not minibus_records:
+                logger.warning("No minibus records found")
+                return {
+                    "minibus_count": 0,
+                    "time_points": [],
+                    "occupancy_by_vehicle": {},
+                    "aggregated_occupancy": [],
+                    "avg_occupancy_over_time": [],
+                    "summary_stats": {}
+                }
+            
+            # Collect all occupancy data by vehicle
+            occupancy_by_vehicle = {}
+            all_time_points = set()
+            
+            for vid, record in minibus_records.items():
+                occupancy_data = record.get("occupancy_over_time", [])
+                if occupancy_data:
+                    # Sort by time
+                    sorted_data = sorted(occupancy_data, key=lambda x: x[0])
+                    occupancy_by_vehicle[vid] = sorted_data
+                    all_time_points.update(t for t, _ in sorted_data)
+            
+            # Sort time points
+            time_points = sorted(all_time_points)
+            
+            # Calculate aggregated occupancy at each time point
+            aggregated_occupancy = []
+            avg_occupancy_over_time = []
+            
+            for t in time_points:
+                total_occ = 0
+                count = 0
+                
+                for vid, occ_data in occupancy_by_vehicle.items():
+                    # Find occupancy at time t (use last known value <= t)
+                    occ_at_t = 0
+                    for time_point, occ in occ_data:
+                        if time_point <= t:
+                            occ_at_t = occ
+                        else:
+                            break
+                    total_occ += occ_at_t
+                    count += 1
+                
+                aggregated_occupancy.append((t, total_occ))
+                avg_occ = total_occ / count if count > 0 else 0
+                avg_occupancy_over_time.append((t, avg_occ))
+            
+            # Calculate summary statistics
+            all_occupancies = []
+            for occ_data in occupancy_by_vehicle.values():
+                all_occupancies.extend([occ for _, occ in occ_data])
+            
+            if all_occupancies:
+                summary_stats = {
+                    "mean_occupancy": float(np.mean(all_occupancies)),
+                    "max_occupancy": int(np.max(all_occupancies)),
+                    "min_occupancy": int(np.min(all_occupancies)),
+                    "std_occupancy": float(np.std(all_occupancies)),
+                    "total_data_points": len(all_occupancies)
+                }
+            else:
+                summary_stats = {
+                    "mean_occupancy": 0.0,
+                    "max_occupancy": 0,
+                    "min_occupancy": 0,
+                    "std_occupancy": 0.0,
+                    "total_data_points": 0
+                }
+            
+            result = {
+                "minibus_count": len(minibus_records),
+                "time_points": time_points,
+                "occupancy_by_vehicle": occupancy_by_vehicle,
+                "aggregated_occupancy": aggregated_occupancy,
+                "avg_occupancy_over_time": avg_occupancy_over_time,
+                "summary_stats": summary_stats
+            }
+            
+            logger.info(f"Extracted occupancy time series for {len(minibus_records)} minibuses, "
+                       f"{len(time_points)} time points")
+            
+            return result
+        
+        except Exception as e:
+            logger.error(f"Error extracting minibus occupancy time series: {e}", exc_info=True)
+            return {
+                "minibus_count": 0,
+                "time_points": [],
+                "occupancy_by_vehicle": {},
+                "aggregated_occupancy": [],
+                "avg_occupancy_over_time": [],
+                "summary_stats": {}
+            }
+    
+    # =========================================================================
+    # NEW METHOD: Export minibus occupancy time series to CSV
+    # =========================================================================
+    def export_minibus_occupancy_timeseries(self, output_dir: str = "results/") -> str:
+        """
+        Export minibus occupancy time series to a dedicated CSV file.
+        
+        Args:
+            output_dir: Directory to save the CSV file
+        
+        Returns:
+            Path to the exported CSV file
+        
+        Creates:
+            - minibus_occupancy_timeseries.csv: Time series data with columns:
+              time, vehicle_id, occupancy, total_occupancy, avg_occupancy
+        """
+        logger.info("Exporting minibus occupancy time series to CSV...")
+        
+        try:
+            output_path = Path(output_dir)
+            output_path.mkdir(parents=True, exist_ok=True)
+            
+            timeseries_file = output_path / "minibus_occupancy_timeseries.csv"
+            
+            # Get time series data
+            ts_data = self.get_minibus_occupancy_timeseries()
+            
+            with open(timeseries_file, 'w', newline='', encoding='utf-8') as f:
+                fieldnames = ["time", "vehicle_id", "occupancy", "total_occupancy", "avg_occupancy"]
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                
+                # Create a mapping of time -> aggregated values
+                agg_map = {t: (total, avg) for (t, total), (_, avg) in 
+                          zip(ts_data["aggregated_occupancy"], ts_data["avg_occupancy_over_time"])}
+                
+                # Write data for each vehicle at each time point
+                for vid, occ_data in ts_data["occupancy_by_vehicle"].items():
+                    for time_point, occupancy in occ_data:
+                        total_occ, avg_occ = agg_map.get(time_point, (0, 0))
+                        writer.writerow({
+                            "time": time_point,
+                            "vehicle_id": vid,
+                            "occupancy": occupancy,
+                            "total_occupancy": total_occ,
+                            "avg_occupancy": round(avg_occ, 4)
+                        })
+            
+            logger.info(f"Exported minibus occupancy time series to {timeseries_file}")
+            return str(timeseries_file)
+        
+        except Exception as e:
+            logger.error(f"Error exporting minibus occupancy time series: {e}", exc_info=True)
+            return ""
+    
     def generate_report(self, output_file: Optional[str] = None) -> str:
         """
         Generate a comprehensive text report of simulation results.
@@ -985,7 +1164,6 @@ class Statistics:
         
         except Exception as e:
             logger.error(f"Error creating wait time plot: {e}", exc_info=True)
-    
     def plot_occupancy_over_time(
         self,
         vehicle_id: Optional[str] = None,
@@ -993,19 +1171,13 @@ class Statistics:
     ) -> None:
         """
         Plot vehicle occupancy over time.
-        
-        Args:
-            vehicle_id: Specific vehicle to plot. If None, plot all vehicles.
-            output_file: Path to save the plot
-        
-        Creates:
-            - Line plot of occupancy vs time
-            - Separate subplots for buses and minibuses
-            - Different color for each vehicle
-            - Capacity line for each vehicle type
+
+        Changes:
+        - Split bus and minibus into TWO separate figures (two PNG files).
+        - Do NOT draw minibus capacity line (capacity may be 6 or 8).
         """
-        logger.info("Creating occupancy timeline plot...")
-        
+        logger.info("Creating occupancy timeline plot (separate figures for bus/minibus)...")
+
         try:
             # Determine which vehicles to plot
             if vehicle_id:
@@ -1015,42 +1187,43 @@ class Statistics:
                     return
             else:
                 vehicles_to_plot = self.vehicle_records
-            
+
             # Separate vehicles by type
             buses = {}
             minibuses = {}
-            
+
             for vid, record in vehicles_to_plot.items():
+                if record is None:
+                    continue
                 vehicle_type = record.get("vehicle_type", "Bus")
                 if vehicle_type == "Bus":
                     buses[vid] = record
                 else:
                     minibuses[vid] = record
-            
-            # Create subplots
-            num_plots = sum([1 for x in [buses, minibuses] if x])
-            fig, axes = plt.subplots(num_plots, 1, figsize=(14, 6 * num_plots))
-            
-            # If only one plot, make axes a list
-            if num_plots == 1:
-                axes = [axes]
-            
-            plot_idx = 0
-            
-            # Plot Buses
+
+            # Helper: create derived output filenames
+            out_path = Path(output_file)
+            stem = out_path.stem
+            suffix = out_path.suffix if out_path.suffix else ".png"
+            parent = out_path.parent if str(out_path.parent) != "." else Path(".")
+
+            bus_out = str(parent / f"{stem}_bus{suffix}")
+            minibus_out = str(parent / f"{stem}_minibus{suffix}")
+
+            # -------------------------
+            # Plot Buses (separate fig)
+            # -------------------------
             if buses:
-                ax = axes[plot_idx]
-                
+                plt.figure(figsize=(14, 6))
+
                 for vid, record in buses.items():
-                    occupancy_data = record["occupancy_over_time"]
-                    
+                    occupancy_data = record.get("occupancy_over_time", [])
                     if occupancy_data:
-                        # Sort occupancy data by time
                         occupancy_data_sorted = sorted(occupancy_data, key=lambda x: x[0])
                         times = [t for t, _ in occupancy_data_sorted]
                         occupancies = [o for _, o in occupancy_data_sorted]
-                        
-                        ax.plot(
+
+                        plt.plot(
                             times,
                             occupancies,
                             marker='o',
@@ -1059,37 +1232,47 @@ class Statistics:
                             linewidth=1.5,
                             linestyle='-'
                         )
-                
-                # Add capacity line for buses
-                ax.axhline(y=80, color='red', linestyle='--', linewidth=1, 
-                        label='Capacity (80)')
-                
-                # Labels and title
-                ax.set_xlabel('Simulation Time (seconds)', fontsize=12)
-                ax.set_ylabel('Occupancy (passengers)', fontsize=12)
-                ax.set_title('Bus Occupancy Over Time', fontsize=14, fontweight='bold')
-                
-                # Place legend below the plot
-                ax.legend(fontsize=9, loc='upper center', bbox_to_anchor=(0.5, -0.15),
-                        ncol=min(5, len(buses) + 1), frameon=True)
-                ax.grid(True, alpha=0.3)
-                
-                plot_idx += 1
-            
-            # Plot Minibuses
+
+                # Bus capacity line (kept)
+                plt.axhline(y=80, color='red', linestyle='--', linewidth=1, label='Capacity (80)')
+
+                plt.xlabel('Simulation Time (seconds)', fontsize=12)
+                plt.ylabel('Occupancy (passengers)', fontsize=12)
+                plt.title('Bus Occupancy Over Time', fontsize=14, fontweight='bold')
+
+                # Legend below plot
+                plt.legend(
+                    fontsize=9,
+                    loc='upper center',
+                    bbox_to_anchor=(0.5, -0.15),
+                    ncol=min(5, len(buses) + 1),
+                    frameon=True
+                )
+                plt.grid(True, alpha=0.3)
+                plt.tight_layout()
+
+                Path(bus_out).parent.mkdir(parents=True, exist_ok=True)
+                plt.savefig(bus_out, dpi=300, bbox_inches='tight')
+                plt.close()
+
+                logger.info(f"Bus occupancy plot saved to {bus_out}")
+            else:
+                logger.info("No bus records available for occupancy plot")
+
+            # -----------------------------
+            # Plot Minibuses (separate fig)
+            # -----------------------------
             if minibuses:
-                ax = axes[plot_idx]
-                
+                plt.figure(figsize=(14, 6))
+
                 for vid, record in minibuses.items():
-                    occupancy_data = record["occupancy_over_time"]
-                    
+                    occupancy_data = record.get("occupancy_over_time", [])
                     if occupancy_data:
-                        # Sort occupancy data by time
                         occupancy_data_sorted = sorted(occupancy_data, key=lambda x: x[0])
                         times = [t for t, _ in occupancy_data_sorted]
                         occupancies = [o for _, o in occupancy_data_sorted]
-                        
-                        ax.plot(
+
+                        plt.plot(
                             times,
                             occupancies,
                             marker='s',
@@ -1098,30 +1281,25 @@ class Statistics:
                             linewidth=1.5,
                             linestyle='--'
                         )
-                
-                # Add capacity line for minibuses
-                ax.axhline(y=6, color='red', linestyle='--', linewidth=1, 
-                        label='Capacity (6)')
-                
-                # Labels and title
-                ax.set_xlabel('Simulation Time (seconds)', fontsize=12)
-                ax.set_ylabel('Occupancy (passengers)', fontsize=12)
-                ax.set_title('Minibus Occupancy Over Time', fontsize=14, fontweight='bold')
-                
-                # Place legend on the right
-                ax.legend(fontsize=9, loc='best')
-                ax.grid(True, alpha=0.3)
-            
-            # Adjust layout to prevent overlap
-            plt.tight_layout()
-            
-            # Save plot
-            Path(output_file).parent.mkdir(parents=True, exist_ok=True)
-            plt.savefig(output_file, dpi=300, bbox_inches='tight')
-            plt.close()
-            
-            logger.info(f"Occupancy timeline plot saved to {output_file}")
-        
+
+                # IMPORTANT: no minibus capacity line here (capacity may be 6/8/etc.)
+
+                plt.xlabel('Simulation Time (seconds)', fontsize=12)
+                plt.ylabel('Occupancy (passengers)', fontsize=12)
+                plt.title('Minibus Occupancy Over Time', fontsize=14, fontweight='bold')
+
+                plt.legend(fontsize=9, loc='best')
+                plt.grid(True, alpha=0.3)
+                plt.tight_layout()
+
+                Path(minibus_out).parent.mkdir(parents=True, exist_ok=True)
+                plt.savefig(minibus_out, dpi=300, bbox_inches='tight')
+                plt.close()
+
+                logger.info(f"Minibus occupancy plot saved to {minibus_out}")
+            else:
+                logger.info("No minibus records available for occupancy plot")
+
         except Exception as e:
             logger.error(f"Error creating occupancy plot: {e}", exc_info=True)
 
@@ -1138,6 +1316,7 @@ class Statistics:
             - vehicle_states.csv: Detailed vehicle state history
             - events.csv: All system events
             - validation.csv: Data validation results
+            - minibus_occupancy_timeseries.csv: Minibus occupancy time series (NEW)
         """
         logger.info("Exporting statistics to CSV files...")
         
@@ -1228,6 +1407,9 @@ class Statistics:
                         writer.writerow({"vehicle_id": vehicle_id, "issue": issue})
             logger.info(f"Exported validation results to {validation_file}")
             
+            # NEW: Export minibus occupancy time series
+            self.export_minibus_occupancy_timeseries(output_dir)
+            
             logger.info(f"All CSV exports completed in directory: {output_dir}")
         
         except Exception as e:
@@ -1312,104 +1494,3 @@ class Statistics:
         
         except Exception as e:
             logger.error(f"Error creating hourly service rate plot: {e}", exc_info=True)
-    
-    # def export_to_csv(self, output_dir: str = "results/") -> None:
-    #     """
-    #     Export all statistics to CSV files for further analysis.
-        
-    #     Args:
-    #         output_dir: Directory to save CSV files
-        
-    #     Creates:
-    #         - passengers.csv: All passenger records
-    #         - vehicles.csv: Vehicle summary statistics
-    #         - vehicle_states.csv: Detailed vehicle state history
-    #         - events.csv: All system events
-    #         - validation.csv: Data validation results
-    #     """
-    #     logger.info("Exporting statistics to CSV files...")
-        
-    #     try:
-    #         # Create output directory
-    #         output_path = Path(output_dir)
-    #         output_path.mkdir(parents=True, exist_ok=True)
-            
-    #         # Export passengers.csv
-    #         passengers_file = output_path / "passengers.csv"
-    #         with open(passengers_file, 'w', newline='', encoding='utf-8') as f:
-    #             if self.passenger_records:
-    #                 fieldnames = self.passenger_records[0].keys()
-    #                 writer = csv.DictWriter(f, fieldnames=fieldnames)
-    #                 writer.writeheader()
-    #                 writer.writerows(self.passenger_records)
-    #         logger.info(f"Exported {len(self.passenger_records)} passenger records to {passengers_file}")
-            
-    #         # Export vehicles.csv
-    #         vehicles_file = output_path / "vehicles.csv"
-    #         vehicle_metrics = self.calculate_vehicle_metrics()
-            
-    #         with open(vehicles_file, 'w', newline='', encoding='utf-8') as f:
-    #             fieldnames = [
-    #                 "vehicle_id", "type", "total_passengers", "avg_occupancy",
-    #                 "max_occupancy", "occupancy_rate", "total_boardings",
-    #                 "total_alightings", "stations_served", "idle_time", "service_time"
-    #             ]
-    #             writer = csv.DictWriter(f, fieldnames=fieldnames)
-    #             writer.writeheader()
-                
-    #             for vehicle_id, metrics in vehicle_metrics.items():
-    #                 row = {
-    #                     "vehicle_id": vehicle_id,
-    #                     "type": self.vehicle_records[vehicle_id]["vehicle_type"],
-    #                     **metrics
-    #                 }
-    #                 writer.writerow(row)
-    #         logger.info(f"Exported {len(vehicle_metrics)} vehicle records to {vehicles_file}")
-            
-    #         # Export vehicle_states.csv (detailed state history)
-    #         states_file = output_path / "vehicle_states.csv"
-    #         with open(states_file, 'w', newline='', encoding='utf-8') as f:
-    #             fieldnames = ["vehicle_id", "time", "type", "occupancy", "location", "count"]
-    #             writer = csv.DictWriter(f, fieldnames=fieldnames)
-    #             writer.writeheader()
-                
-    #             for vehicle_id, record in self.vehicle_records.items():
-    #                 for state in record.get("state_changes", []):
-    #                     row = {
-    #                         "vehicle_id": vehicle_id,
-    #                         "time": state.get("time"),
-    #                         "type": state.get("type"),
-    #                         "occupancy": state.get("occupancy"),
-    #                         "location": state.get("location") or state.get("station"),
-    #                         "count": state.get("count", "")
-    #                     }
-    #                     writer.writerow(row)
-    #         logger.info(f"Exported detailed vehicle state history to {states_file}")
-            
-    #         # Export events.csv
-    #         events_file = output_path / "events.csv"
-    #         with open(events_file, 'w', newline='', encoding='utf-8') as f:
-    #             fieldnames = ["time", "event_type", "description"]
-    #             writer = csv.DictWriter(f, fieldnames=fieldnames)
-    #             writer.writeheader()
-    #             writer.writerows(self.system_events)
-    #         logger.info(f"Exported {len(self.system_events)} system events to {events_file}")
-            
-    #         # Export validation.csv
-    #         validation_file = output_path / "validation.csv"
-    #         validation_issues = self.validate_all_vehicles()
-            
-    #         with open(validation_file, 'w', newline='', encoding='utf-8') as f:
-    #             fieldnames = ["vehicle_id", "issue"]
-    #             writer = csv.DictWriter(f, fieldnames=fieldnames)
-    #             writer.writeheader()
-                
-    #             for vehicle_id, issues in validation_issues.items():
-    #                 for issue in issues:
-    #                     writer.writerow({"vehicle_id": vehicle_id, "issue": issue})
-    #         logger.info(f"Exported validation results to {validation_file}")
-            
-    #         logger.info(f"All CSV exports completed in directory: {output_dir}")
-        
-    #     except Exception as e:
-    #         logger.error(f"Error exporting to CSV: {e}", exc_info=True)

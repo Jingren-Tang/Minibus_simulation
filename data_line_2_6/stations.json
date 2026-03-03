@@ -1,0 +1,202 @@
+{
+  "stations": [
+    {
+      "station_id": "8589141",
+      "name": "Fribourg, Chaley",
+      "location": [
+        46.805855,
+        7.175769
+      ],
+      "index": 0
+    },
+    {
+      "station_id": "8589152",
+      "name": "Fribourg, Mon-Repos",
+      "location": [
+        46.806576,
+        7.172542
+      ],
+      "index": 1
+    },
+    {
+      "station_id": "8589138",
+      "name": "Fribourg, Cité-Jardins",
+      "location": [
+        46.809219,
+        7.170362
+      ],
+      "index": 2
+    },
+    {
+      "station_id": "8591766",
+      "name": "Fribourg, Boschung",
+      "location": [
+        46.811443,
+        7.171201
+      ],
+      "index": 3
+    },
+    {
+      "station_id": "8587255",
+      "name": "Fribourg, Tilleul/Cathédrale",
+      "location": [
+        46.806136,
+        7.161448
+      ],
+      "index": 4
+    },
+    {
+      "station_id": "8589161",
+      "name": "Fribourg, St-Pierre",
+      "location": [
+        46.803873,
+        7.157458
+      ],
+      "index": 5
+    },
+    {
+      "station_id": "8592374",
+      "name": "Fribourg/Freiburg, Pl. Gare",
+      "location": [
+        46.803615,
+        7.151538
+      ],
+      "index": 6
+    },
+    {
+      "station_id": "8589130",
+      "name": "Villars-sur-Glâne, Méridienne",
+      "location": [
+        46.794403,
+        7.111792
+      ],
+      "index": 7
+    },
+    {
+      "station_id": "8589131",
+      "name": "Villars-sur-Glâne, Moncor",
+      "location": [
+        46.797789,
+        7.119964
+      ],
+      "index": 8
+    },
+    {
+      "station_id": "8588344",
+      "name": "Villars-sur-Glâne, Belle-Croix",
+      "location": [
+        46.795775,
+        7.124121
+      ],
+      "index": 9
+    },
+    {
+      "station_id": "8577786",
+      "name": "Villars-sur-Glâne,Villars-Vert",
+      "location": [
+        46.800093,
+        7.129319
+      ],
+      "index": 10
+    },
+    {
+      "station_id": "8577785",
+      "name": "Fribourg, Bertigny",
+      "location": [
+        46.803561,
+        7.13695
+      ],
+      "index": 11
+    },
+    {
+      "station_id": "8504622",
+      "name": "Fribourg, Bellevue",
+      "location": [
+        46.81092671540513,
+        7.171932726075358
+      ],
+      "index": 12
+    },
+    {
+      "station_id": "8589271",
+      "name": "Fribourg, Schönberg Dunant",
+      "location": [
+        46.805843,
+        7.178401
+      ],
+      "index": 13
+    },
+    {
+      "station_id": "8592375",
+      "name": "Fribourg, Guintzet",
+      "location": [
+        46.805209,
+        7.140415
+      ],
+      "index": 14
+    },
+    {
+      "station_id": "8592378",
+      "name": "Villars-sur-Glâne,Jean Paul II",
+      "location": [
+        46.803875,
+        7.137564
+      ],
+      "index": 15
+    },
+    {
+      "station_id": "8592377",
+      "name": "Villars-sur-Glâne, Hôp. cant.",
+      "location": [
+        46.801956,
+        7.136639
+      ],
+      "index": 16
+    },
+    {
+      "station_id": "8591767",
+      "name": "Fribourg, Route-de-Tavel",
+      "location": [
+        46.810716,
+        7.176105
+      ],
+      "index": 17
+    },
+    {
+      "station_id": "8589270",
+      "name": "Fribourg, Kessler",
+      "location": [
+        46.812164,
+        7.173227
+      ],
+      "index": 18
+    },
+    {
+      "station_id": "8589147",
+      "name": "Fribourg, Ploetscha",
+      "location": [
+        46.813063,
+        7.173218
+      ],
+      "index": 19
+    },
+    {
+      "station_id": "8589158",
+      "name": "Fribourg, Windig",
+      "location": [
+        46.816509,
+        7.173966
+      ],
+      "index": 20
+    },
+    {
+      "station_id": "8587356",
+      "name": "Fribourg, Pont-Zaehringen",
+      "location": [
+        46.806498,
+        7.16663
+      ],
+      "index": 21
+    }
+  ]
+}

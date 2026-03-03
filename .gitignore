@@ -5,3 +5,4 @@ batch_results
 batch_results/
 simulation.log
 *.log
+.history/

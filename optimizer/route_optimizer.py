@@ -246,15 +246,26 @@ class RouteOptimizer:
         # 2. Format minibus states
         minibus_list = []
         for mb_state in minibus_states:
+        #     minibus_list.append({
+        #         "minibus_id": mb_state["minibus_id"],
+        #         "current_location": mb_state["current_location_id"],
+        #         "capacity": mb_state["capacity"],
+        #         "current_occupancy": mb_state["occupancy"],
+        #         "passengers_onboard": mb_state["passenger_ids"],
+        #         "current_route_plan": mb_state["route_plan"]
+        #     })
+        
             minibus_list.append({
                 "minibus_id": mb_state["minibus_id"],
                 "current_location": mb_state["current_location_id"],
                 "capacity": mb_state["capacity"],
                 "current_occupancy": mb_state["occupancy"],
                 "passengers_onboard": mb_state["passenger_ids"],
-                "current_route_plan": mb_state["route_plan"]
+                "current_route_plan": mb_state["route_plan"],
+                "onboard_passenger_details": mb_state.get("onboard_passenger_details", {})  # real pickup data
             })
-        
+
+
         logger.debug(f"Formatted {len(minibus_list)} minibus states")
         
         # 3. Extract station list
@@ -296,9 +307,10 @@ class RouteOptimizer:
             "pending_requests": pending_list,
             "minibuses": minibus_list,
             "stations": stations,
-            "get_travel_time": get_travel_time_func,  # Function object (for python_module)
+            "get_travel_time": get_travel_time_func,
             "max_waiting_time": max_waiting_time,
-            "max_detour_time": max_detour_time
+            "max_detour_time": max_detour_time,
+            "appear_time_map": {p["passenger_id"]: p["appear_time"] for p in pending_list}  # 新增
         }
         
         logger.debug("Input data preparation completed")

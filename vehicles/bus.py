@@ -148,13 +148,24 @@ class Bus:
                     )
                     continue
                 
-                if passenger.service_mode != Passenger.SERVICE_MODE_BUS:
+                # if passenger.service_mode != Passenger.SERVICE_MODE_BUS:
+                #     logger.debug(
+                #         f"{self.bus_id}: Skipping {passenger.passenger_id} "
+                #         f"(service_mode={passenger.service_mode}, requires BUS service)"
+                #     )
+                #     continue
+
+                # Allow minibus-mode passengers to board the bus if no minibus has been
+                # assigned to pick them up yet. If a minibus is already en route to pick
+                # them up (assigned_vehicle_id is set), keep them waiting.
+                if (passenger.service_mode != Passenger.SERVICE_MODE_BUS and
+                        passenger.assigned_vehicle_id is not None):
                     logger.debug(
                         f"{self.bus_id}: Skipping {passenger.passenger_id} "
-                        f"(service_mode={passenger.service_mode}, requires BUS service)"
+                        f"(service_mode={passenger.service_mode}, assigned to {passenger.assigned_vehicle_id})"
                     )
                     continue
-                
+
                 if not self.can_board_passenger(passenger):
                     if self.is_full():
                         rejected.append(passenger)

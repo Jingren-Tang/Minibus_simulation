@@ -60,7 +60,7 @@ NUM_BUSES = 20
 # Maximum passenger capacity for each bus
 BUS_CAPACITY = 80
 
-ENABLE_MINIBUS = True
+ENABLE_MINIBUS = False
 
 # Number of minibuses in the system
 NUM_MINIBUSES = 3
@@ -97,7 +97,8 @@ OPTIMIZER_CONFIG = {
 
 # Maximum time (in seconds) a passenger will wait before abandoning the trip
 # Default: 900 seconds = 15 minutes
-PASSENGER_MAX_WAIT_TIME = 9000.0
+PASSENGER_MAX_WAIT_TIME = 1200.0
+
 
 
 # ============================================================================
@@ -110,7 +111,7 @@ PASSENGER_ALLOCATION_STRATEGY = "fixed"  # "fixed" or "schedule"
 # NEW: Fixed ratio mode - Used when PASSENGER_ALLOCATION_STRATEGY = "fixed"
 # Ratio of passengers that will use minibus service (0.0 to 1.0)
 # Example: 0.3 means 30% use minibus, 70% use bus
-MINIBUS_PASSENGER_RATIO = 0.05
+MINIBUS_PASSENGER_RATIO = 0.0
 
 # NEW: Schedule-based mode - Used when PASSENGER_ALLOCATION_STRATEGY = "fixed"
 # Define different minibus usage ratios for different time periods
@@ -142,7 +143,7 @@ MINIBUS_PASSENGER_RATIO_SCHEDULE = [
 # ============================================================================
 
 # Directory where simulation results will be saved
-OUTPUT_DIR = "batch_results/Minibus_ratio_results/exp_003_n3_c8_r0.05_opt60"
+OUTPUT_DIR = "bus_simulation_results"
 
 # Name of the log file
 LOG_FILE = "simulation.log"

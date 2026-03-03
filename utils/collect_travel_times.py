@@ -240,10 +240,10 @@ def main():
     print(f"   Loaded {len(stations)} stations")
     
     # Generate time points
-    base_date = datetime(2025, 12, 18)  # Thursday, July 25, 2024
+    base_date = datetime(2026, 2, 12)  # Thursday, July 25, 2024
     print(f"\n3. Generating time points (base date: {base_date.strftime('%Y-%m-%d %A')})...")
-    time_points = generate_time_points(base_date, start_hour=19, end_hour=21, interval_min=20)
-    print(f"   Generated {len(time_points)} time points from 19:00 to 21:00")
+    time_points = generate_time_points(base_date, start_hour=15, end_hour=17, interval_min=20)
+    print(f"   Generated {len(time_points)} time points from 15:00 to 17:00")
     
     # Calculate batches
     batch_size = 10  # 10x10 = 100 elements per batch

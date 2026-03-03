@@ -21,7 +21,14 @@
     "8589270",
     "8589147",
     "8589158",
-    "8587356"
+    "8587356",
+    "8577741",
+    "8589154",
+    "8588858",
+    "8589155",
+    "8588351",
+    "8577820",
+    "8587238"
   ],
   "station_mapping": {
     "8589141": 0,
@@ -45,19 +52,26 @@
     "8589270": 18,
     "8589147": 19,
     "8589158": 20,
-    "8587356": 21
+    "8587356": 21,
+    "8577741": 22,
+    "8589154": 23,
+    "8588858": 24,
+    "8589155": 25,
+    "8588351": 26,
+    "8577820": 27,
+    "8587238": 28
   },
   "matrix_shape": [
-    22,
-    22,
+    29,
+    29,
     36
   ],
-  "time_slot_duration": 600,
+  "time_slot_duration": 10,
   "num_time_slots": 36,
   "start_time": "15:00:00",
   "end_time": "21:00:00",
   "description": "Travel time matrix for Fribourg bus network simulation with time-varying travel times",
   "units": "seconds",
-  "created_date": "2025-12-03",
+  "created_date": "2026-02-09",
   "note": "Matrix covers evening hours (15:00-21:00) with 10-minute time slots"
 }

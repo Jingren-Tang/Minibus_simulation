@@ -679,9 +679,21 @@ class SimulationEngine:
                 )
             
             # MODIFIED: Remove boarded passengers from pending_bus_requests
+            # for passenger in boarded:
+            #     if passenger in self.pending_bus_requests:
+            #         self.pending_bus_requests.remove(passenger)
+
             for passenger in boarded:
                 if passenger in self.pending_bus_requests:
                     self.pending_bus_requests.remove(passenger)
+                # If a minibus-mode passenger boarded the bus instead,
+                # remove them from the minibus pending list as well.
+                if passenger in self.pending_minibus_requests:
+                    self.pending_minibus_requests.remove(passenger)
+                    logger.info(
+                        f"Passenger {passenger.passenger_id} (minibus mode) boarded "
+                        f"{bus_id} instead - removed from pending_minibus_requests"
+                    )
                     logger.debug(
                         f"Removed {passenger.passenger_id} from pending_bus_requests "
                         f"(boarded {bus_id})"
@@ -1696,8 +1708,28 @@ class SimulationEngine:
             )
             
             # Prepare inputs
-            minibus_states = [mb.get_minibus_info() for mb in self.minibuses.values()]
-            
+            # minibus_states = [mb.get_minibus_info() for mb in self.minibuses.values()]
+
+
+            minibus_states = []
+            for mb in self.minibuses.values():
+                state = mb.get_minibus_info()
+
+                # Attach real pickup_time and origin for each onboard passenger.
+                # The optimizer uses these to compute accurate detour times for
+                # passengers already riding — no approximations needed.
+                onboard_details = {}
+                for pid in state["passenger_ids"]:
+                    pax = self.all_passengers.get(pid)
+                    if pax and pax.pickup_time is not None:
+                        onboard_details[pid] = {
+                            "pickup_time": pax.pickup_time,
+                            "origin_station_id": pax.origin_station_id,
+                            "destination_station_id": pax.destination_station_id
+                        }
+                state["onboard_passenger_details"] = onboard_details
+                minibus_states.append(state)
+                        
             # Call optimizer
             logger.info("Calling route optimizer with minibus passengers only...")
             new_plans = self.route_optimizer.optimize(
@@ -1709,6 +1741,49 @@ class SimulationEngine:
             
             logger.info(f"Optimizer returned plans for {len(new_plans)} minibuses")
             
+            # # Collect all passenger IDs that appear in the new plans as PICKUP
+            # all_planned_pickup_ids = set()
+            # for route_plan in new_plans.values():
+            #     for stop in route_plan:
+            #         if stop["action"] == "PICKUP":
+            #             all_planned_pickup_ids.update(stop["passenger_ids"])
+
+            # # If a passenger was previously assigned but is no longer in any plan,
+            # # the optimizer has dropped them - clear their assignment so buses can pick them up
+            # for passenger in self.pending_minibus_requests:
+            #     if (passenger.assigned_vehicle_id is not None and
+            #             passenger.passenger_id not in all_planned_pickup_ids):
+            #         logger.info(
+            #             f"Passenger {passenger.passenger_id} dropped by optimizer "
+            #             f"(waited {self.current_time - passenger.appear_time:.0f}s), "
+            #             f"clearing assignment so bus can pick them up"
+            #         )
+            #         passenger.assigned_vehicle_id = None
+
+
+
+            all_planned_pickup_ids = set()
+            for route_plan in new_plans.values():
+                for stop in route_plan:
+                    if stop["action"] == "PICKUP":
+                        all_planned_pickup_ids.update(stop["passenger_ids"])
+
+            passengers_to_transfer = []
+            for passenger in self.pending_minibus_requests:
+                if (passenger.assigned_vehicle_id is not None and
+                        passenger.passenger_id not in all_planned_pickup_ids):
+                    logger.info(
+                        f"Passenger {passenger.passenger_id} dropped by optimizer, "
+                        f"transferring to bus service"
+                    )
+                    passenger.assigned_vehicle_id = None
+                    passenger.service_mode = Passenger.SERVICE_MODE_BUS
+                    passengers_to_transfer.append(passenger)
+
+            for passenger in passengers_to_transfer:
+                self.pending_minibus_requests.remove(passenger)
+                self.pending_bus_requests.append(passenger)
+
             # Track statistics
             newly_assigned_ids = set()
             plans_updated = 0
